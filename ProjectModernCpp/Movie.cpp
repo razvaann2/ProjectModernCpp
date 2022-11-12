@@ -96,9 +96,19 @@ QString Movie::GetCountry()
 	return Country;
 }
 
+void Movie::SetDateAdded(QString DateAdded)
+{
+	this->DateAdded = DateAdded;
+}
+
 QString Movie::GetDateAdded()
 {
 	return DateAdded;
+}
+
+void Movie::SetReleaseYear(QString ReleaseYear)
+{
+	this->ReleaseYear = ReleaseYear;
 }
 
 QString Movie::GetReleaseYear()
@@ -106,9 +116,19 @@ QString Movie::GetReleaseYear()
 	return ReleaseYear;
 }
 
+void Movie::SetRating(QString Rating)
+{
+	this->Rating = Rating;
+}
+
 QString Movie::GetRating()
 {
 	return Rating;
+}
+
+void Movie::SetDuration(QString Duration)
+{
+	this->Duration = Duration;
 }
 
 QString Movie::GetDuration()
@@ -116,9 +136,20 @@ QString Movie::GetDuration()
 	return Duration;
 }
 
+void Movie::SetListedIn(QString ListedIn)
+{
+	this->ListedIn = ListedIn;
+
+}
+
 QString Movie::GetListedIn()
 {
 	return ListedIn;
+}
+
+void Movie::SetDescription(QString Description)
+{
+	this->Description = Description;
 }
 
 QString Movie::GetDescription()
