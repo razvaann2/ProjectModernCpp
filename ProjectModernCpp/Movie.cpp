@@ -50,3 +50,33 @@ QString Movie::GetCountry()
 {
 	return Country;
 }
+
+QString Movie::GetDateAdded()
+{
+	return DateAdded;
+}
+
+QString Movie::GetReleaseYear()
+{
+	return ReleaseYear;
+}
+
+QString Movie::GetRating()
+{
+	return Rating;
+}
+
+QString Movie::GetDuration()
+{
+	return Duration;
+}
+
+QString Movie::GetListedIn()
+{
+	return ListedIn;
+}
+
+QString Movie::GetDescription()
+{
+	return Description;
+}
