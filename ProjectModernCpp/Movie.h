@@ -8,16 +8,16 @@ private:
 public:
 	Movie();
 	~Movie();
-	void GetMovieId();
-	void GetType();
-	void GetTitle();
-	void GetDirector();
-	void GetCast();
-	void GetCountry();
-	void GetDateAdded();
-	void GetReleaseYear();
-	void GetRating();
-	void GetDuration();
-	void GetListedIn();
-	void GetDescription();
+	QString GetMovieId();
+	QString GetType();
+	QString GetTitle();
+	QString GetDirector();
+	QString GetCast();
+	QString GetCountry();
+	QString GetDateAdded();
+	QString GetReleaseYear();
+	QString GetRating();
+	QString GetDuration();
+	QString GetListedIn();
+	QString GetDescription();
 };
