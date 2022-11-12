@@ -36,9 +36,19 @@ Movie::Movie(Movie& x)
 	this->Description = x.Description;
 }
 
+void Movie::SetMovieId(QString MovieId)
+{
+	this->MovieId = MovieId;
+}
+
 QString Movie::GetMovieId()
 {
 	return MovieId;
+}
+
+void Movie::SetType(QString Type)
+{
+	this->Type = Type;
 }
 
 QString Movie::GetType()
@@ -46,9 +56,19 @@ QString Movie::GetType()
 	return Type;
 }
 
+void Movie::SetTitle(QString Title)
+{
+	this->Title = Title;
+}
+
 QString Movie::GetTitle()
 {
 	return Title;
+}
+
+void Movie::SetDirector(QString Director)
+{
+	this->Director = Director;
 }
 
 QString Movie::GetDirector()
@@ -56,9 +76,19 @@ QString Movie::GetDirector()
 	return Director;
 }
 
+void Movie::SetCast(QString Cast)
+{
+	this->Cast = Cast;
+}
+
 QString Movie::GetCast()
 {
 	return Cast;
+}
+
+void Movie::SetCountry(QString Country)
+{
+	this->Country = Country;
 }
 
 QString Movie::GetCountry()

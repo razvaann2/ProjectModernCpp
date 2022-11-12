@@ -9,11 +9,17 @@ public:
 	Movie();
 	~Movie();
 	Movie(Movie& x);
+	void SetMovieId(QString MovieId);
 	QString GetMovieId();
+	void SetType(QString Type);
 	QString GetType();
+	void SetTitle(QString Title);
 	QString GetTitle();
+	void SetDirector(QString Director);
 	QString GetDirector();
+	void SetCast(QString Cast);
 	QString GetCast();
+	void SetCountry(QString Country);
 	QString GetCountry();
 	QString GetDateAdded();
 	QString GetReleaseYear();
