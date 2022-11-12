@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="User.cpp" />
     <QtRcc Include="ProjectModernCpp.qrc" />
     <QtUic Include="ProjectModernCpp.ui" />
     <QtMoc Include="ProjectModernCpp.h" />

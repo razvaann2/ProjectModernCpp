@@ -12,5 +12,6 @@ public:
 	~User();
 	User(User& x);
 	void SetUserName(QString userName);
-	QString SetUserName();
+	QString GetUserName();
+	
 };
