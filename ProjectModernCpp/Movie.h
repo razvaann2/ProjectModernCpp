@@ -8,6 +8,7 @@ private:
 public:
 	Movie();
 	~Movie();
+	Movie(Movie& x);
 	QString GetMovieId();
 	QString GetType();
 	QString GetTitle();
