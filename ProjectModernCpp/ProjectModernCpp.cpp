@@ -24,7 +24,9 @@ void ProjectModernCpp::on_LoginButton_clicked()
 }
 void ProjectModernCpp::on_RegisterButton_clicked()
 {
-   
+    this->hide();
+    SignUp = new SignUpWindow();
+    SignUp->show();
 }
 
 
