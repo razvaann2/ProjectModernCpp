@@ -86,15 +86,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="SignUpWindow.cpp" />
     <ClCompile Include="User.cpp" />
     <QtRcc Include="ProjectModernCpp.qrc" />
     <QtUic Include="ProjectModernCpp.ui" />
     <QtMoc Include="ProjectModernCpp.h" />
     <ClCompile Include="ProjectModernCpp.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="SignUpWindow.ui" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h" />
+    <QtMoc Include="SignUpWindow.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
