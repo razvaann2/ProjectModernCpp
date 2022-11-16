@@ -16,5 +16,5 @@ private:
 	Ui::SignUpWindowClass ui;
 private slots:
 	void on_SignUpButton_released();
-	void on_SignUpButton_clicked();
+	QString on_SignUpButton_clicked();
 };

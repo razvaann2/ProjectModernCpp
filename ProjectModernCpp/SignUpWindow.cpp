@@ -1,4 +1,5 @@
 #include "SignUpWindow.h"
+#include "ProjectModernCpp.h"
 
 SignUpWindow::SignUpWindow(QWidget *parent)
 	: QWidget(parent)
@@ -12,7 +13,10 @@ void SignUpWindow::on_SignUpButton_released()
 {
 
 }
-void SignUpWindow::on_SignUpButton_clicked()
+QString SignUpWindow::on_SignUpButton_clicked()
 {
+	QString name = ui.lineEdit->text();
+	this->close();
+	return name;
 
 }
