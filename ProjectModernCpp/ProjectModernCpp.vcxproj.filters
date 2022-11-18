@@ -49,6 +49,9 @@
     <ClCompile Include="SignUpWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HomePage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -62,9 +65,15 @@
     <QtMoc Include="SignUpWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="HomePage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="SignUpWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="HomePage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

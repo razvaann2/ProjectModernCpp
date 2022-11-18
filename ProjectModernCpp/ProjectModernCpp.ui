@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>569</width>
     <height>400</height>
    </rect>
   </property>
@@ -20,7 +20,7 @@
    <widget class="QPushButton" name="LoginButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>210</x>
       <y>100</y>
       <width>151</width>
       <height>31</height>
@@ -118,7 +118,7 @@ font: 700 9pt &quot;Arial&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>569</width>
      <height>22</height>
     </rect>
    </property>
@@ -138,4 +138,7 @@ font: 700 9pt &quot;Arial&quot;;</string>
   <include location="ProjectModernCpp.qrc"/>
  </resources>
  <connections/>
+ <slots>
+  <slot>Login()</slot>
+ </slots>
 </ui>

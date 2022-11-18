@@ -10,8 +10,9 @@ private:
 public:
 	User();
 	~User();
+	User(std::string username);
 	User(User& x);
+	
 	void SetUserName(QString userName);
 	QString GetUserName();
-	
 };

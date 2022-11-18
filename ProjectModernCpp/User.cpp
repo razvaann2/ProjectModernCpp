@@ -21,6 +21,11 @@ User::User(User& x)
 	userName = x.GetUserName();
 }
 
+User::User(std::string username)
+{
+	userName = QString::fromStdString(username);
+}
+
 void User::SetUserName(QString userName)
 {
 	this->userName = userName;
