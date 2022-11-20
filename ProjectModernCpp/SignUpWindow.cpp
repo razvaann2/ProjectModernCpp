@@ -8,11 +8,15 @@ SignUpWindow::SignUpWindow(QWidget *parent)
 }
 
 SignUpWindow::~SignUpWindow()
-{}
+{
+
+}
+
 void SignUpWindow::on_SignUpButton_released()
 {
 
 }
+
 QString SignUpWindow::on_SignUpButton_clicked()
 {
 	QString name = ui.lineEdit->text();

@@ -1,32 +1,42 @@
 #include "User.h"
 
-QString User::GetUserName()
-{
-	return userName;
-}
-
 User::User()
 {
-	userName = "";
+	this->userName = "";
 }
 
 User::~User()
 {
-	MoviesWatched.clear();
-	WishList.clear();
+	this->MoviesWatched.clear();
+	this->WishList.clear();
 }
 
-User::User(User& x)
+User::User(const User& x)
 {
-	userName = x.GetUserName();
+	this->userName = x.userName;
+}
+
+int User::GetID()
+{
+	return this->ID;
 }
 
 User::User(std::string username)
 {
-	userName = QString::fromStdString(username);
+	this->userName = username;
 }
 
-void User::SetUserName(QString userName)
+void User::SetID(int id)
+{
+	this->ID = id;
+}
+
+void User::SetUserName(std::string userName)
 {
 	this->userName = userName;
+}
+
+std::string User::GetUserName()
+{
+	return this->userName;
 }

@@ -1,7 +1,7 @@
 #include "ProjectModernCpp.h"
-#include"User.h"
+#include "User.h"
 #include <iostream>
-#include"HomePage.h"
+#include "HomePage.h"
 
 ProjectModernCpp::ProjectModernCpp(QWidget *parent)
     : QMainWindow(parent)
@@ -34,5 +34,3 @@ void ProjectModernCpp::on_RegisterButton_clicked()
     SignUp = new SignUpWindow();
     SignUp->show();
 }
-
-
