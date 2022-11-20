@@ -1,10 +1,12 @@
 #include "ProjectModernCpp.h"
 #include <QtWidgets/QApplication>
-#include"Movie.h"
-#include<string>
-#include<fstream>
-#include<iostream>
+#include "DataBase.h"
+#include "Movie.h"
+#include <string>
+#include <fstream>
+#include <iostream>
 #include <sstream>
+
 int main(int argc, char *argv[])
 {
 	std::ifstream InFile;

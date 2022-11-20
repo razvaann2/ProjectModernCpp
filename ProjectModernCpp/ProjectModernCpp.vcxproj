@@ -99,6 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="HomePage.h" />
+    <ClInclude Include="DataBase.h" />
+    <ClInclude Include="InitializeStorage.h" />
     <ClInclude Include="Movie.h" />
     <QtMoc Include="SignUpWindow.h" />
     <ClInclude Include="User.h" />
