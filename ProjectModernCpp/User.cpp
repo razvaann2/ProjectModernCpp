@@ -35,3 +35,24 @@ void User::SetUserName(std::string userName)
 {
 	this->userName = userName;
 }
+
+std::string User::GetUserName()const
+{
+	return this->userName;
+}
+void User::SetWishList(std::vector<int> WishList)
+{
+	this->WishList = WishList;
+}
+std::vector<int> User::GetWishList()
+{
+	return this->WishList;
+}
+std::vector<int> User::GetMoviesWatched()
+{
+	return this->MoviesWatched;
+}
+void User::SetMoviesWatched(std::vector<int> MoviesWatched)
+{
+	this->MoviesWatched = MoviesWatched;
+}

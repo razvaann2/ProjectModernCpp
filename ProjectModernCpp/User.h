@@ -18,7 +18,7 @@ public:
 	void SetUserName(std::string userName);
 	std::string GetUserName()const;
 	void SetWishList(std::vector<int> WishList);
-	void GetWishList(std::vector<int> WishList);
-	void User::GetMoviesWatched(std::vector<int> MoviesWatched);
-	void User::SetMoviesWatched(std::vector<int> MoviesWatched);
+	std::vector<int>GetWishList();
+	std::vector<int>GetMoviesWatched();
+	void SetMoviesWatched(std::vector<int> MoviesWatched);
 };
