@@ -35,8 +35,3 @@ void User::SetUserName(std::string userName)
 {
 	this->userName = userName;
 }
-
-std::string User::GetUserName()const
-{
-	return this->userName;
-}
