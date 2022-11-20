@@ -14,7 +14,7 @@ public:
 	User(std::string username);
 	User(const User& x);
 	void SetID(int id);
-	int GetID();
+	int GetID()const;
 	void SetUserName(std::string userName);
-	std::string GetUserName();
+	std::string GetUserName()const;
 };

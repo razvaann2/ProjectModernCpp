@@ -4,5 +4,5 @@
 class DataBase
 {
 public:
-	Storage store = initStorage("storage.sqlite");
+	Storage database = initStorage("storage.sqlite");
 };

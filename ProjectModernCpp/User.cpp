@@ -16,7 +16,7 @@ User::User(const User& x)
 	this->userName = x.userName;
 }
 
-int User::GetID()
+int User::GetID()const
 {
 	return this->ID;
 }
@@ -36,7 +36,7 @@ void User::SetUserName(std::string userName)
 	this->userName = userName;
 }
 
-std::string User::GetUserName()
+std::string User::GetUserName()const
 {
 	return this->userName;
 }
