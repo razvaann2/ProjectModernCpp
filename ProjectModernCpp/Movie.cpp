@@ -2,18 +2,18 @@
 
 Movie::Movie()
 {
-	MovieId = "";
-	Type = "";
-	Title = "";
-	Director = "";
-	Cast = "";
-	Country = "";
-	DateAdded = "";
-	ReleaseYear = "";
-	Rating = "";
-	Duration = "";
-	ListedIn = "";
-	Description = "";
+	this->MovieId = "";
+	this->Type = "";
+	this->Title = "";
+	this->Director = "";
+	this->Cast = "";
+	this->Country = "";
+	this->DateAdded = "";
+	this->ReleaseYear = "";
+	this->Rating = "";
+	this->Duration = "";
+	this->ListedIn = "";
+	this->Description = "";
 }
 
 Movie::~Movie()
@@ -21,7 +21,7 @@ Movie::~Movie()
 
 }
 
-Movie::Movie(Movie& x)
+Movie::Movie(const Movie& x)
 {
 	this->MovieId = x.MovieId;
 	this->Type = x.Type;
@@ -36,123 +36,123 @@ Movie::Movie(Movie& x)
 	this->Description = x.Description;
 }
 
-void Movie::SetMovieId(QString MovieId)
+void Movie::SetMovieId(std::string MovieId)
 {
 	this->MovieId = MovieId;
 }
 
-QString Movie::GetMovieId()
+std::string Movie::GetMovieId()
 {
-	return MovieId;
+	return this->MovieId;
 }
 
-void Movie::SetType(QString Type)
+void Movie::SetType(std::string Type)
 {
 	this->Type = Type;
 }
 
-QString Movie::GetType()
+std::string Movie::GetType()
 {
-	return Type;
+	return this->Type;
 }
 
-void Movie::SetTitle(QString Title)
+void Movie::SetTitle(std::string Title)
 {
 	this->Title = Title;
 }
 
-QString Movie::GetTitle()
+std::string Movie::GetTitle()
 {
-	return Title;
+	return this->Title;
 }
 
-void Movie::SetDirector(QString Director)
+void Movie::SetDirector(std::string Director)
 {
 	this->Director = Director;
 }
 
-QString Movie::GetDirector()
+std::string Movie::GetDirector()
 {
-	return Director;
+	return this->Director;
 }
 
-void Movie::SetCast(QString Cast)
+void Movie::SetCast(std::string Cast)
 {
 	this->Cast = Cast;
 }
 
-QString Movie::GetCast()
+std::string Movie::GetCast()
 {
-	return Cast;
+	return this->Cast;
 }
 
-void Movie::SetCountry(QString Country)
+void Movie::SetCountry(std::string Country)
 {
 	this->Country = Country;
 }
 
-QString Movie::GetCountry()
+std::string Movie::GetCountry()
 {
-	return Country;
+	return this->Country;
 }
 
-void Movie::SetDateAdded(QString DateAdded)
+void Movie::SetDateAdded(std::string DateAdded)
 {
 	this->DateAdded = DateAdded;
 }
 
-QString Movie::GetDateAdded()
+std::string Movie::GetDateAdded()
 {
-	return DateAdded;
+	return this->DateAdded;
 }
 
-void Movie::SetReleaseYear(QString ReleaseYear)
+void Movie::SetReleaseYear(std::string ReleaseYear)
 {
 	this->ReleaseYear = ReleaseYear;
 }
 
-QString Movie::GetReleaseYear()
+std::string Movie::GetReleaseYear()
 {
-	return ReleaseYear;
+	return this->ReleaseYear;
 }
 
-void Movie::SetRating(QString Rating)
+void Movie::SetRating(std::string Rating)
 {
 	this->Rating = Rating;
 }
 
-QString Movie::GetRating()
+std::string Movie::GetRating()
 {
-	return Rating;
+	return this->Rating;
 }
 
-void Movie::SetDuration(QString Duration)
+void Movie::SetDuration(std::string Duration)
 {
 	this->Duration = Duration;
 }
 
-QString Movie::GetDuration()
+std::string Movie::GetDuration()
 {
-	return Duration;
+	return this->Duration;
 }
 
-void Movie::SetListedIn(QString ListedIn)
+void Movie::SetListedIn(std::string ListedIn)
 {
 	this->ListedIn = ListedIn;
 
 }
 
-QString Movie::GetListedIn()
+std::string Movie::GetListedIn()
 {
-	return ListedIn;
+	return this->ListedIn;
 }
 
-void Movie::SetDescription(QString Description)
+void Movie::SetDescription(std::string Description)
 {
 	this->Description = Description;
 }
 
-QString Movie::GetDescription()
+std::string Movie::GetDescription()
 {
-	return Description;
+	return this->Description;
 }

@@ -1,17 +1,24 @@
 #pragma once
-#include <QString>
+#include <string>
 #include <vector>
 class User
 {
 private:
-	QString userName;
+	int ID;
+	std::string userName;
 	std::vector<int>MoviesWatched;
 	std::vector<int>WishList;
 public:
 	User();
 	~User();
-	User(User& x);
-	void SetUserName(QString userName);
-	QString GetUserName();
-	
+	User(std::string username);
+	User(const User& x);
+	void SetID(int id);
+	int GetID()const;
+	void SetUserName(std::string userName);
+	std::string GetUserName()const;
+	void SetWishList(std::vector<int> WishList);
+	void GetWishList(std::vector<int> WishList);
+	void User::GetMoviesWatched(std::vector<int> MoviesWatched);
+	void User::SetMoviesWatched(std::vector<int> MoviesWatched);
 };
