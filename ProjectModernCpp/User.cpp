@@ -25,3 +25,12 @@ void User::SetUserName(QString userName)
 {
 	this->userName = userName;
 }
+void User::SetMoviesWatched(std::vector<int> MoviesWatched)
+{
+	this->MoviesWatched = MoviesWatched;
+}
+void User::SetWishList(std::vector<int>WishList)
+{
+	this->WishList = Wishlist;
+}
+
