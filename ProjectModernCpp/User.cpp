@@ -40,19 +40,29 @@ std::string User::GetUserName()const
 {
 	return this->userName;
 }
-void User::SetWishList(std::vector<int> WishList)
+void User::SetWishList(std::string WishList)
 {
 	this->WishList = WishList;
 }
-std::vector<int> User::GetWishList()
+std::string User::GetWishList()const
 {
 	return this->WishList;
 }
-std::vector<int> User::GetMoviesWatched()
+void User::AddInMoviesWatched(std::string MovieID)
+{
+	this->MoviesWatched += ",";
+	this->MoviesWatched += MovieID;
+}
+void User::AddInWishList(std::string MovieID)
+{
+	this->WishList += ",";
+	this->WishList += MovieID;
+}
+std::string User::GetMoviesWatched()const
 {
 	return this->MoviesWatched;
 }
-void User::SetMoviesWatched(std::vector<int> MoviesWatched)
+void User::SetMoviesWatched(std::string MoviesWatched)
 {
 	this->MoviesWatched = MoviesWatched;
 }

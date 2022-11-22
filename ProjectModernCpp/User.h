@@ -1,13 +1,13 @@
 #pragma once
 #include <string>
-#include <vector>
+
 class User
 {
 private:
 	int ID;
 	std::string userName;
-	std::vector<int>MoviesWatched;
-	std::vector<int>WishList;
+	std::string MoviesWatched;
+	std::string WishList;
 public:
 	User();
 	~User();
@@ -17,8 +17,10 @@ public:
 	int GetID()const;
 	void SetUserName(std::string userName);
 	std::string GetUserName()const;
-	void SetWishList(std::vector<int> WishList);
-	std::vector<int>GetWishList();
-	std::vector<int>GetMoviesWatched();
-	void SetMoviesWatched(std::vector<int> MoviesWatched);
+	void SetWishList(std::string WishList);
+	std::string GetWishList()const;
+	void SetMoviesWatched(std::string MoviesWatched);
+	std::string GetMoviesWatched()const;
+	void AddInMoviesWatched(std::string MovieID);
+	void AddInWishList(std::string MovieID);
 };
