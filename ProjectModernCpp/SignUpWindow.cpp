@@ -17,10 +17,13 @@ void SignUpWindow::on_SignUpButton_released()
 
 }
 
-QString SignUpWindow::on_SignUpButton_clicked()
-{
+void SignUpWindow::on_SignUpButton_clicked()
+{	
+	DataBase bazaDeDate;
 	QString name = ui.lineEdit->text();
 	this->close();
-	return name;
+	std::string aux = name.toStdString();
+	User x(aux);
+	bazaDeDate.initializeUser(aux);
 
 }

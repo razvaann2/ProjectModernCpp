@@ -3,6 +3,8 @@
 #include <QWidget>
 #include <QString>
 #include "ui_SignUpWindow.h"
+#include "User.h"
+#include "DataBase.h"
 
 class SignUpWindow : public QWidget
 {
@@ -16,5 +18,5 @@ private:
 	Ui::SignUpWindowClass ui;
 private slots:
 	void on_SignUpButton_released();
-	QString on_SignUpButton_clicked();
+	void on_SignUpButton_clicked();
 };

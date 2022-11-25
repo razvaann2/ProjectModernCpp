@@ -4,33 +4,34 @@
 class Movie
 {
 private:
-	std::string MovieId, Type, Title, Director, Cast, Country, DateAdded, ReleaseYear, Rating, Duration, ListedIn, Description;
+	int MovieId;
+	std::string  Type, Title, Director, Cast, Country, DateAdded, ReleaseYear, Rating, Duration, ListedIn, Description;
 public:
 	Movie();
 	~Movie();
 	Movie(const Movie& x);
-	void SetMovieId(std::string MovieId);
-	std::string GetMovieId();
+	void SetMovieId(int MovieId);
+	int GetMovieId()const;
 	void SetType(std::string Type);
-	std::string GetType();
+	std::string GetType()const;
 	void SetTitle(std::string Title);
-	std::string GetTitle();
+	std::string GetTitle()const;
 	void SetDirector(std::string Director);
-	std::string GetDirector();
+	std::string GetDirector()const;
 	void SetCast(std::string Cast);
-	std::string GetCast();
+	std::string GetCast()const;
 	void SetCountry(std::string Country);
-	std::string GetCountry();
+	std::string GetCountry()const;
 	void SetDateAdded(std::string DateAdded);
-	std::string GetDateAdded();
+	std::string GetDateAdded()const;
 	void SetReleaseYear(std::string ReleaseYear);
-	std::string GetReleaseYear();
+	std::string GetReleaseYear()const;
 	void SetRating(std::string Rating);
-	std::string GetRating();
+	std::string GetRating()const;
 	void SetDuration(std::string Duration);
-	std::string GetDuration();
+	std::string GetDuration()const;
 	void SetListedIn(std::string ListedIn);
-	std::string GetListedIn();
+	std::string GetListedIn()const;
 	void SetDescription(std::string Description);
-	std::string GetDescription();
+	std::string GetDescription()const;
 };

@@ -3,17 +3,18 @@
 User::User()
 {
 	this->userName = "";
+	this->ID = -1;
 }
 
 User::~User()
 {
-	this->MoviesWatched.clear();
-	this->WishList.clear();
+	
 }
 
 User::User(const User& x)
 {
 	this->userName = x.userName;
+	this->ID = x.ID;
 }
 
 int User::GetID()const
@@ -24,6 +25,7 @@ int User::GetID()const
 User::User(std::string username)
 {
 	this->userName = username;
+	this->ID = -1;
 }
 
 void User::SetID(int id)
@@ -39,30 +41,4 @@ void User::SetUserName(std::string userName)
 std::string User::GetUserName()const
 {
 	return this->userName;
-}
-void User::SetWishList(std::string WishList)
-{
-	this->WishList = WishList;
-}
-std::string User::GetWishList()const
-{
-	return this->WishList;
-}
-void User::AddInMoviesWatched(std::string MovieID)
-{
-	this->MoviesWatched += ",";
-	this->MoviesWatched += MovieID;
-}
-void User::AddInWishList(std::string MovieID)
-{
-	this->WishList += ",";
-	this->WishList += MovieID;
-}
-std::string User::GetMoviesWatched()const
-{
-	return this->MoviesWatched;
-}
-void User::SetMoviesWatched(std::string MoviesWatched)
-{
-	this->MoviesWatched = MoviesWatched;
 }

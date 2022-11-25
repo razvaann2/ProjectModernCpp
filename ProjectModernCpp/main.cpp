@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		std::stringstream ss(Line);
 		std::string substr;
 		std::getline(ss, substr, ',');
-		movieToRead.SetMovieId(substr);
+		movieToRead.SetMovieId(1);
 		substr = "";
 		std::getline(ss, substr, ',');
 		movieToRead.SetType(substr);
@@ -67,14 +67,7 @@ int main(int argc, char *argv[])
 		substr = "";
 		Movies.push_back(movieToRead);
 	}
-	DataBase storage;
-	Storage database = storage.database;
-	database.sync_schema();
-	database.remove_all<User>();
-	User u("Horia");
-	auto insertedId = database.insert(u);
-	auto allUsers = database.get_all<User>();
-	User x = database.get<User>(1);
+	DataBase bazaDeDate;
     QApplication a(argc, argv);
     ProjectModernCpp w;
     w.show();
