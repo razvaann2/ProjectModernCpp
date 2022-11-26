@@ -13,7 +13,7 @@ inline auto createStorage(const std::string& filename)
 			sql::make_column("UserID", &User::GetID, &User::SetID, sql::autoincrement(), sql::primary_key()),
 			sql::make_column("UserName", &User::GetUserName, &User::SetUserName)),
 		sql::make_table("Movies",
-			sql::make_column("MovieID", &Movie::GetMovieId, &Movie::SetMovieId, sql::primary_key()),
+			sql::make_column("MovieID", &Movie::GetMovieId, &Movie::SetMovieId, sql::autoincrement(), sql::primary_key()),
 			sql::make_column("Type", &Movie::GetType, &Movie::SetType),
 			sql::make_column("Title", &Movie::GetTitle, &Movie::SetTitle),
 			sql::make_column("Director", &Movie::GetDirector, &Movie::SetDirector),
@@ -35,4 +35,5 @@ public:
 	Storage m_db = createStorage(dbFile);
 	void initializeUser(User a);
 	void initializeMovie(Movie a);
+	void AddMovies();
 };
