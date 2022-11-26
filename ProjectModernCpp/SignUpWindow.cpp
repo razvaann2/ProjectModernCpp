@@ -31,6 +31,6 @@ void SignUpWindow::on_SignUpButton_clicked()
 	}
 	else
 	{
-		box.information(this, "Warning", "Contul exista deja");
+		box.warning(this, "Warning", "Contul exista deja");
 	}
 }

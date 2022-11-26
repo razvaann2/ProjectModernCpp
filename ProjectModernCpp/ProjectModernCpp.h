@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_ProjectModernCpp.h"
 #include "SignUpWindow.h"
+#include "DataBase.h"
 
 class ProjectModernCpp : public QMainWindow
 {
@@ -15,6 +16,8 @@ public:
 private:
     Ui::ProjectModernCppClass ui;
     SignUpWindow *SignUp;
+    QMessageBox box;
+
 private slots:
     void on_LoginButton_released();
     void on_RegisterButton_released();
