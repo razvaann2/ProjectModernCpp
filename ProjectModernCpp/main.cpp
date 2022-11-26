@@ -6,9 +6,8 @@
 int main(int argc, char *argv[])
 {
 	DataBase bazaDeDate;
-    //Movies are addes one time only
+    //Movies are addes on time only
     //bazaDeDate.AddMovies();
-    Movie x = bazaDeDate.m_db.get<Movie>(1);
     QApplication a(argc, argv);
     ProjectModernCpp w;
     w.show();

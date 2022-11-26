@@ -5,6 +5,7 @@
 #include "ui_SignUpWindow.h"
 #include "User.h"
 #include "DataBase.h"
+#include <QMessageBox>
 
 class SignUpWindow : public QWidget
 {
@@ -16,6 +17,8 @@ public:
 
 private:
 	Ui::SignUpWindowClass ui;
+	QMessageBox box;
+
 private slots:
 	void on_SignUpButton_released();
 	void on_SignUpButton_clicked();

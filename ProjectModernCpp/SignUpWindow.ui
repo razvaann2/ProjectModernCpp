@@ -14,7 +14,7 @@
    <string>SignUpWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 0, 255);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
