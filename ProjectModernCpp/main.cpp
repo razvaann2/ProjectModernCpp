@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[])
 {
+  
 	DataBase bazaDeDate;
     //Movies are addes on time only
     //bazaDeDate.AddMovies();

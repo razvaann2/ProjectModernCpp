@@ -24,7 +24,10 @@ inline auto createStorage(const std::string& filename)
 			sql::make_column("Rating", &Movie::GetRating, &Movie::SetRating),
 			sql::make_column("Duration", &Movie::GetDuration, &Movie::SetDuration),
 			sql::make_column("ListenIn", &Movie::GetListedIn, &Movie::SetListedIn),
-			sql::make_column("Description", &Movie::GetDescription, &Movie::SetDescription)
+			sql::make_column("Description", &Movie::GetDescription, &Movie::SetDescription)),
+		sql::make_table("User_Movies",
+			sql::make_column("UserID", &User::GetID, &User::SetID),
+			sql::make_column("MovieID", &Movie::GetMovieId, &Movie::SetMovieId)
 		));
 }
 using Storage = decltype(createStorage(" "));

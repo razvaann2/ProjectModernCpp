@@ -67,7 +67,7 @@ void DataBase::AddMovies()
 		std::getline(ss, substr, ',');
 		movieToRead.SetListedIn(substr);
 		substr = "";
-		std::getline(ss, substr, ',');
+		std::getline(ss, substr);
 		movieToRead.SetDescription(substr);
 		substr = "";
 		initializeMovie(movieToRead);

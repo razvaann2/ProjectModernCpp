@@ -10,6 +10,12 @@
     <height>400</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>569</width>
+    <height>400</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>ProjectModernCpp</string>
   </property>
