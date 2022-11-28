@@ -7,6 +7,10 @@ ProjectModernCpp::ProjectModernCpp(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+	this->setAttribute(Qt::WA_TranslucentBackground);
+	this->setWindowState(Qt::WindowMaximized);
+	this->setStyleSheet(
+		"background-image:url(../Files/archive/LoginImage.jpg); background-position: center;");
 }
 
 ProjectModernCpp::~ProjectModernCpp()
