@@ -14,11 +14,11 @@
    <string>HomePage</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="usernamelabel">
+   <widget class="QLabel" name="HomePage">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
+      <x>580</x>
+      <y>20</y>
       <width>111</width>
       <height>20</height>
      </rect>
@@ -33,10 +33,10 @@ color:white;
 }</string>
     </property>
     <property name="text">
-     <string>    Home Page</string>
+     <string>    HomePage</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Recomanded">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -62,7 +62,7 @@ border-radius: 15px;
      <string>Recomanded for you</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="Comedy">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -88,7 +88,7 @@ border-radius: 15px;
      <string>Comedy</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="SF">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -114,33 +114,7 @@ border-radius: 15px;
      <string>Science Fiction</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>20</y>
-      <width>101</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: blue;
-color: white;
-border-radius: 15px;
-</string>
-    </property>
-    <property name="text">
-     <string> UserAccount</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="LogOut">
     <property name="geometry">
      <rect>
       <x>600</x>

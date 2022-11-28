@@ -13,8 +13,19 @@ void HomePage::SetUser(User user)
 {
 	this->loggedUser = user;
 	QString qstringUser = QString::fromStdString(this->loggedUser.GetUserName());
-	ui.usernamelabel->setText(qstringUser);
+	ui.HomePage->setText(qstringUser);
 }
 
 HomePage::~HomePage()
 {}
+
+void HomePage::on_LogOut_released()
+{
+}
+void HomePage::on_LogOut_clicked()
+{   
+	ProjectModernCpp* a = new ProjectModernCpp;
+	a->show();
+	this->close();
+	
+}

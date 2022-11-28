@@ -16,4 +16,7 @@ public:
 private:
 	Ui::HomePageClass ui;
 	User loggedUser;
+private slots:
+	void on_LogOut_released();
+	void on_LogOut_clicked();
 };
