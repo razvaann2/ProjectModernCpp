@@ -5,7 +5,10 @@ SignUpWindow::SignUpWindow(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-	this->setStyleSheet("background-color: blue;");
+	this->setWindowState(Qt::WindowMaximized);
+
+	//this->setStyleSheet(
+		//"background-image:url(../Files/archive/RegisterImage.jpg); background-position: center;");
 }
 
 SignUpWindow::~SignUpWindow()
@@ -31,6 +34,13 @@ void SignUpWindow::on_SignUpButton_clicked()
 	}
 	else
 	{
-		box.warning(this, "Warning", "Contul exista deja");
+		QMessageBox::StandardButton reply;
+		reply=box.warning(this, "Warning", "The username is taken! Do you want to login? ", QMessageBox::Yes | QMessageBox::No);
+		if (reply == QMessageBox::Yes) {
+			this->close();
+		}
+		else {
+			
+		}
 	}
 }

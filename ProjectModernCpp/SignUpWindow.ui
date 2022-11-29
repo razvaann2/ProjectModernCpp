@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>713</width>
+    <width>1053</width>
     <height>400</height>
    </rect>
   </property>
@@ -14,7 +14,7 @@
    <string>SignUpWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(0, 0, 255);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -42,7 +42,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(148, 148, 148);
+    <string notr="true">
 background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>

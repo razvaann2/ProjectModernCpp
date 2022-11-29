@@ -41,7 +41,15 @@ void ProjectModernCpp::on_LoginButton_clicked()
 	}
 	else
 	{
-		box.warning(this, "Warning", "Contul nu exista");
+		QMessageBox::StandardButton reply;
+		reply = box.warning(this, "Warning", "The account doesn't exist! Do you want to register? ", QMessageBox::Yes | QMessageBox::No);
+		if (reply == QMessageBox::Yes) {
+			SignUp = new SignUpWindow();
+			SignUp->show();
+		}
+		else {
+
+		}
 	}
 }
 
