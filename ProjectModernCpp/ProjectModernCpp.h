@@ -17,6 +17,7 @@ private:
     Ui::ProjectModernCppClass ui;
     SignUpWindow *SignUp;
     QMessageBox box;
+    QPushButton *RegisterButton;
 
 private slots:
     void on_LoginButton_released();

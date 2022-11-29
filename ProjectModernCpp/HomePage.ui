@@ -6,43 +6,48 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>736</width>
-    <height>400</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>HomePage</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(52, 52, 52);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="HomePage">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>20</y>
-      <width>111</width>
-      <height>20</height>
+      <x>1180</x>
+      <y>60</y>
+      <width>131</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel
 {
-background:blue;
-font-size:15px;
-font-weight:bold;
-color:white;
+QWidget::setAttribute(Qt::WA_TranslucentBackground);
+color: #fff;
+QFont newFont(&quot;Segoe UI&quot;, 16, QFont::Bold, true);
 }</string>
     </property>
     <property name="text">
-     <string>    HomePage</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;HomePage&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="Recomanded">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>100</y>
+      <y>60</y>
       <width>171</width>
-      <height>24</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -53,10 +58,17 @@ color:white;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: black;
-color: white;
-border-radius: 15px;
-</string>
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
     </property>
     <property name="text">
      <string>Recomanded for you</string>
@@ -68,7 +80,7 @@ border-radius: 15px;
       <x>60</x>
       <y>150</y>
       <width>171</width>
-      <height>24</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -79,10 +91,17 @@ border-radius: 15px;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: black;
-color: white;
-border-radius: 15px;
-</string>
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
     </property>
     <property name="text">
      <string>Comedy</string>
@@ -94,7 +113,7 @@ border-radius: 15px;
       <x>60</x>
       <y>200</y>
       <width>171</width>
-      <height>24</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -105,10 +124,17 @@ border-radius: 15px;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: black;
-color: white;
-border-radius: 15px;
-</string>
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
     </property>
     <property name="text">
      <string>Science Fiction</string>
@@ -117,10 +143,67 @@ border-radius: 15px;
    <widget class="QPushButton" name="LogOut">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>50</y>
-      <width>75</width>
-      <height>24</height>
+      <x>1170</x>
+      <y>110</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);
+border-radius: 15px;
+QWidget::setAttribute(Qt::WA_TranslucentBackground);
+</string>
+    </property>
+    <property name="text">
+     <string>LogOut</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="HomePage_2">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>20</y>
+      <width>181</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel
+{
+QWidget::setAttribute(Qt::WA_TranslucentBackground);
+color: #fff;
+
+	
+
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Logged in as:&lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SF_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>250</y>
+      <width>171</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -131,35 +214,85 @@ border-radius: 15px;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red;
-color: black;
-border-radius: 15px;
-</string>
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
     </property>
     <property name="text">
-     <string>LogOut</string>
+     <string>Horror</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="SF_3">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>100</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Wishlist</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="HomePage_3">
+    <property name="geometry">
+     <rect>
+      <x>1330</x>
+      <y>20</y>
+      <width>151</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image:url(../Files/archive/UserImage.png);
+ background-position: center;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>Recomanded</zorder>
+   <zorder>Comedy</zorder>
+   <zorder>SF</zorder>
+   <zorder>HomePage_2</zorder>
+   <zorder>HomePage</zorder>
+   <zorder>LogOut</zorder>
+   <zorder>SF_2</zorder>
+   <zorder>SF_3</zorder>
+   <zorder>HomePage_3</zorder>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>736</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
