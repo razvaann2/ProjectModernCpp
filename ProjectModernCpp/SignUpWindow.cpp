@@ -26,21 +26,52 @@ void SignUpWindow::on_SignUpButton_clicked()
 	DataBase bazaDeDate;
 	QString name = ui.lineEdit->text();
 	std::string aux = name.toStdString();
-	User x(aux);
-	if (bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, aux))).size() == 0)
+	if (aux.size() >= 5 && aux.size() <= 20)
 	{
-		bazaDeDate.initializeUser(x);
-		this->close();
-	}
-	else
-	{
-		QMessageBox::StandardButton reply;
-		reply=box.warning(this, "Warning", "The username is taken! Do you want to login? ", QMessageBox::Yes | QMessageBox::No);
-		if (reply == QMessageBox::Yes) {
-			this->close();
+		bool VerifyCharacters = true;
+		int check = 0;
+		for (int i = 0; i < aux.size(); i++)
+		{
+			check = isalpha(aux[i]);
+			
+			if (!check)
+			{
+				VerifyCharacters = false;
+			}
+		}
+		if (VerifyCharacters == true) {
+			User x(aux);
+
+			if (bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, aux))).size() == 0)
+			{
+				bazaDeDate.initializeUser(x);
+				this->close();
+			}
+			else
+			{
+				QMessageBox::StandardButton reply;
+				reply = box.warning(this, "Warning", "The username is taken! Do you want to login? ", QMessageBox::Yes | QMessageBox::No);
+				if (reply == QMessageBox::Yes) {
+					this->close();
+				}
+				else {
+
+				}
+			}
 		}
 		else {
-			
+			QMessageBox::StandardButton arply;
+			arply = box.warning(this, "Warning", "Your username has characters that are not accepted \n          Your username must contain only letters");
+		}
+	}
+	else {
+		if (aux.size() < 5) {
+			QMessageBox::StandardButton rply;
+			rply = box.warning(this, "Warning", "Your username needs to have more than 4 characters");
+		}
+		if(aux.size()>20) {
+			QMessageBox::StandardButton rply;
+			rply = box.warning(this, "Warning", "Your username needs to have less than 20 characters");
 		}
 	}
 }
