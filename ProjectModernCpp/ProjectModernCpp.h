@@ -4,7 +4,6 @@
 #include "ui_ProjectModernCpp.h"
 #include "SignUpWindow.h"
 #include "DataBase.h"
-
 class ProjectModernCpp : public QMainWindow
 {
     Q_OBJECT
