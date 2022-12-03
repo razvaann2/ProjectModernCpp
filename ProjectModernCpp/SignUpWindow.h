@@ -1,13 +1,13 @@
 #pragma once
 
-#include <QWidget>
+#include <QMainWindow>
 #include <QString>
 #include "ui_SignUpWindow.h"
 #include "User.h"
 #include "DataBase.h"
 #include <QMessageBox>
 
-class SignUpWindow : public QWidget
+class SignUpWindow : public QMainWindow
 {
 	Q_OBJECT
 

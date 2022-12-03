@@ -2,13 +2,13 @@
 #include "ProjectModernCpp.h"
 
 SignUpWindow::SignUpWindow(QWidget *parent)
-	: QWidget(parent)
+	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 	this->setWindowState(Qt::WindowMaximized);
 
-	//this->setStyleSheet(
-		//"background-image:url(../Files/archive/RegisterImage.jpg); background-position: center;");
+	this->setStyleSheet(
+		"background-image:url(../Files/archive/RegisterImage.jpg); background-position: center;");
 }
 
 SignUpWindow::~SignUpWindow()
