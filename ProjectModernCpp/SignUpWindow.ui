@@ -27,13 +27,13 @@
    </property>
    <property name="styleSheet">
     <string notr="true">font: 700 14pt &quot;Segoe Print&quot;;
-color: #333;
-border: 2px solid #555;
+color: #fff;
+border: 2px solid #111;
 border-radius: 20px;
 border-style: outset;
 background: qradialgradient(
 cx: 0, cy: 0, fx: 0, fy: 0,
-radius: 1.35, stop: 0 #fff, stop: 1 #fff
+radius: 1.35, stop: 0 #222, stop: 1 #222
 );
 padding: 5px;</string>
    </property>
@@ -56,7 +56,7 @@ padding: 5px;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
 color: #333;
-border: 2px solid #555;
+border: 2px solid #111;
 border-radius: 20px;
 border-style: outset;
 background: qradialgradient(
@@ -64,6 +64,9 @@ cx: 0, cy: 0, fx: 0, fy: 0,
 radius: 1.35, stop: 0 #fff, stop: 1 #fff
 );
 padding: 5px;</string>
+   </property>
+   <property name="placeholderText">
+    <string>User Name</string>
    </property>
   </widget>
   <widget class="QPushButton" name="SignUpButton">
@@ -75,15 +78,19 @@ padding: 5px;</string>
      <height>71</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-color: #333;
-border: 2px solid #555;
+font: 700 14pt &quot;Segoe Print&quot;;
+color: #fff;
+border: 2px solid #111;
 border-radius: 20px;
 border-style: outset;
 background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #fff, stop: 1 #888
+cx: 0, cy: 0, fx: 0, fy: 0,
+radius: 1.35, stop: 0 #222, stop: 1 #222
 );
 padding: 5px;
 }</string>
