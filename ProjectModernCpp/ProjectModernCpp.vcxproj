@@ -105,9 +105,6 @@
     <QtMoc Include="SignUpWindow.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="DeepBox.qss" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

@@ -1,6 +1,7 @@
 #include "HomePage.h"
 #include"ProjectModernCpp.h"
 #include<QString>
+#include "DataBase.h"
 HomePage::HomePage(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -30,4 +31,10 @@ void HomePage::on_LogOut_clicked()
 	a->show();
 	this->close();
 	
+}
+void HomePage::on_Comedy_released()
+{}
+void HomePage::on_Comedy_clicked()
+{
+	Movie* MovieToRead = new Movie;
 }

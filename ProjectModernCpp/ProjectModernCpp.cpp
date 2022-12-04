@@ -47,9 +47,10 @@ void ProjectModernCpp::on_LoginButton_clicked()
 			SignUp = new SignUpWindow();
 			SignUp->show();
 		}
-		else {
-
-		}
+		else
+		{
+			this->close();
+	    }
 	}
 }
 

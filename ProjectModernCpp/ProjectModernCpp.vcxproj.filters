@@ -83,9 +83,4 @@
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="DeepBox.qss">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
 </Project>

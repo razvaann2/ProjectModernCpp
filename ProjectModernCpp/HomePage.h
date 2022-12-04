@@ -19,4 +19,6 @@ private:
 private slots:
 	void on_LogOut_released();
 	void on_LogOut_clicked();
+	void on_Comedy_released();
+	void on_Comedy_clicked();
 };
