@@ -33,8 +33,18 @@ void HomePage::on_LogOut_clicked()
 	
 }
 void HomePage::on_Comedy_released()
-{}
+{
+}
 void HomePage::on_Comedy_clicked()
 {
-	Movie* MovieToRead = new Movie;
+	Movie* Comedy = new Movie;
+	Comedy->GetType();
+}
+void HomePage::on_SF_released()
+{
+}
+void HomePage::on_SF_clicked()
+{
+	Movie* SF = new Movie;
+	SF->GetType();
 }
