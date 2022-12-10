@@ -17,6 +17,8 @@ ProjectModernCpp::ProjectModernCpp(QWidget *parent)
     LoginButton = new QPushButton("Login", this);
     SignUpButton = new QPushButton("SignUp", this);
     LineEdit = new QLineEdit(this);
+    topLabel = new QLabel(this);
+    bottomLabel = new QLabel(this);
 
     connect(LoginButton, &QPushButton::clicked, this, &ProjectModernCpp::on_LoginButton_clicked);
     connect(SignUpButton, &QPushButton::clicked, this, &ProjectModernCpp::on_RegisterButton_clicked);
@@ -28,6 +30,19 @@ ProjectModernCpp::ProjectModernCpp(QWidget *parent)
 
     int button_width = width() / 3.6;
     int button_height = height() / 30;
+
+    QFont font("Segoe Print");
+    font.setPointSize(height() / 35);
+    font.setBold(true);
+    topLabel->setFont(font);
+    font.setPointSize(height() / 80);
+    bottomLabel->setFont(font);
+
+    topLabel->setGeometry(width() / 2 - button_width / 2, height() / 2 - height() / 6.5, button_width, button_height * 1.5);
+    bottomLabel->setGeometry(width() / 2 - button_width / 2, height() / 2, button_width, button_height);
+
+    topLabel->setText(topLabel->text() + "Enter username here:");
+    bottomLabel->setText(bottomLabel->text() + "If you don't have an account register here:");
 
     LoginButton->setGeometry(width() / 2 - button_width / 2, height() / 2 - button_height * 2, button_width, button_height);
     SignUpButton->setGeometry(width() / 2 - button_width / 2, height() / 2 + button_height, button_width, button_height);

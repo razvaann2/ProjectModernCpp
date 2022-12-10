@@ -20,6 +20,8 @@ private:
     QPushButton* LoginButton;
     QPushButton* SignUpButton;
     QLineEdit* LineEdit;
+    QLabel* topLabel;
+    QLabel* bottomLabel;
 
 private slots:
     void on_LoginButton_released();
