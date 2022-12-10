@@ -2,15 +2,28 @@
 #include "User.h"
 #include <iostream>
 #include "HomePage.h"
+#include <QPainter>
 
 ProjectModernCpp::ProjectModernCpp(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+	
 	 this->setAttribute(Qt::WA_TranslucentBackground);
 	this->setWindowState(Qt::WindowMaximized);
 	this->setStyleSheet(
 		"background-image:url(../Files/archive/LoginImage.jpg); background-position: center;");
+		
+	LoginButton = new QPushButton("Login", this);
+	SignUpButton = new QPushButton("SignUp", this);
+
+	connect(LoginButton, &QPushButton::clicked, this, &ProjectModernCpp::on_LoginButton_clicked);
+	connect(SignUpButton, &QPushButton::clicked, this, &ProjectModernCpp::on_RegisterButton_clicked);
+
+	SignUpButton->setAutoFillBackground(true);
+	LoginButton->setStyleSheet("color: white; background : rgb(30, 30, 30);");
+	SignUpButton->setStyleSheet("color: white; background: black");
+
 }
 
 ProjectModernCpp::~ProjectModernCpp()
@@ -29,7 +42,7 @@ void ProjectModernCpp::on_RegisterButton_released()
 void ProjectModernCpp::on_LoginButton_clicked()
 {   
 	DataBase bazaDeDate;
-	QString name = ui.lineEdit->text();
+	QString name = LineEdit->text();
 	std::string aux = name.toStdString();
 	User user(aux);
 	if (bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, aux))).size() == 1)

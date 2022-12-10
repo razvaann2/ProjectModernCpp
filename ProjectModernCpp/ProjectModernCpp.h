@@ -4,6 +4,7 @@
 #include "ui_ProjectModernCpp.h"
 #include "SignUpWindow.h"
 #include "DataBase.h"
+
 class ProjectModernCpp : public QMainWindow
 {
     Q_OBJECT
@@ -14,9 +15,11 @@ public:
 
 private:
     Ui::ProjectModernCppClass ui;
-    SignUpWindow *SignUp;
     QMessageBox box;
-    QPushButton *RegisterButton;
+    SignUpWindow* SignUp;
+    QPushButton* LoginButton;
+    QPushButton* SignUpButton;
+    QLineEdit* LineEdit;
 
 private slots:
     void on_LoginButton_released();
