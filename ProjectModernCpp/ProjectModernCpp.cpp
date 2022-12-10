@@ -14,16 +14,28 @@ ProjectModernCpp::ProjectModernCpp(QWidget *parent)
 	this->setStyleSheet(
 		"background-image:url(../Files/archive/LoginImage.jpg); background-position: center;");
 		
-	LoginButton = new QPushButton("Login", this);
-	SignUpButton = new QPushButton("SignUp", this);
+    LoginButton = new QPushButton("Login", this);
+    SignUpButton = new QPushButton("SignUp", this);
+    LineEdit = new QLineEdit(this);
 
-	connect(LoginButton, &QPushButton::clicked, this, &ProjectModernCpp::on_LoginButton_clicked);
-	connect(SignUpButton, &QPushButton::clicked, this, &ProjectModernCpp::on_RegisterButton_clicked);
+    connect(LoginButton, &QPushButton::clicked, this, &ProjectModernCpp::on_LoginButton_clicked);
+    connect(SignUpButton, &QPushButton::clicked, this, &ProjectModernCpp::on_RegisterButton_clicked);
 
-	SignUpButton->setAutoFillBackground(true);
-	LoginButton->setStyleSheet("color: white; background : rgb(30, 30, 30);");
-	SignUpButton->setStyleSheet("color: white; background: black");
+    SignUpButton->setAutoFillBackground(true);
+    LoginButton->setStyleSheet("color: white; background : rgb(30, 30, 30);");
+    SignUpButton->setStyleSheet("color: white; background: black");
+    LineEdit->setStyleSheet("color: black; background: white");
 
+    int button_width = width() / 3.6;
+    int button_height = height() / 30;
+
+    LoginButton->setGeometry(width() / 2 - button_width / 2, height() / 2 - button_height * 2, button_width, button_height);
+    SignUpButton->setGeometry(width() / 2 - button_width / 2, height() / 2 + button_height, button_width, button_height);
+    LineEdit->setGeometry(width() / 2 - button_width / 2, height() / 2 - height() / 10, button_width, button_height / 1.5);
+
+    LoginButton->setCursor(QCursor(Qt::PointingHandCursor));
+    SignUpButton->setCursor(QCursor(Qt::PointingHandCursor));
+    LineEdit->setPlaceholderText("User Name");
 }
 
 ProjectModernCpp::~ProjectModernCpp()
