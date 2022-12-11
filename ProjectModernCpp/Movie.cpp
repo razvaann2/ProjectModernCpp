@@ -32,6 +32,10 @@ Movie Movie::operator=(Movie const& object)
 	m.SetDuration(object.GetDuration());
 	m.SetListedIn(object.GetListedIn());
 	m.SetMovieId(object.GetMovieId());
+	m.SetRating(object.GetRating());
+	m.SetReleaseYear(object.GetReleaseYear());
+	m.SetTitle(object.GetTitle());
+	m.SetType(object.GetType());
 }
 
 Movie::Movie(const Movie& x)
