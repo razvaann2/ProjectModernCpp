@@ -21,6 +21,23 @@ Movie::~Movie()
 
 }
 
+Movie Movie::operator=(Movie const& object)
+{
+	Movie m;
+	m.SetCast(object.GetCast());
+	m.SetCountry(object.GetCountry());
+	m.SetDateAdded(object.GetDateAdded());
+	m.SetDescription(object.GetDescription());
+	m.SetDirector(object.GetDirector());
+	m.SetDuration(object.GetDuration());
+	m.SetListedIn(object.GetListedIn());
+	m.SetMovieId(object.GetMovieId());
+	m.SetRating(object.GetRating());
+	m.SetReleaseYear(object.GetReleaseYear());
+	m.SetTitle(object.GetTitle());
+	m.SetType(object.GetType());
+}
+
 Movie::Movie(const Movie& x)
 {
 	this->MovieId = x.MovieId;
