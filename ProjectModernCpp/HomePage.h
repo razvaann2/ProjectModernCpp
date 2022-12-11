@@ -17,6 +17,8 @@ private:
 	Ui::HomePageClass ui;
 	User loggedUser;
 private slots:
+	void on_Search_released();
+	void on_Search_clicked();
 	void on_LogOut_released();
 	void on_LogOut_clicked();
 	void on_Comedy_released();
