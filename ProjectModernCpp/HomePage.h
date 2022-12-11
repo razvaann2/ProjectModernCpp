@@ -23,4 +23,6 @@ private slots:
 	void on_Comedy_clicked();
 	void on_SF_released();
 	void on_SF_clicked();
+	void on_Search_released();
+	void on_Search_clicked();
 };

@@ -53,6 +53,8 @@ void HomePage::on_Search_released()
 }
 void HomePage::on_Search_clicked()
 {
-
+	DataBase bazaDeDate;
+	QString name = lineEdit->text();
+	std::string aux = name.toStdString();
 }
 
