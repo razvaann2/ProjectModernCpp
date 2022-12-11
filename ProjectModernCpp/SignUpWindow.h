@@ -6,7 +6,9 @@
 #include "User.h"
 #include "DataBase.h"
 #include <QMessageBox>
-
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
 class SignUpWindow : public QMainWindow
 {
 	Q_OBJECT
@@ -18,6 +20,9 @@ public:
 private:
 	Ui::SignUpWindowClass ui;
 	QMessageBox box;
+	QPushButton *SignUpButton;
+	QLineEdit *lineEdit;
+	QLabel* Label;
 
 private slots:
 	void on_SignUpButton_released();

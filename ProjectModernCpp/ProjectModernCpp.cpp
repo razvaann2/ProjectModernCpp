@@ -24,8 +24,8 @@ ProjectModernCpp::ProjectModernCpp(QWidget *parent)
     connect(SignUpButton, &QPushButton::clicked, this, &ProjectModernCpp::on_RegisterButton_clicked);
 
     SignUpButton->setAutoFillBackground(true);
-    LoginButton->setStyleSheet("color: white; background : rgb(30, 30, 30);");
-    SignUpButton->setStyleSheet("color: white; background: black");
+    LoginButton->setStyleSheet("color: white; background:rgb(40,40,40) ; pressed { border - style: inset;}");
+    SignUpButton->setStyleSheet("color: white;background:rgb(40,40,40) ; pressed{ border - style: inset;}");
     LineEdit->setStyleSheet("color: black; background: white");
 
     int button_width = width() / 3.6;
