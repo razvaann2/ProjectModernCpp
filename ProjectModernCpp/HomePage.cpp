@@ -48,4 +48,11 @@ void HomePage::on_SF_clicked()
 	Movie* SF = new Movie;
 	SF->GetType();
 }
+void HomePage::on_Search_released()
+{
+}
+void HomePage::on_Search_clicked()
+{
+
+}
 

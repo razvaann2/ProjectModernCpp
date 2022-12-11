@@ -372,7 +372,7 @@ padding: 5px;
      <string>Watched list</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="Film_to_search">
     <property name="geometry">
      <rect>
       <x>520</x>
@@ -391,6 +391,25 @@ background-color: rgb(255, 255, 255);</string>
      <string>What do you want to search?</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Search">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>20</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Search</string>
+    </property>
+   </widget>
    <zorder>HomePage_4</zorder>
    <zorder>HomePage_2</zorder>
    <zorder>HomePage_3</zorder>
@@ -403,7 +422,8 @@ background-color: rgb(255, 255, 255);</string>
    <zorder>SF</zorder>
    <zorder>SF_2</zorder>
    <zorder>SF_4</zorder>
-   <zorder>lineEdit</zorder>
+   <zorder>Film_to_search</zorder>
+   <zorder>Search</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
