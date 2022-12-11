@@ -9,6 +9,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QLabel>
+
 class SignUpWindow : public QMainWindow
 {
 	Q_OBJECT
