@@ -36,6 +36,7 @@ Movie Movie::operator=(Movie const& object)
 	m.SetReleaseYear(object.GetReleaseYear());
 	m.SetTitle(object.GetTitle());
 	m.SetType(object.GetType());
+	return m;
 }
 
 Movie::Movie(const Movie& x)

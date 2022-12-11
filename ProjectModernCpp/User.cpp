@@ -1,5 +1,12 @@
 #include "User.h"
 
+User User::operator=(User aux)
+{
+	User user;
+	user.SetID(aux.GetID());
+	user.SetUserName(aux.GetUserName());
+}
+
 User::User()
 {
 	this->userName = "";

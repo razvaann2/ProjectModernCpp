@@ -6,9 +6,11 @@ class User
 private:
 	int ID;
 	std::string userName;
+	User operator=(User aux);
 public:
 	User();
 	~User();
+
 	User(std::string username);
 	User(const User& x);
 	void SetID(int id);
