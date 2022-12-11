@@ -76,7 +76,11 @@ void SignUpWindow::on_SignUpButton_clicked()
 					this->close();
 				}
 				else {
-
+					
+					this->close();
+					ProjectModernCpp a;
+					a.show();
+					a.close();
 				}
 			}
 		}
