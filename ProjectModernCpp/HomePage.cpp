@@ -12,7 +12,7 @@ HomePage::HomePage(QWidget *parent)
 
 void HomePage::SetUser(User user)
 {
-	this->loggedUser.SetUserName(user.GetUserName());
+	this->loggedUser = user;
 	QString qstringUser = QString::fromStdString(this->loggedUser.GetUserName());
 	//ui.HomePage->setText(qstringUser);
 	ui.HomePage->setText(qstringUser);

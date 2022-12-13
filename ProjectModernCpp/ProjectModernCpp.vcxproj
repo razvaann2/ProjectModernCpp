@@ -99,6 +99,7 @@
     <QtUic Include="SignUpWindow.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="WishList.h" />
     <QtMoc Include="HomePage.h" />
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="Movie.h" />

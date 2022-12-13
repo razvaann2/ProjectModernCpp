@@ -21,7 +21,7 @@ Movie::~Movie()
 
 }
 
-Movie::Movie(Movie&& object)
+/*Movie::Movie(Movie&& object)
 {
 this->Cast = object.GetCast();
 this->Country = object.GetCountry();
@@ -95,7 +95,7 @@ Movie Movie::operator=(Movie&& object)
 	object.SetTitle("");
 	object.SetType("");
 	return m;
-}
+}*/
 
 
 Movie::Movie(const Movie& x)
