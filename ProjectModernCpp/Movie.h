@@ -11,6 +11,7 @@ public:
 	~Movie();
 	Movie(Movie&& movtobedeleted);
 	Movie operator=(Movie const& object);
+	Movie operator=(Movie&& object);
 	Movie(const Movie& x);
 	void SetMovieId(int MovieId);
 	int GetMovieId()const;
