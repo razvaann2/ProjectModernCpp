@@ -73,3 +73,23 @@ void DataBase::AddMovies()
 		initializeMovie(movieToRead);
 	}
 }
+
+void DataBase::AddWatchedList(int MovieID, int UserID)
+{
+	WatchedList aux;
+	aux.SetMovieID(MovieID);
+	aux.SetUserID(UserID);
+	m_db.sync_schema();
+	m_db.insert(aux);
+	m_db.sync_schema();
+}
+
+void DataBase::AddWishList(int MovieID, int UserID)
+{
+	WishList aux;
+	aux.SetMovieID(MovieID);
+	aux.SetUserID(UserID);
+	m_db.sync_schema();
+	m_db.insert(aux);
+	m_db.sync_schema();
+}
