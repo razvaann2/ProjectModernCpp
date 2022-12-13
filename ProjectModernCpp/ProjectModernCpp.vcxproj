@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Desktop\New folder\WatchedList.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="Movie.cpp" />

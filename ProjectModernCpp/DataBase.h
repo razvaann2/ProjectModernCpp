@@ -2,6 +2,8 @@
 #include <sqlite_orm/sqlite_orm.h>
 #include "User.h"
 #include "Movie.h"
+#include "WatchedList.h"
+#include "WishList.h"
 namespace sql = sqlite_orm;
 
 const std::string dbFile = "DataBase.sqlite";
@@ -25,10 +27,13 @@ inline auto createStorage(const std::string& filename)
 			sql::make_column("Duration", &Movie::GetDuration, &Movie::SetDuration),
 			sql::make_column("ListenIn", &Movie::GetListedIn, &Movie::SetListedIn),
 			sql::make_column("Description", &Movie::GetDescription, &Movie::SetDescription)),
-		sql::make_table("User_Movies",
-			sql::make_column("UserID", &User::GetID, &User::SetID),
-			sql::make_column("MovieID", &Movie::GetMovieId, &Movie::SetMovieId)
-		));
+		sql::make_table("WishList",
+			sql::make_column("UserID", &WishList::GetUserID, &WishList::SetUserID),
+			sql::make_column("MovieID", &WishList::GetMovieID, &WishList::SetMovieID)),
+		sql::make_table("WatchedList",
+				sql::make_column("UserID", &WatchedList::GetUserID, &WatchedList::SetUserID),
+				sql::make_column("MovieID", &WatchedList::GetMovieID, &WatchedList::SetMovieID))
+		);
 }
 using Storage = decltype(createStorage(" "));
 //std::string Type, Title, Director, Cast, Country, DateAdded, ReleaseYear, Rating, Duration, ListedIn, Description;
@@ -39,4 +44,6 @@ public:
 	void initializeUser(User a);
 	void initializeMovie(Movie a);
 	void AddMovies();
+	void AddWatchedList(int MovieID,int UserID);
+	void AddWishList(int MovieID ,int UserID );
 };
