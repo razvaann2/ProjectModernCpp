@@ -21,6 +21,23 @@ Movie::~Movie()
 
 }
 
+Movie::Movie(Movie&& object)
+{
+	Cast = object.GetCast();
+	Country = object.GetCountry();
+	DateAdded = object.GetDateAdded();
+	Description = object.GetDescription();
+	Director = object.GetDirector();
+	Duration = object.GetDuration();
+	ListedIn = object.GetListedIn();
+	MovieId = object.GetMovieId();
+	Rating = object.GetRating();
+	ReleaseYear = object.GetReleaseYear();
+	Title = object.GetTitle();
+	Type = object.GetType();
+	
+}
+
 Movie Movie::operator=(Movie const& object)
 {
 	Movie m;

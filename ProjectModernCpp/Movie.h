@@ -9,6 +9,7 @@ private:
 public:
 	Movie();
 	~Movie();
+	Movie(Movie&& movtobedeleted);
 	Movie operator=(Movie const& object);
 	Movie(const Movie& x);
 	void SetMovieId(int MovieId);
