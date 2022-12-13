@@ -23,18 +23,18 @@ Movie::~Movie()
 
 Movie::Movie(Movie&& object)
 {
-	Cast = object.GetCast();
-	Country = object.GetCountry();
-	DateAdded = object.GetDateAdded();
-	Description = object.GetDescription();
-	Director = object.GetDirector();
-	Duration = object.GetDuration();
-	ListedIn = object.GetListedIn();
-	MovieId = object.GetMovieId();
-	Rating = object.GetRating();
-	ReleaseYear = object.GetReleaseYear();
-	Title = object.GetTitle();
-	Type = object.GetType();
+this->Cast = object.GetCast();
+this->Country = object.GetCountry();
+this->DateAdded = object.GetDateAdded();
+this->Description = object.GetDescription();
+this->Director = object.GetDirector();
+this->Duration = object.GetDuration();
+this->ListedIn = object.GetListedIn();
+this->MovieId = object.GetMovieId();
+this->Rating = object.GetRating();
+this->ReleaseYear = object.GetReleaseYear();
+this->Title = object.GetTitle(); 
+this->Type = object.GetType();
 	object.SetCast("");
 	object.SetCountry("");
 	object.SetDateAdded("");
