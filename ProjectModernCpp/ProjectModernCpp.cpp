@@ -74,10 +74,10 @@ void ProjectModernCpp::on_LoginButton_clicked()
 	User user(aux);
 	if (bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, aux))).size() == 1)
 	{
-		this->close();
 		HomePage* window = new HomePage();
 		window->SetUser(user);
 		window->show();
+        this->close();
 	}
 	else
 	{
