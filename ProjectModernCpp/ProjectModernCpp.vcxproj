@@ -85,12 +85,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\New folder\WatchedList.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="SignUpWindow.cpp" />
     <ClCompile Include="User.cpp" />
+    <ClCompile Include="WatchedList.cpp" />
     <ClCompile Include="WishList.cpp" />
     <QtRcc Include="ProjectModernCpp.qrc" />
     <QtUic Include="HomePage.ui" />

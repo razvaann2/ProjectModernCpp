@@ -58,7 +58,7 @@
     <ClCompile Include="WishList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\New folder\WatchedList.cpp">
+    <ClCompile Include="WatchedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
