@@ -10,6 +10,16 @@ HomePage::HomePage(QWidget *parent)
 	this->setWindowState(Qt::WindowMaximized);
 	ui.ProfileTitle->setVisible(false);
 	ui.MovieTitle->setVisible(false);
+	ui.MovieType->setVisible(false);
+	ui.MovieDirector->setVisible(false);
+	ui.MovieCast->setVisible(false);
+	ui.MovieCountry->setVisible(false);
+	ui.MovieDateAdded->setVisible(false);
+	ui.MovieReleaseYear->setVisible(false);
+	ui.MovieRating->setVisible(false);
+	ui.MovieDuration->setVisible(false);
+	ui.MovieListedIn->setVisible(false);
+	ui.MovieDescription->setVisible(false);
 }
 
 void HomePage::SetUser(User user)
@@ -27,6 +37,16 @@ HomePage::~HomePage()
 void HomePage::on_User_clicked()
 {
 	ui.MovieTitle->setVisible(false);
+	ui.MovieType->setVisible(false);
+	ui.MovieDirector->setVisible(false);
+	ui.MovieCast->setVisible(false);
+	ui.MovieCountry->setVisible(false);
+	ui.MovieDateAdded->setVisible(false);
+	ui.MovieReleaseYear->setVisible(false);
+	ui.MovieRating->setVisible(false);
+	ui.MovieDuration->setVisible(false);
+	ui.MovieListedIn->setVisible(false);
+	ui.MovieDescription->setVisible(false);
 	ui.ProfileTitle->setVisible(true);
 }
 
@@ -44,8 +64,20 @@ void HomePage::on_Search_clicked()
 		movieSearched = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_name))).front();
 		ui.MovieTitle->setText(QString::fromStdString(movieSearched.GetTitle()));
 		ui.MovieTitle->setFont(QFont("Segoe UI", 24, QFont::Bold, false));
+		ui.MovieType->setText(QString::fromStdString(movieSearched.GetType()));
+		ui.MovieType->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
 		ui.ProfileTitle->setVisible(false);
 		ui.MovieTitle->setVisible(true);
+		ui.MovieType->setVisible(true);
+		ui.MovieDirector->setVisible(true);
+		ui.MovieCast->setVisible(true);
+		ui.MovieCountry->setVisible(true);
+		ui.MovieDateAdded->setVisible(true);
+		ui.MovieReleaseYear->setVisible(true);
+		ui.MovieRating->setVisible(true);
+		ui.MovieDuration->setVisible(true);
+		ui.MovieListedIn->setVisible(true);
+		ui.MovieDescription->setVisible(true);
 	}
 	else
 	{
