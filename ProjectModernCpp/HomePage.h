@@ -2,7 +2,8 @@
 
 #include <QMainWindow>
 #include "ui_HomePage.h"
-#include"User.h"
+#include "User.h"
+#include "Movie.h"
 
 class HomePage : public QMainWindow
 {
@@ -16,6 +17,7 @@ public:
 private:
 	Ui::HomePageClass ui;
 	User loggedUser;
+	Movie movieSearched;
 private slots:
 	void on_User_released();
 	void on_User_clicked();
