@@ -30,6 +30,7 @@ void DataBase::AddMovies()
 	{
 		Movie movieToRead;
 		std::stringstream ss(Line);
+		std::string s = ss.str();
 		std::string substr, substr2;
 		std::getline(ss, substr, ',');
 		substr = "";

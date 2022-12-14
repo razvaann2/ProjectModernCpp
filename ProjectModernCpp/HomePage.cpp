@@ -8,6 +8,7 @@ HomePage::HomePage(QWidget *parent)
 	ui.setupUi(this);
 	this->setWindowState(Qt::WindowMaximized);
 	ui.ProfileTitle->setVisible(false);
+	ui.MovieTitle->setVisible(false);
 }
 
 void HomePage::SetUser(User user)
@@ -16,7 +17,7 @@ void HomePage::SetUser(User user)
 	QString qstringUser = QString::fromStdString(this->loggedUser.GetUserName());
 	//ui.HomePage->setText(qstringUser);
 	ui.HomePage->setText(qstringUser);
-	ui.HomePage->setFont(QFont("Segoe UI", 16, QFont::Bold, true));
+	ui.HomePage->setFont(QFont("Times New Roman", 16, QFont::Bold, false));
 }
 
 HomePage::~HomePage()
@@ -24,6 +25,7 @@ HomePage::~HomePage()
 
 void HomePage::on_User_clicked()
 {
+	ui.MovieTitle->setVisible(false);
 	ui.ProfileTitle->setVisible(true);
 }
 
@@ -33,7 +35,11 @@ void HomePage::on_User_released()
 
 void HomePage::on_Search_clicked()
 {
-
+	QString movie_name = ui.Film_to_search->text();
+	ui.MovieTitle->setText(movie_name);
+	ui.MovieTitle->setFont(QFont("Segoe UI", 24, QFont::Bold, false));
+	ui.ProfileTitle->setVisible(false);
+	ui.MovieTitle->setVisible(true);
 }
 void HomePage::on_Search_released()
 {

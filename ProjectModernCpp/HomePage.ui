@@ -380,6 +380,9 @@ background-color: rgb(255, 255, 255);</string>
       <height>31</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">border: 2px solid #555;
 border-radius: 20px;
@@ -457,6 +460,37 @@ color: #fff;
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;Profile&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QLabel" name="MovieTitle">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>150</y>
+      <width>371</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel
+{
+QWidget::setAttribute(Qt::WA_TranslucentBackground);
+color: #fff;
+
+	
+
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;MovieTitle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>HomePage_4</zorder>
    <zorder>HomePage_2</zorder>
    <zorder>LogOut</zorder>
@@ -473,6 +507,7 @@ color: #fff;
    <zorder>Background</zorder>
    <zorder>User</zorder>
    <zorder>ProfileTitle</zorder>
+   <zorder>MovieTitle</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
