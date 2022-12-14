@@ -91,7 +91,7 @@ void ProjectModernCpp::on_LoginButton_clicked()
 		}
 		else
 		{
-			this->close();
+			//this->close();
 	    }
 	}
 }
