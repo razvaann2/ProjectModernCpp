@@ -104,6 +104,7 @@ Movie::Movie(const Movie& x)
 	this->Type = x.Type;
 	this->Title = x.Title;
 	this->Director = x.Director;
+	this->Cast = x.Cast;
 	this->Country = x.Country;
 	this->DateAdded = x.DateAdded;
 	this->ReleaseYear = x.ReleaseYear;
