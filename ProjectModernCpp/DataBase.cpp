@@ -168,11 +168,20 @@ void DataBase::AddMovies()
 		{
 			poz1 = s.find('"', poz1 + 1);
 			poz2 = s.find('"', poz1 + 1);
-			substr = s.substr(poz1 + 1, poz2 - poz1 - 1);
+			substr = s.substr(poz1 + 1, s.length() - poz1 - 2);
 		}
 		else
 		{
-			substr = s.substr(poz1 + 1, s.length() - 1);
+			substr = s.substr(poz1 + 1, s.length() - poz1 - 1);
+		}
+		poz1 = substr.find('"');
+		while (poz1 != std::string::npos)
+		{
+			if (poz1 < substr.length() - 1 || substr[poz1 + 1] == '"')
+			{
+				substr.erase(poz1 + 1, 1);
+			}
+			poz1 = substr.find('"', poz1 + 1);
 		}
 		movieToRead.SetDescription(substr);
 		initializeMovie(movieToRead);
