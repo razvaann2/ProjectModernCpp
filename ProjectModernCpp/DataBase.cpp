@@ -164,9 +164,16 @@ void DataBase::AddMovies()
 		}
 		movieToRead.SetListedIn(substr);
 		poz1 = poz2;
-		poz1 = s.find('"', poz1 + 1);
-		poz2 = s.find('"', poz1 + 1);
-		substr = s.substr(poz1 + 1, poz2 - poz1 - 1);
+		if (s[poz1 + 1] == '"')
+		{
+			poz1 = s.find('"', poz1 + 1);
+			poz2 = s.find('"', poz1 + 1);
+			substr = s.substr(poz1 + 1, poz2 - poz1 - 1);
+		}
+		else
+		{
+			substr = s.substr(poz1 + 1, s.length() - 1);
+		}
 		movieToRead.SetDescription(substr);
 		initializeMovie(movieToRead);
 	}
