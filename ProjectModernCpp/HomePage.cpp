@@ -3,6 +3,7 @@
 #include<QString>
 #include "DataBase.h"
 
+
 HomePage::HomePage(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -21,6 +22,7 @@ HomePage::HomePage(QWidget *parent)
 	ui.MovieListedIn->setVisible(false);
 	ui.MovieDescription->setVisible(false);
 	ui.AddtoWishlist->setVisible(false);
+	ui.AddtoWatchedlist->setVisible(false);
 }
 
 void HomePage::SetUser(User user)
@@ -37,6 +39,7 @@ HomePage::~HomePage()
 
 void HomePage::on_User_clicked()
 {
+	ui.AddtoWatchedlist->setVisible(false);
 	ui.AddtoWishlist->setVisible(false);
 	ui.MovieTitle->setVisible(false);
 	ui.MovieType->setVisible(false);
@@ -150,6 +153,7 @@ void HomePage::on_Search_clicked()
 		ui.MovieListedIn->setVisible(true);
 		ui.MovieDescription->setVisible(true);
 		ui.AddtoWishlist->setVisible(true);
+		ui.AddtoWatchedlist->setVisible(true);
 	}
 	else
 	{
@@ -203,5 +207,20 @@ void HomePage::on_AddtoWishlist_clicked()
 {
 	DataBase bazaDeDate;
 	bazaDeDate.AddWishList(this->movieSearched.GetMovieId(), this->loggedUser.GetID());
+	QMessageBox reply;
+	QString a = QString::fromStdString(movieSearched.GetTitle()) + " was added to wishlist";
+	reply.information(this, "info", a, QMessageBox::Ok);
+}
+void HomePage::on_AddtoWatchedlist_released()
+{
+
+}
+void HomePage::on_AddtoWatchedlist_clicked()
+{
+	DataBase bazaDeDate;
+	bazaDeDate.AddWatchedList(this->movieSearched.GetMovieId(),this->loggedUser.GetID());
+	QMessageBox reply;
+	QString a = QString::fromStdString(movieSearched.GetTitle()) + " was marked as seen";
+	reply.information(this, "info",a,QMessageBox::Ok);
 }
 
