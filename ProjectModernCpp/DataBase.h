@@ -29,11 +29,15 @@ inline auto createStorage(const std::string& filename)
 			sql::make_column("Description", &Movie::GetDescription, &Movie::SetDescription)),
 		sql::make_table("WishList",
 			sql::make_column("UserID", &WishList::GetUserID, &WishList::SetUserID),
-			sql::make_column("MovieID", &WishList::GetMovieID, &WishList::SetMovieID)),
+			sql::make_column("MovieID", &WishList::GetMovieID, &WishList::SetMovieID),
+			sql::foreign_key(&WishList::SetUserID).references(&User::SetID),
+			sql::foreign_key(&WishList::SetMovieID).references(&Movie::SetMovieId)),
 		sql::make_table("WatchedList",
-				sql::make_column("UserID", &WatchedList::GetUserID, &WatchedList::SetUserID),
-				sql::make_column("MovieID", &WatchedList::GetMovieID, &WatchedList::SetMovieID))
-		);
+			sql::make_column("UserID", &WatchedList::GetUserID, &WatchedList::SetUserID),
+			sql::make_column("MovieID", &WatchedList::GetMovieID, &WatchedList::SetMovieID),
+			sql::foreign_key(&WatchedList::SetUserID).references(&User::SetID),
+			sql::foreign_key(&WatchedList::SetMovieID).references(&Movie::SetMovieId))
+	);
 }
 using Storage = decltype(createStorage(" "));
 //std::string Type, Title, Director, Cast, Country, DateAdded, ReleaseYear, Rating, Duration, ListedIn, Description;
