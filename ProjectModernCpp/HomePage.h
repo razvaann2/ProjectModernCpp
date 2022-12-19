@@ -31,4 +31,6 @@ private slots:
 	void on_SF_clicked();
 	void on_Film_to_search_released();
 	void on_Film_to_search_clicked();
+	void on_AddtoWishlist_released();
+	void on_AddtoWishlist_clicked();
 };

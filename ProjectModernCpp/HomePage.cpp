@@ -20,6 +20,7 @@ HomePage::HomePage(QWidget *parent)
 	ui.MovieDuration->setVisible(false);
 	ui.MovieListedIn->setVisible(false);
 	ui.MovieDescription->setVisible(false);
+	ui.AddtoWishlist->setVisible(false);
 }
 
 void HomePage::SetUser(User user)
@@ -36,6 +37,7 @@ HomePage::~HomePage()
 
 void HomePage::on_User_clicked()
 {
+	ui.AddtoWishlist->setVisible(false);
 	ui.MovieTitle->setVisible(false);
 	ui.MovieType->setVisible(false);
 	ui.MovieDirector->setVisible(false);
@@ -147,6 +149,7 @@ void HomePage::on_Search_clicked()
 		ui.MovieDuration->setVisible(true);
 		ui.MovieListedIn->setVisible(true);
 		ui.MovieDescription->setVisible(true);
+		ui.AddtoWishlist->setVisible(true);
 	}
 	else
 	{
@@ -192,5 +195,13 @@ void HomePage::on_Film_to_search_clicked()
 	DataBase bazaDeDate;
 	QString name = ui.Film_to_search->text();
 	std::string aux = name.toStdString();
+}
+void HomePage::on_AddtoWishlist_released()
+{
+}
+void HomePage::on_AddtoWishlist_clicked()
+{
+	DataBase bazaDeDate;
+	bazaDeDate.AddWishList(this->movieSearched.GetMovieId(), this->loggedUser.GetID());
 }
 
