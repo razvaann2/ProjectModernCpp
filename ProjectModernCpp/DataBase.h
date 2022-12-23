@@ -50,4 +50,5 @@ public:
 	void AddMovies();
 	void AddWatchedList(int MovieID,int UserID);
 	void AddWishList(int MovieID ,int UserID );
+	bool Checkdatabase(std::string name);
 };

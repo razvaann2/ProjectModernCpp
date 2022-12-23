@@ -207,3 +207,14 @@ void DataBase::AddWishList(int MovieID, int UserID)
 	m_db.insert(aux);
 	m_db.sync_schema();
 }
+bool DataBase::Checkdatabase(std::string name)
+{
+	User user;
+	bool ok = true;
+	DataBase bazaDeDate;
+	if (m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, name))).size() == 1)
+		user = m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, name))).front();
+	if (user.GetUserName() == "")
+		ok = false;
+	return ok;
+}

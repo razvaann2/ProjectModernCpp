@@ -72,10 +72,9 @@ void ProjectModernCpp::on_LoginButton_clicked()
 	QString name = LineEdit->text();
 	std::string aux = name.toStdString();
 	User user(aux);
-	if (bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, aux))).size() == 1)
+	if(bazaDeDate.Checkdatabase(aux) == true)
 	{
-        user = bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, aux))).front();
-         
+     
         HomePage* window = new HomePage();
         window->SetUser(user);
         window->show();
