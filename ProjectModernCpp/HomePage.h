@@ -19,6 +19,7 @@ private:
 	User loggedUser;
 	Movie movieSearched;
 	void setMovieListVisibility(bool statement);
+	void showMovie();
 private slots:
 	void on_User_released();
 	void on_User_clicked();
@@ -36,4 +37,6 @@ private slots:
 	void on_AddtoWishlist_clicked();
 	void on_AddtoWatchedlist_released();
 	void on_AddtoWatchedlist_clicked();
+	void on_ViewMovie_released();
+	void on_ViewMovie_clicked();
 };

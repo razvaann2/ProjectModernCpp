@@ -35,12 +35,103 @@ void HomePage::SetUser(User user)
 }
 
 HomePage::~HomePage()
-{}
+{
+}
 
 void HomePage::setMovieListVisibility(bool statement)
 {
 	ui.MovieList->setVisible(statement);
 	ui.ViewMovie->setVisible(statement);
+}
+
+void HomePage::showMovie()
+{
+	std::string text1, text2;
+	ui.MovieTitle->setText(QString::fromStdString(movieSearched.GetTitle()));
+	ui.MovieTitle->setFont(QFont("Segoe UI", 24, QFont::Bold, false));
+	text1 = "Type: ";
+	text2 = movieSearched.GetType();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieType->setText(QString::fromStdString(text1));
+	ui.MovieType->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Director: ";
+	text2 = movieSearched.GetDirector();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieDirector->setText(QString::fromStdString(text1));
+	ui.MovieDirector->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Cast: ";
+	text2 = movieSearched.GetCast();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieCast->setText(QString::fromStdString(text1));
+	ui.MovieCast->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Country: ";
+	text2 = movieSearched.GetCountry();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieCountry->setText(QString::fromStdString(text1));
+	ui.MovieCountry->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Date Added: ";
+	text2 = movieSearched.GetDateAdded();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieDateAdded->setText(QString::fromStdString(text1));
+	ui.MovieDateAdded->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Release Year: ";
+	text2 = movieSearched.GetReleaseYear();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieReleaseYear->setText(QString::fromStdString(text1));
+	ui.MovieReleaseYear->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Rating: ";
+	text2 = movieSearched.GetRating();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieRating->setText(QString::fromStdString(text1));
+	ui.MovieRating->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Duration: ";
+	text2 = movieSearched.GetDuration();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieDuration->setText(QString::fromStdString(text1));
+	ui.MovieDuration->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Listed In: ";
+	text2 = movieSearched.GetListedIn();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieListedIn->setText(QString::fromStdString(text1));
+	ui.MovieListedIn->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	text1 = "Description: ";
+	text2 = movieSearched.GetDescription();
+	if (text2 == "")
+		text2 = "Unavailable";
+	text1 += text2;
+	ui.MovieDescription->setText(QString::fromStdString(text1));
+	ui.MovieDescription->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	ui.MovieTitle->setVisible(true);
+	ui.MovieType->setVisible(true);
+	ui.MovieDirector->setVisible(true);
+	ui.MovieCast->setVisible(true);
+	ui.MovieCountry->setVisible(true);
+	ui.MovieDateAdded->setVisible(true);
+	ui.MovieReleaseYear->setVisible(true);
+	ui.MovieRating->setVisible(true);
+	ui.MovieDuration->setVisible(true);
+	ui.MovieListedIn->setVisible(true);
+	ui.MovieDescription->setVisible(true);
+	ui.AddtoWishlist->setVisible(true);
+	ui.AddtoWatchedlist->setVisible(true);
 }
 
 void HomePage::on_User_clicked()
@@ -74,94 +165,9 @@ void HomePage::on_Search_clicked()
 	if (bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_name))).size() == 1)
 	{
 		movieSearched = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_name))).front();
-		std::string text1, text2;
-		ui.MovieTitle->setText(QString::fromStdString(movieSearched.GetTitle()));
-		ui.MovieTitle->setFont(QFont("Segoe UI", 24, QFont::Bold, false));
-		text1 = "Type: ";
-		text2 = movieSearched.GetType();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieType->setText(QString::fromStdString(text1));
-		ui.MovieType->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Director: ";
-		text2 = movieSearched.GetDirector();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieDirector->setText(QString::fromStdString(text1));
-		ui.MovieDirector->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Cast: ";
-		text2 = movieSearched.GetCast();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieCast->setText(QString::fromStdString(text1));
-		ui.MovieCast->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Country: ";
-		text2 = movieSearched.GetCountry();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieCountry->setText(QString::fromStdString(text1));
-		ui.MovieCountry->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Date Added: ";
-		text2 = movieSearched.GetDateAdded();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieDateAdded->setText(QString::fromStdString(text1));
-		ui.MovieDateAdded->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Release Year: ";
-		text2 = movieSearched.GetReleaseYear();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieReleaseYear->setText(QString::fromStdString(text1));
-		ui.MovieReleaseYear->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Rating: ";
-		text2 = movieSearched.GetRating();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieRating->setText(QString::fromStdString(text1));
-		ui.MovieRating->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Duration: ";
-		text2 = movieSearched.GetDuration();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieDuration->setText(QString::fromStdString(text1));
-		ui.MovieDuration->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Listed In: ";
-		text2 = movieSearched.GetListedIn();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieListedIn->setText(QString::fromStdString(text1));
-		ui.MovieListedIn->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "Description: ";
-		text2 = movieSearched.GetDescription();
-		if (text2 == "")
-			text2 = "Unavailable";
-		text1 += text2;
-		ui.MovieDescription->setText(QString::fromStdString(text1));
-		ui.MovieDescription->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
 		ui.ProfileTitle->setVisible(false);
 		setMovieListVisibility(false);
-		ui.MovieTitle->setVisible(true);
-		ui.MovieType->setVisible(true);
-		ui.MovieDirector->setVisible(true);
-		ui.MovieCast->setVisible(true);
-		ui.MovieCountry->setVisible(true);
-		ui.MovieDateAdded->setVisible(true);
-		ui.MovieReleaseYear->setVisible(true);
-		ui.MovieRating->setVisible(true);
-		ui.MovieDuration->setVisible(true);
-		ui.MovieListedIn->setVisible(true);
-		ui.MovieDescription->setVisible(true);
-		ui.AddtoWishlist->setVisible(true);
-		ui.AddtoWatchedlist->setVisible(true);
+		showMovie();
 	}
 	else
 	{
@@ -171,7 +177,6 @@ void HomePage::on_Search_clicked()
 }
 void HomePage::on_Search_released()
 {
-
 }
 void HomePage::on_LogOut_released()
 {
@@ -198,6 +203,7 @@ void HomePage::on_SF_clicked()
 {
 	DataBase bazaDeDate;
 	std::vector SFMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Sci-Fi%")));
+	ui.MovieList->clear();
 	for (int i = 0; i < SFMovies.size(); i++)
 	{
 		ui.MovieList->addItem(QString::fromStdString(SFMovies[i].GetTitle()));
@@ -241,7 +247,6 @@ void HomePage::on_AddtoWishlist_clicked()
 }
 void HomePage::on_AddtoWatchedlist_released()
 {
-
 }
 void HomePage::on_AddtoWatchedlist_clicked()
 {
@@ -252,3 +257,23 @@ void HomePage::on_AddtoWatchedlist_clicked()
 	reply.information(this, "info",a,QMessageBox::Ok);
 }
 
+void HomePage::on_ViewMovie_released()
+{
+}
+
+void HomePage::on_ViewMovie_clicked()
+{
+	DataBase bazaDeDate;
+	QListWidgetItem* movie_to_search = ui.MovieList->currentItem();
+	if (movie_to_search != nullptr)
+	{
+		movieSearched = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_to_search->text().toStdString()))).front();
+		setMovieListVisibility(false);
+		showMovie();
+	}
+	else
+	{
+		QMessageBox box;
+		box.warning(this, "Warning", "Select a movie first", QMessageBox::Ok);
+	}
+}
