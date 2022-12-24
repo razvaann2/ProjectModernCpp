@@ -23,13 +23,13 @@ HomePage::HomePage(QWidget *parent)
 	ui.MovieDescription->setVisible(false);
 	ui.AddtoWishlist->setVisible(false);
 	ui.AddtoWatchedlist->setVisible(false);
+	ui.MovieList->setVisible(false);
 }
 
 void HomePage::SetUser(User user)
 {
 	this->loggedUser = user;
 	QString qstringUser = QString::fromStdString(this->loggedUser.GetUserName());
-	//ui.HomePage->setText(qstringUser);
 	ui.HomePage->setText(qstringUser);
 	ui.HomePage->setFont(QFont("Times New Roman", 20, QFont::Bold, false));
 }
@@ -112,7 +112,7 @@ void HomePage::on_Search_clicked()
 		text1 += text2;
 		ui.MovieReleaseYear->setText(QString::fromStdString(text1));
 		ui.MovieReleaseYear->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-		text1 = "MovieRating: ";
+		text1 = "Rating: ";
 		text2 = movieSearched.GetRating();
 		if (text2 == "")
 			text2 = "Unavailable";
@@ -188,8 +188,14 @@ void HomePage::on_SF_released()
 }
 void HomePage::on_SF_clicked()
 {
-	Movie* SF = new Movie;
-	SF->GetType();
+	DataBase bazaDeDate;
+	std::vector SFMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Sci-Fi%")));
+	for (int i = 0; i < SFMovies.size(); i++)
+	{
+		ui.MovieList->addItem(QString::fromStdString(SFMovies[i].GetTitle()));
+		ui.MovieList->item(i)->setForeground(Qt::white);
+	}
+	ui.MovieList->setVisible(true);
 }
 void HomePage::on_Film_to_search_released()
 {
