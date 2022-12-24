@@ -18,6 +18,7 @@ private:
 	Ui::HomePageClass ui;
 	User loggedUser;
 	Movie movieSearched;
+	void setMovieListVisibility(bool statement);
 private slots:
 	void on_User_released();
 	void on_User_clicked();

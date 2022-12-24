@@ -23,7 +23,7 @@ HomePage::HomePage(QWidget *parent)
 	ui.MovieDescription->setVisible(false);
 	ui.AddtoWishlist->setVisible(false);
 	ui.AddtoWatchedlist->setVisible(false);
-	ui.MovieList->setVisible(false);
+	setMovieListVisibility(false);
 }
 
 void HomePage::SetUser(User user)
@@ -36,6 +36,12 @@ void HomePage::SetUser(User user)
 
 HomePage::~HomePage()
 {}
+
+void HomePage::setMovieListVisibility(bool statement)
+{
+	ui.MovieList->setVisible(statement);
+	ui.ViewMovie->setVisible(statement);
+}
 
 void HomePage::on_User_clicked()
 {
@@ -52,6 +58,7 @@ void HomePage::on_User_clicked()
 	ui.MovieDuration->setVisible(false);
 	ui.MovieListedIn->setVisible(false);
 	ui.MovieDescription->setVisible(false);
+	setMovieListVisibility(false);
 	ui.ProfileTitle->setVisible(true);
 }
 
@@ -141,6 +148,7 @@ void HomePage::on_Search_clicked()
 		ui.MovieDescription->setText(QString::fromStdString(text1));
 		ui.MovieDescription->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
 		ui.ProfileTitle->setVisible(false);
+		setMovieListVisibility(false);
 		ui.MovieTitle->setVisible(true);
 		ui.MovieType->setVisible(true);
 		ui.MovieDirector->setVisible(true);
@@ -195,7 +203,21 @@ void HomePage::on_SF_clicked()
 		ui.MovieList->addItem(QString::fromStdString(SFMovies[i].GetTitle()));
 		ui.MovieList->item(i)->setForeground(Qt::white);
 	}
-	ui.MovieList->setVisible(true);
+	ui.ProfileTitle->setVisible(false);
+	ui.MovieTitle->setVisible(false);
+	ui.MovieType->setVisible(false);
+	ui.MovieDirector->setVisible(false);
+	ui.MovieCast->setVisible(false);
+	ui.MovieCountry->setVisible(false);
+	ui.MovieDateAdded->setVisible(false);
+	ui.MovieReleaseYear->setVisible(false);
+	ui.MovieRating->setVisible(false);
+	ui.MovieDuration->setVisible(false);
+	ui.MovieListedIn->setVisible(false);
+	ui.MovieDescription->setVisible(false);
+	ui.AddtoWishlist->setVisible(false);
+	ui.AddtoWatchedlist->setVisible(false);
+	setMovieListVisibility(true);
 }
 void HomePage::on_Film_to_search_released()
 {

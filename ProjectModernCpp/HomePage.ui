@@ -914,7 +914,7 @@ padding: 5px;
       <x>330</x>
       <y>110</y>
       <width>1071</width>
-      <height>851</height>
+      <height>801</height>
      </rect>
     </property>
     <property name="palette">
@@ -1041,6 +1041,35 @@ padding: 5px;
      </font>
     </property>
    </widget>
+   <widget class="QPushButton" name="ViewMovie">
+    <property name="geometry">
+     <rect>
+      <x>675</x>
+      <y>930</y>
+      <width>381</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
+    </property>
+    <property name="text">
+     <string>View Movie</string>
+    </property>
+   </widget>
    <zorder>HomePage_4</zorder>
    <zorder>HomePage_2</zorder>
    <zorder>HomePage_5</zorder>
@@ -1071,6 +1100,7 @@ padding: 5px;
    <zorder>AddtoWishlist</zorder>
    <zorder>AddtoWatchedlist</zorder>
    <zorder>MovieList</zorder>
+   <zorder>ViewMovie</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
