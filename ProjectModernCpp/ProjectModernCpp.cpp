@@ -88,10 +88,10 @@ void ProjectModernCpp::on_LoginButton_clicked()
 			SignUp = new SignUpWindow();
 			SignUp->show();
 		}
-		else
-		{
-			//this->close();
-	    }
+        if (reply == QMessageBox::No)
+        {
+            this->close();
+        }
 	}
 }
 
