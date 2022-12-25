@@ -100,3 +100,7 @@ void SignUpWindow::on_SignUpButton_clicked()
 		}
 	}
 }
+void SignUpWindow::on_Back_released()
+{
+
+}
