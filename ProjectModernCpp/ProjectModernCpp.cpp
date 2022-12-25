@@ -95,8 +95,18 @@ void ProjectModernCpp::on_LoginButton_clicked()
 	}
 }
 
+
 void ProjectModernCpp::on_RegisterButton_clicked()
 {
     SignUp = new SignUpWindow();
     SignUp->show();
+}
+
+void ProjectModernCpp::on_Exit_released()
+{
+
+}
+void ProjectModernCpp::on_Exit_clicked()
+{
+    this->close();
 }

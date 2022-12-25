@@ -29,4 +29,8 @@ private slots:
     void on_LoginButton_clicked();
     void on_RegisterButton_clicked();
 
+    void on_Exit_released();
+
+    void on_Exit_clicked();
+
 };
