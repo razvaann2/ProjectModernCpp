@@ -29,4 +29,5 @@ private slots:
 	void on_SignUpButton_released();
 	void on_SignUpButton_clicked();
 	void on_Back_released();
+	void on_Back_clicked();
 };

@@ -104,3 +104,8 @@ void SignUpWindow::on_Back_released()
 {
 
 }
+void SignUpWindow::on_Back_clicked()
+{
+	this->close();
+}
+
