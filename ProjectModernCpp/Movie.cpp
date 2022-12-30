@@ -21,34 +21,6 @@ Movie::~Movie()
 
 }
 
-/*Movie::Movie(Movie&& object)
-{
-this->Cast = object.GetCast();
-this->Country = object.GetCountry();
-this->DateAdded = object.GetDateAdded();
-this->Description = object.GetDescription();
-this->Director = object.GetDirector();
-this->Duration = object.GetDuration();
-this->ListedIn = object.GetListedIn();
-this->MovieId = object.GetMovieId();
-this->Rating = object.GetRating();
-this->ReleaseYear = object.GetReleaseYear();
-this->Title = object.GetTitle(); 
-this->Type = object.GetType();
-	object.SetCast("");
-	object.SetCountry("");
-	object.SetDateAdded("");
-	object.SetDescription("");
-	object.SetDirector("");
-	object.SetDuration("");
-	object.SetListedIn("");
-	object.SetMovieId('-1');
-	object.SetRating("");
-	object.SetReleaseYear("");
-	object.SetTitle("");
-	object.SetType("");
-	
-}
 
 Movie Movie::operator=(Movie const& object)
 {
@@ -67,35 +39,8 @@ Movie Movie::operator=(Movie const& object)
 	m.SetType(object.GetType());
 	return m;
 }
-Movie Movie::operator=(Movie&& object)
-{
-	Movie m;
-	m.SetCast(object.GetCast());
-	m.SetCountry(object.GetCountry());
-	m.SetDateAdded(object.GetDateAdded());
-	m.SetDescription(object.GetDescription());
-	m.SetDirector(object.GetDirector());
-	m.SetDuration(object.GetDuration());
-	m.SetListedIn(object.GetListedIn());
-	m.SetMovieId(object.GetMovieId());
-	m.SetRating(object.GetRating());
-	m.SetReleaseYear(object.GetReleaseYear());
-	m.SetTitle(object.GetTitle());
-	m.SetType(object.GetType());
-	object.SetCast("");
-	object.SetCountry("");
-	object.SetDateAdded("");
-	object.SetDescription("");
-	object.SetDirector("");
-	object.SetDuration("");
-	object.SetListedIn("");
-	object.SetMovieId('-1');
-	object.SetRating("");
-	object.SetReleaseYear("");
-	object.SetTitle("");
-	object.SetType("");
-	return m;
-}*/
+
+
 
 
 Movie::Movie(const Movie& x)

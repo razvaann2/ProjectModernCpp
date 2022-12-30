@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "../ProjectModernCpp/DataBase.h"
+#include"../ProjectModernCpp/Movie.h"
+#include "sqlite_orm/sqlite_orm.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
@@ -9,12 +11,13 @@ namespace UnitTest
 	{
 	public:
 		
-		TEST_METHOD(TestingCheckDatabaseFunction)
+	
+		TEST_METHOD(TestingDatabaseG)
 		{
-			DataBase bazaDeDate;
-			bazaDeDate.m_db.sync_schema();
-			bool result = bazaDeDate.Checkdatabase("DoNotUse");
-			Assert::AreEqual(result, true);
+			Movie* m = new Movie();
+			m->SetCast("Leonardo Dicaprio");
+			std::string s = "Leonardo Dicaprio";
+			Assert::AreEqual(s, m->GetCast());
 		}
 	};
 }
