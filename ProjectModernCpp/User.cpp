@@ -1,21 +1,13 @@
 #include "User.h"
 
-/*User User::operator=(User&& aux)
-{
-	User user;
-	user.SetID(aux.GetID());
-	user.SetUserName(aux.GetUserName());
-	aux.SetID('-1');
-	aux.SetUserName("");
-	return user;
-}*/
-/*User User::operator=(const User& aux)
+
+User User::operator=(const User& aux)
 {
 	User user;
 	user.SetID(aux.GetID());
 	user.SetUserName(aux.GetUserName());
 	return user;
-}*/
+}
 User::User()
 {
 	this->userName = "";
@@ -26,14 +18,6 @@ User::~User()
 {
 	
 }
-
-/*User::User(User&& aux)
-{
-	this->ID = aux.GetID();
-	this->userName = aux.GetUserName();
-	aux.SetID(NULL);
-	aux.SetUserName(nullptr);
-}*/
 
 User::User(const User& x)
 {

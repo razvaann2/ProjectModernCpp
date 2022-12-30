@@ -10,5 +10,6 @@ public:
 	void SetMovieID(int MovieID);
 	WishList(int MovieID = 0, int UserID = 0);
 	WishList(const WishList& a);
+	WishList operator=(const WishList& wishlist);
 	~WishList();
 };

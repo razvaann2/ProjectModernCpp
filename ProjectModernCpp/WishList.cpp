@@ -25,6 +25,11 @@ WishList::WishList(const WishList& a)
 	this->MovieID = a.MovieID;
 	this->UserID = a.UserID;
 }
+WishList WishList::operator=(const WishList& wishlist)
+{
+	WishList wishlst(wishlist);
+	return wishlst;
+}
 WishList::~WishList()
 {
 
