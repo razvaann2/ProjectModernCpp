@@ -293,3 +293,35 @@ void HomePage::on_see_your_wishlist_released()
 void HomePage::on_see_your_watchedlist_released()
 {
 }
+
+void HomePage::on_All_movies_released()
+{
+}
+
+void HomePage::on_All_movies_clicked()
+{
+}
+
+void HomePage::on_Horror_movies_clicked()
+{
+}
+
+void HomePage::on_Horror_movies_released()
+{
+}
+
+void HomePage::on_Action_released()
+{
+}
+
+void HomePage::on_Action_clicked()
+{
+}
+
+void HomePage::on_Drama_released()
+{
+}
+
+void HomePage::on_Drama_clicked()
+{
+}
