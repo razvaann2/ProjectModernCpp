@@ -25,6 +25,14 @@ WatchedList::WatchedList(const WatchedList& a)
 	this->MovieID = a.MovieID;
 	this->UserID = a.UserID;
 }
+WatchedList WatchedList::operator=(const WatchedList& watchedlist)
+{
+	WatchedList wtchedlsit;
+	wtchedlsit.SetMovieID(watchedlist.GetMovieID());
+	wtchedlsit.SetUserID(watchedlist.GetUserID());
+	return wtchedlsit;
+}
+
 WatchedList::~WatchedList() 
 {
 

@@ -10,5 +10,6 @@ public:
 	void SetMovieID(int MovieID);
 	WatchedList(int MovieID = 0, int UserID = 0);
 	WatchedList(const WatchedList& a);
+	WatchedList operator=(const WatchedList& watchedlist);
 	~WatchedList();
 };
