@@ -43,8 +43,8 @@ private slots:
 	void on_see_your_watchedlist_released();
 	void on_All_movies_released();
 	void on_All_movies_clicked();
-	void on_Horror_movies_clicked();
-	void on_Horror_movies_released();
+	void on_Horror_clicked();
+	void on_Horror_released();
 	void on_Action_released();
 	void on_Action_clicked();
 	void on_Drama_released();
