@@ -390,6 +390,31 @@ void HomePage::on_Action_released()
 
 void HomePage::on_Action_clicked()
 {
+	DataBase bazaDeDate;
+	std::vector ActionMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Action%")));
+	ui.MovieList->clear();
+	for (int i = 0; i < ActionMovies.size(); i++)
+	{
+		ui.MovieList->addItem(QString::fromStdString(ActionMovies[i].GetTitle()));
+		ui.MovieList->item(i)->setForeground(Qt::white);
+	}
+	ui.See_your_watchedlist->setVisible(false);
+	ui.See_your_wishlist->setVisible(false);
+	ui.ProfileTitle->setVisible(false);
+	ui.MovieTitle->setVisible(false);
+	ui.MovieType->setVisible(false);
+	ui.MovieDirector->setVisible(false);
+	ui.MovieCast->setVisible(false);
+	ui.MovieCountry->setVisible(false);
+	ui.MovieDateAdded->setVisible(false);
+	ui.MovieReleaseYear->setVisible(false);
+	ui.MovieRating->setVisible(false);
+	ui.MovieDuration->setVisible(false);
+	ui.MovieListedIn->setVisible(false);
+	ui.MovieDescription->setVisible(false);
+	ui.AddtoWishlist->setVisible(false);
+	ui.AddtoWatchedlist->setVisible(false);
+	setMovieListVisibility(true);
 }
 
 void HomePage::on_Drama_released()
