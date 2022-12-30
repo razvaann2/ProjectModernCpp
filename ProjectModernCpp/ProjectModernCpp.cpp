@@ -69,14 +69,12 @@ void ProjectModernCpp::on_RegisterButton_released()
 void ProjectModernCpp::on_LoginButton_clicked()
 {   
 	DataBase bazaDeDate;
-	QString name = LineEdit->text();
-	std::string aux = name.toStdString();
-	User user(aux);
-	if(bazaDeDate.Checkdatabase(aux) == true)
+	std::string name = LineEdit->text().toStdString();
+	if(bazaDeDate.Checkdatabase(name) == true)
 	{
-     
+        std::vector Users = bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, name)));
         HomePage* window = new HomePage();
-        window->SetUser(user);
+        window->SetUser(Users[0]);
         window->show();
         this->close();
 	}
@@ -94,7 +92,6 @@ void ProjectModernCpp::on_LoginButton_clicked()
         }
 	}
 }
-
 
 void ProjectModernCpp::on_RegisterButton_clicked()
 {

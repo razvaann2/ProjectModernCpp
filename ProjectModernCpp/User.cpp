@@ -37,6 +37,12 @@ User::User(std::string username)
 	this->ID = -1;
 }
 
+User::User(int id, std::string username)
+{
+	this->ID = id;
+	this->userName = username;
+}
+
 void User::SetID(int id)
 {
 	this->ID = id;

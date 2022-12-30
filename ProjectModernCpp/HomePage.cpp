@@ -9,23 +9,9 @@ HomePage::HomePage(QWidget *parent)
 {
 	ui.setupUi(this);
 	this->setWindowState(Qt::WindowMaximized);
-	ui.ProfileTitle->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.AddtoWatchedlist->setVisible(false);
-	setMovieListVisibility(false);
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(false);
 }
 
 void HomePage::SetUser(User user)
@@ -38,12 +24,6 @@ void HomePage::SetUser(User user)
 
 HomePage::~HomePage()
 {
-}
-
-void HomePage::setMovieListVisibility(bool statement)
-{
-	ui.MovieList->setVisible(statement);
-	ui.ViewMovie->setVisible(statement);
 }
 
 void HomePage::showMovie()
@@ -121,42 +101,57 @@ void HomePage::showMovie()
 	text1 += text2;
 	ui.MovieDescription->setText(QString::fromStdString(text1));
 	ui.MovieDescription->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
-	ui.MovieTitle->setVisible(true);
-	ui.MovieType->setVisible(true);
-	ui.MovieDirector->setVisible(true);
-	ui.MovieCast->setVisible(true);
-	ui.MovieCountry->setVisible(true);
-	ui.MovieDateAdded->setVisible(true);
-	ui.MovieReleaseYear->setVisible(true);
-	ui.MovieRating->setVisible(true);
-	ui.MovieDuration->setVisible(true);
-	ui.MovieListedIn->setVisible(true);
-	ui.MovieDescription->setVisible(true);
-	ui.AddtoWishlist->setVisible(true);
-	ui.AddtoWatchedlist->setVisible(true);
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
+	setProfilePageVisible(false);
+	setMovieInfoVisible(true);
+}
+
+void HomePage::showMovieList(std::string movie_genres)
+{
+	DataBase bazaDeDate;
+	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%"+movie_genres+"%")));
+	ui.MovieList->clear();
+	for (int i = 0; i < Movies.size(); i++)
+	{
+		ui.MovieList->addItem(QString::fromStdString(Movies[i].GetTitle()));
+		ui.MovieList->item(i)->setForeground(Qt::white);
+	}
+}
+
+void HomePage::setMovieListVisible(bool statement)
+{
+	ui.MovieList->setVisible(statement);
+	ui.ViewMovie->setVisible(statement);
+}
+
+void HomePage::setProfilePageVisible(bool statement)
+{
+	ui.ProfileTitle->setVisible(statement);
+	ui.See_your_watchedlist->setVisible(statement);
+	ui.See_your_wishlist->setVisible(statement);
+}
+
+void HomePage::setMovieInfoVisible(bool statement)
+{
+	ui.MovieTitle->setVisible(statement);
+	ui.MovieType->setVisible(statement);
+	ui.MovieDirector->setVisible(statement);
+	ui.MovieCast->setVisible(statement);
+	ui.MovieCountry->setVisible(statement);
+	ui.MovieDateAdded->setVisible(statement);
+	ui.MovieReleaseYear->setVisible(statement);
+	ui.MovieRating->setVisible(statement);
+	ui.MovieDuration->setVisible(statement);
+	ui.MovieListedIn->setVisible(statement);
+	ui.MovieDescription->setVisible(statement);
+	ui.AddtoWishlist->setVisible(statement);
+	ui.AddtoWatchedlist->setVisible(statement);
 }
 
 void HomePage::on_User_clicked()
 {
-	ui.AddtoWatchedlist->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	setMovieListVisibility(false);
-	ui.ProfileTitle->setVisible(true);
-	ui.See_your_watchedlist->setVisible(true);
-	ui.See_your_wishlist->setVisible(true);
+	setMovieInfoVisible(false);
+	setMovieListVisible(false);
+	setProfilePageVisible(true);
 }
 
 void HomePage::on_User_released()
@@ -172,7 +167,7 @@ void HomePage::on_Search_clicked()
 	{
 		movieSearched = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_name))).front();
 		ui.ProfileTitle->setVisible(false);
-		setMovieListVisibility(false);
+		setMovieListVisible(false);
 		showMovie();
 	}
 	else
@@ -199,63 +194,20 @@ void HomePage::on_Comedy_released()
 }
 void HomePage::on_Comedy_clicked()
 {
-	DataBase bazaDeDate;
-	std::vector ComedyMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Come%")));
-	ui.MovieList->clear();
-	for (int i = 0; i < ComedyMovies.size(); i++)
-	{
-		ui.MovieList->addItem(QString::fromStdString(ComedyMovies[i].GetTitle()));
-		ui.MovieList->item(i)->setForeground(Qt::white);
-	}
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
-	ui.ProfileTitle->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.AddtoWatchedlist->setVisible(false);
-	setMovieListVisibility(true);
+	showMovieList("Comedy");
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
 }
 void HomePage::on_SF_released()
 {
 }
 void HomePage::on_SF_clicked()
 {
-	DataBase bazaDeDate;
-	std::vector SFMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Sci-Fi%")));
-	ui.MovieList->clear();
-	for (int i = 0; i < SFMovies.size(); i++)
-	{
-		ui.MovieList->addItem(QString::fromStdString(SFMovies[i].GetTitle()));
-		ui.MovieList->item(i)->setForeground(Qt::white);
-	}
-
-	ui.ProfileTitle->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.AddtoWatchedlist->setVisible(false);
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
-	setMovieListVisibility(true);
+	showMovieList("Sci-Fi");
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
 }
 void HomePage::on_Film_to_search_released()
 {
@@ -300,7 +252,7 @@ void HomePage::on_ViewMovie_clicked()
 	if (movie_to_search != nullptr)
 	{
 		movieSearched = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_to_search->text().toStdString()))).front();
-		setMovieListVisibility(false);
+		setMovieListVisible(false);
 		showMovie();
 	}
 	else
@@ -332,55 +284,21 @@ void HomePage::on_All_movies_clicked()
 		ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
 		ui.MovieList->item(i)->setForeground(Qt::white);
 	}
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
-	ui.ProfileTitle->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.AddtoWatchedlist->setVisible(false);
-	setMovieListVisibility(true);
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
 }
 
 void HomePage::on_Horror_released()
 {
 }
+
 void HomePage::on_Horror_clicked()
 {
-	DataBase bazaDeDate;
-	std::vector HorrorMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Horror%")));
-	ui.MovieList->clear();
-	for (int i = 0; i < HorrorMovies.size(); i++)
-	{
-		ui.MovieList->addItem(QString::fromStdString(HorrorMovies[i].GetTitle()));
-		ui.MovieList->item(i)->setForeground(Qt::white);
-	}
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
-	ui.ProfileTitle->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.AddtoWatchedlist->setVisible(false);
-	setMovieListVisibility(true);
+	showMovieList("Horror");
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
 }
 
 
@@ -390,31 +308,10 @@ void HomePage::on_Action_released()
 
 void HomePage::on_Action_clicked()
 {
-	DataBase bazaDeDate;
-	std::vector ActionMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Action%")));
-	ui.MovieList->clear();
-	for (int i = 0; i < ActionMovies.size(); i++)
-	{
-		ui.MovieList->addItem(QString::fromStdString(ActionMovies[i].GetTitle()));
-		ui.MovieList->item(i)->setForeground(Qt::white);
-	}
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
-	ui.ProfileTitle->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.AddtoWatchedlist->setVisible(false);
-	setMovieListVisibility(true);
+	showMovieList("Action");
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
 }
 
 void HomePage::on_Drama_released()
@@ -423,29 +320,8 @@ void HomePage::on_Drama_released()
 
 void HomePage::on_Drama_clicked()
 {
-	DataBase bazaDeDate;
-	std::vector DramaMovies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%Drama%")));
-	ui.MovieList->clear();
-	for (int i = 0; i < DramaMovies.size(); i++)
-	{
-		ui.MovieList->addItem(QString::fromStdString(DramaMovies[i].GetTitle()));
-		ui.MovieList->item(i)->setForeground(Qt::white);
-	}
-	ui.See_your_watchedlist->setVisible(false);
-	ui.See_your_wishlist->setVisible(false);
-	ui.ProfileTitle->setVisible(false);
-	ui.MovieTitle->setVisible(false);
-	ui.MovieType->setVisible(false);
-	ui.MovieDirector->setVisible(false);
-	ui.MovieCast->setVisible(false);
-	ui.MovieCountry->setVisible(false);
-	ui.MovieDateAdded->setVisible(false);
-	ui.MovieReleaseYear->setVisible(false);
-	ui.MovieRating->setVisible(false);
-	ui.MovieDuration->setVisible(false);
-	ui.MovieListedIn->setVisible(false);
-	ui.MovieDescription->setVisible(false);
-	ui.AddtoWishlist->setVisible(false);
-	ui.AddtoWatchedlist->setVisible(false);
-	setMovieListVisibility(true);
+	showMovieList("Drama");
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
 }

@@ -18,8 +18,11 @@ private:
 	Ui::HomePageClass ui;
 	User loggedUser;
 	Movie movieSearched;
-	void setMovieListVisibility(bool statement);
 	void showMovie();
+	void showMovieList(std::string movie_genres);
+	void setMovieListVisible(bool statement);
+	void setProfilePageVisible(bool statement);
+	void setMovieInfoVisible(bool statement);
 private slots:
 	void on_User_released();
 	void on_User_clicked();
