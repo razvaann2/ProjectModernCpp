@@ -11,7 +11,7 @@ public:
 	User();
 	~User();
 	//User(User&& aux);
-	User operator=(const User& aux);
+	//User operator=(const User& aux);
 	User(std::string username);
 	User(const User& x);
 	void SetID(int id);

@@ -22,7 +22,7 @@ Movie::~Movie()
 }
 
 
-Movie Movie::operator=(Movie const& object)
+/*Movie Movie::operator=(Movie const& object)
 {
 	Movie m;
 	m.SetCast(object.GetCast());
@@ -38,7 +38,7 @@ Movie Movie::operator=(Movie const& object)
 	m.SetTitle(object.GetTitle());
 	m.SetType(object.GetType());
 	return m;
-}
+}*/
 
 
 

@@ -39,4 +39,6 @@ private slots:
 	void on_AddtoWatchedlist_clicked();
 	void on_ViewMovie_released();
 	void on_ViewMovie_clicked();
+	void on_see_your_wishlist_released();
+	void on_see_your_watchedlist_released();
 };

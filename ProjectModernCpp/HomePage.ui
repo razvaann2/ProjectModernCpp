@@ -41,7 +41,7 @@ QFont newFont(&quot;Segoe UI&quot;, 16, QFont::Bold, true);
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="Recomanded">
+   <widget class="QPushButton" name="All_movies">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -74,14 +74,14 @@ padding: 5px;
 }</string>
     </property>
     <property name="text">
-     <string>Recomended for you</string>
+     <string>All movies</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Comedy">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>150</y>
+      <y>300</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -208,7 +208,7 @@ color: #fff;
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Logged in as:&lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="SF_2">
+   <widget class="QPushButton" name="Horror">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -244,11 +244,11 @@ padding: 5px;
      <string>Horror</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="SF_3">
+   <widget class="QPushButton" name="Action">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>300</y>
+      <y>150</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -277,7 +277,7 @@ padding: 5px;
 }</string>
     </property>
     <property name="text">
-     <string>Wishlist</string>
+     <string>Action</string>
     </property>
    </widget>
    <widget class="QLabel" name="HomePage_4">
@@ -318,7 +318,7 @@ padding: 5px;
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="SF_4">
+   <widget class="QPushButton" name="Drama">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -351,7 +351,7 @@ padding: 5px;
 }</string>
     </property>
     <property name="text">
-     <string>Watched list</string>
+     <string>Drama</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="Film_to_search">
@@ -961,9 +961,9 @@ padding: 5px;
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>240</red>
-          <green>240</green>
-          <blue>240</blue>
+          <red>52</red>
+          <green>52</green>
+          <blue>52</blue>
          </color>
         </brush>
        </colorrole>
@@ -979,18 +979,18 @@ padding: 5px;
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>52</red>
+          <green>52</green>
+          <blue>52</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>240</red>
-          <green>240</green>
-          <blue>240</blue>
+          <red>52</red>
+          <green>52</green>
+          <blue>52</blue>
          </color>
         </brush>
        </colorrole>
@@ -1070,22 +1070,93 @@ padding: 5px;
      <string>View Movie</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="See_your_wishlist">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>280</y>
+      <width>321</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
+    </property>
+    <property name="text">
+     <string>See your Wishlist</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="See_your_watchedlist">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>280</y>
+      <width>321</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
+    </property>
+    <property name="text">
+     <string>See your Watchedlist</string>
+    </property>
+   </widget>
+   <zorder>Background</zorder>
    <zorder>HomePage_4</zorder>
    <zorder>HomePage_2</zorder>
    <zorder>HomePage_5</zorder>
-   <zorder>Recomanded</zorder>
-   <zorder>SF_3</zorder>
+   <zorder>All_movies</zorder>
+   <zorder>Action</zorder>
    <zorder>Comedy</zorder>
    <zorder>SF</zorder>
-   <zorder>SF_2</zorder>
-   <zorder>SF_4</zorder>
+   <zorder>Horror</zorder>
+   <zorder>Drama</zorder>
    <zorder>Film_to_search</zorder>
    <zorder>Search</zorder>
    <zorder>HomePage</zorder>
-   <zorder>Background</zorder>
    <zorder>User</zorder>
    <zorder>ProfileTitle</zorder>
-   <zorder>MovieTitle</zorder>
    <zorder>LogOut</zorder>
    <zorder>MovieType</zorder>
    <zorder>MovieDirector</zorder>
@@ -1099,8 +1170,11 @@ padding: 5px;
    <zorder>MovieCast</zorder>
    <zorder>AddtoWishlist</zorder>
    <zorder>AddtoWatchedlist</zorder>
-   <zorder>MovieList</zorder>
    <zorder>ViewMovie</zorder>
+   <zorder>See_your_wishlist</zorder>
+   <zorder>See_your_watchedlist</zorder>
+   <zorder>MovieTitle</zorder>
+   <zorder>MovieList</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

@@ -24,6 +24,8 @@ HomePage::HomePage(QWidget *parent)
 	ui.AddtoWishlist->setVisible(false);
 	ui.AddtoWatchedlist->setVisible(false);
 	setMovieListVisibility(false);
+	ui.See_your_watchedlist->setVisible(false);
+	ui.See_your_wishlist->setVisible(false);
 }
 
 void HomePage::SetUser(User user)
@@ -132,6 +134,8 @@ void HomePage::showMovie()
 	ui.MovieDescription->setVisible(true);
 	ui.AddtoWishlist->setVisible(true);
 	ui.AddtoWatchedlist->setVisible(true);
+	ui.See_your_watchedlist->setVisible(false);
+	ui.See_your_wishlist->setVisible(false);
 }
 
 void HomePage::on_User_clicked()
@@ -151,6 +155,8 @@ void HomePage::on_User_clicked()
 	ui.MovieDescription->setVisible(false);
 	setMovieListVisibility(false);
 	ui.ProfileTitle->setVisible(true);
+	ui.See_your_watchedlist->setVisible(true);
+	ui.See_your_wishlist->setVisible(true);
 }
 
 void HomePage::on_User_released()
@@ -223,6 +229,8 @@ void HomePage::on_SF_clicked()
 	ui.MovieDescription->setVisible(false);
 	ui.AddtoWishlist->setVisible(false);
 	ui.AddtoWatchedlist->setVisible(false);
+	ui.See_your_watchedlist->setVisible(false);
+	ui.See_your_wishlist->setVisible(false);
 	setMovieListVisibility(true);
 }
 void HomePage::on_Film_to_search_released()
@@ -276,4 +284,12 @@ void HomePage::on_ViewMovie_clicked()
 		QMessageBox box;
 		box.warning(this, "Warning", "Select a movie first", QMessageBox::Ok);
 	}
+}
+
+void HomePage::on_see_your_wishlist_released()
+{
+}
+
+void HomePage::on_see_your_watchedlist_released()
+{
 }

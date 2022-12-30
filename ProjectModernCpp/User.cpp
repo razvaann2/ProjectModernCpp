@@ -1,13 +1,13 @@
 #include "User.h"
 
 
-User User::operator=(const User& aux)
+/*User User::operator=(const User& aux)
 {
 	User user;
 	user.SetID(aux.GetID());
 	user.SetUserName(aux.GetUserName());
 	return user;
-}
+}*/
 User::User()
 {
 	this->userName = "";
