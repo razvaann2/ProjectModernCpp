@@ -1,4 +1,9 @@
 #include "WishList.h"
+
+int WishList::GetID() const
+{
+	return this->ID;
+}
 int WishList::GetMovieID()const
 {
 	return this->MovieID;
@@ -6,6 +11,10 @@ int WishList::GetMovieID()const
 int WishList::GetUserID()const
 {
 	return this->UserID;
+}
+void WishList::SetID(int ID)
+{
+	this->ID = ID;
 }
 void WishList::SetMovieID(int MovieID)
 {
