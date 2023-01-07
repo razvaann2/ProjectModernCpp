@@ -248,10 +248,18 @@ void HomePage::on_AddtoWatchedlist_released()
 void HomePage::on_AddtoWatchedlist_clicked()
 {
 	DataBase bazaDeDate;
-	bazaDeDate.AddWatchedList(this->movieSearched.GetMovieId(),this->loggedUser.GetID());
 	QMessageBox reply;
-	QString a = QString::fromStdString(movieSearched.GetTitle()) + " was marked as seen";
-	reply.information(this, "info",a,QMessageBox::Ok);
+	if (bazaDeDate.m_db.get_all<WatchedList>(sql::where(sql::c(&WatchedList::GetMovieID) == this->movieSearched.GetMovieId() and sql::c(&WatchedList::GetUserID) == this->loggedUser.GetID())).size() == 0)
+	{
+		bazaDeDate.AddWatchedList(this->movieSearched.GetMovieId(), this->loggedUser.GetID());
+		QString a = QString::fromStdString(movieSearched.GetTitle()) + " was marked as seen";
+		reply.information(this, "info", a, QMessageBox::Ok);
+	}
+	else
+	{
+		QString a = QString::fromStdString(movieSearched.GetTitle()) + " was already marked as seen";
+		reply.information(this, "info", a, QMessageBox::Ok);
+	}
 }
 
 void HomePage::on_ViewMovie_released()
