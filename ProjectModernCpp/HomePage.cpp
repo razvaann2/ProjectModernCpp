@@ -112,7 +112,7 @@ void HomePage::showMovieList(std::string movie_genres)
 	ui.MovieList->clear();
 	for (int i = 0; i < Movies.size(); i++)
 	{
-		ui.MovieList->addItem(QString::fromStdString(Movies[i].GetTitle()));
+		ui.MovieList->addItem(QString::fromStdString((Movies[i].GetTitle())));
 		ui.MovieList->item(i)->setForeground(Qt::white);
 	}
 }
@@ -268,8 +268,31 @@ void HomePage::on_see_your_wishlist_released()
 {
 }
 
+void HomePage::on_see_your_wishlist_clicked()
+{
+	DataBase bazaDeDate;
+	std::vector<WishList> movies_id = bazaDeDate.m_db.get_all<WishList>(sql::where(sql::c(&WishList::GetUserID) = loggedUser.GetID()));
+	std::vector<Movie> whishlist;
+	for (int i = 0; i < movies_id.size(); i++)
+	{
+		auto movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) = movies_id[i]));
+		whishlist.push_back(movie[0]);
+	}
+	ui.Wishlist->clearFocus();
+	for (int i = 0; i < whishlist.size(); i++)
+	{
+		ui.MovieList->addItem(QString::fromStdString((whishlist[i].GetTitle())));
+		ui.MovieList->item(i)->setForeground(Qt::white);
+	}
+}
+
 void HomePage::on_see_your_watchedlist_released()
 {
+}
+
+void HomePage::on_see_your_watchedlist_clicked()
+{
+
 }
 
 void HomePage::on_All_movies_released()
