@@ -128,7 +128,10 @@ void HomePage::setProfilePageVisible(bool statement)
 	ui.ProfileTitle->setVisible(statement);
 	ui.See_your_watchedlist->setVisible(statement);
 	ui.See_your_wishlist->setVisible(statement);
-	ui.Wishlist_and_watchedlist->setVisible(statement);
+	ui.Wishlist->setVisible(statement);
+	ui.Watchedlist->setVisible(statement);
+	ui.Wishlist->clear();
+	ui.Watchedlist->clear();
 }
 
 void HomePage::setMovieInfoVisible(bool statement)
@@ -271,17 +274,17 @@ void HomePage::on_See_your_wishlist_clicked()
 {
 	DataBase bazaDeDate;
 	std::vector<WishList> movies_id = bazaDeDate.m_db.get_all<WishList>(sql::where(sql::c(&WishList::GetUserID) = loggedUser.GetID()));
-	std::vector<Movie> whishlist;
+	std::vector<Movie> wishlist;
 	for (int i = 0; i < movies_id.size(); i++)
 	{
 		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) = movies_id[i].GetMovieID()));
-		whishlist.push_back(movie[0]);
+		wishlist.push_back(movie[0]);
 	}
-	ui.Wishlist_and_watchedlist->clear();
-	for (int i = 0; i < whishlist.size(); i++)
+	ui.Wishlist->clear();
+	for (int i = 0; i < wishlist.size(); i++)
 	{
-		ui.Wishlist_and_watchedlist->addItem(QString::fromStdString((whishlist[i].GetTitle())));
-		ui.Wishlist_and_watchedlist->item(i)->setForeground(Qt::white);
+		ui.Wishlist->addItem(QString::fromStdString((wishlist[i].GetTitle())));
+		ui.Wishlist->item(i)->setForeground(Qt::white);
 	}
 }
 
@@ -291,7 +294,20 @@ void HomePage::on_See_your_watchedlist_released()
 
 void HomePage::on_See_your_watchedlist_clicked()
 {
-
+	DataBase bazaDeDate;
+	std::vector<WatchedList> movies_id = bazaDeDate.m_db.get_all<WatchedList>(sql::where(sql::c(&WatchedList::GetUserID) = loggedUser.GetID()));
+	std::vector<Movie> watchedlist;
+	for (int i = 0; i < movies_id.size(); i++)
+	{
+		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) = movies_id[i].GetMovieID()));
+		watchedlist.push_back(movie[0]);
+	}
+	ui.Watchedlist->clear();
+	for (int i = 0; i < watchedlist.size(); i++)
+	{
+		ui.Watchedlist->addItem(QString::fromStdString((watchedlist[i].GetTitle())));
+		ui.Watchedlist->item(i)->setForeground(Qt::white);
+	}
 }
 
 void HomePage::on_All_movies_released()

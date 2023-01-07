@@ -34,6 +34,7 @@ inline auto createStorage(const std::string& filename)
 			sql::foreign_key(&WishList::SetUserID).references(&User::SetID),
 			sql::foreign_key(&WishList::SetMovieID).references(&Movie::SetMovieId)),
 		sql::make_table("WatchedList",
+			sql::make_column("ID", &WatchedList::GetID, &WatchedList::SetID, sql::autoincrement(), sql::primary_key()),
 			sql::make_column("UserID", &WatchedList::GetUserID, &WatchedList::SetUserID),
 			sql::make_column("MovieID", &WatchedList::GetMovieID, &WatchedList::SetMovieID),
 			sql::foreign_key(&WatchedList::SetUserID).references(&User::SetID),

@@ -1077,7 +1077,7 @@ padding: 5px;
    <widget class="QPushButton" name="See_your_wishlist">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>940</x>
       <y>260</y>
       <width>321</width>
       <height>71</height>
@@ -1086,7 +1086,7 @@ padding: 5px;
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
+      <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -1113,7 +1113,7 @@ padding: 5px;
    <widget class="QPushButton" name="See_your_watchedlist">
     <property name="geometry">
      <rect>
-      <x>940</x>
+      <x>470</x>
       <y>260</y>
       <width>321</width>
       <height>71</height>
@@ -1122,7 +1122,7 @@ padding: 5px;
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
+      <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -1146,18 +1146,33 @@ padding: 5px;
      <string>See your Watchedlist</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="Wishlist_and_watchedlist">
+   <widget class="QListWidget" name="Wishlist">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>880</x>
       <y>380</y>
-      <width>1071</width>
+      <width>521</width>
       <height>531</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>24</pointsize>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="Watchedlist">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>380</y>
+      <width>521</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
      </font>
     </property>
    </widget>
@@ -1194,7 +1209,8 @@ padding: 5px;
    <zorder>See_your_wishlist</zorder>
    <zorder>ProfileTitle</zorder>
    <zorder>ViewMovie</zorder>
-   <zorder>Wishlist_and_watchedlist</zorder>
+   <zorder>Wishlist</zorder>
+   <zorder>Watchedlist</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
