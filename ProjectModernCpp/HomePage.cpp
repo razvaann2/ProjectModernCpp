@@ -3,6 +3,7 @@
 #include<QString>
 #include "DataBase.h"
 
+using namespace sql;
 
 HomePage::HomePage(QWidget *parent)
 	: QMainWindow(parent)
@@ -228,10 +229,18 @@ void HomePage::on_AddtoWishlist_released()
 void HomePage::on_AddtoWishlist_clicked()
 {
 	DataBase bazaDeDate;
-	bazaDeDate.AddWishList(this->movieSearched.GetMovieId(), this->loggedUser.GetID());
 	QMessageBox reply;
-	QString a = QString::fromStdString(movieSearched.GetTitle()) + " was added to wishlist";
-	reply.information(this, "info", a, QMessageBox::Ok);
+	if (bazaDeDate.m_db.get_all<WishList>(sql::where(sql::c(&WishList::GetMovieID) == this->movieSearched.GetMovieId() and sql::c(&WishList::GetUserID) == this->loggedUser.GetID())).size() == 0)
+	{
+		bazaDeDate.AddWishList(this->movieSearched.GetMovieId(), this->loggedUser.GetID());
+		QString a = QString::fromStdString(movieSearched.GetTitle()) + " was added to your wishlist";
+		reply.information(this, "info", a, QMessageBox::Ok);
+	}
+	else
+	{
+		QString a = QString::fromStdString(movieSearched.GetTitle()) + " is already in your wishlist";
+		reply.information(this, "info", a, QMessageBox::Ok);
+	}
 }
 void HomePage::on_AddtoWatchedlist_released()
 {
@@ -273,11 +282,11 @@ void HomePage::on_See_your_wishlist_released()
 void HomePage::on_See_your_wishlist_clicked()
 {
 	DataBase bazaDeDate;
-	std::vector<WishList> movies_id = bazaDeDate.m_db.get_all<WishList>(sql::where(sql::c(&WishList::GetUserID) = loggedUser.GetID()));
+	std::vector<WishList> movies_id = bazaDeDate.m_db.get_all<WishList>(sql::where(sql::c(&WishList::GetUserID) == loggedUser.GetID()));
 	std::vector<Movie> wishlist;
 	for (int i = 0; i < movies_id.size(); i++)
 	{
-		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) = movies_id[i].GetMovieID()));
+		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) == movies_id[i].GetMovieID()));
 		wishlist.push_back(movie[0]);
 	}
 	ui.Wishlist->clear();
@@ -295,11 +304,11 @@ void HomePage::on_See_your_watchedlist_released()
 void HomePage::on_See_your_watchedlist_clicked()
 {
 	DataBase bazaDeDate;
-	std::vector<WatchedList> movies_id = bazaDeDate.m_db.get_all<WatchedList>(sql::where(sql::c(&WatchedList::GetUserID) = loggedUser.GetID()));
+	std::vector<WatchedList> movies_id = bazaDeDate.m_db.get_all<WatchedList>(sql::where(sql::c(&WatchedList::GetUserID) == loggedUser.GetID()));
 	std::vector<Movie> watchedlist;
 	for (int i = 0; i < movies_id.size(); i++)
 	{
-		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) = movies_id[i].GetMovieID()));
+		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) == movies_id[i].GetMovieID()));
 		watchedlist.push_back(movie[0]);
 	}
 	ui.Watchedlist->clear();
