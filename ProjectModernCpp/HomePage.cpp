@@ -128,6 +128,8 @@ void HomePage::setProfilePageVisible(bool statement)
 	ui.ProfileTitle->setVisible(statement);
 	ui.See_your_watchedlist->setVisible(statement);
 	ui.See_your_wishlist->setVisible(statement);
+	ui.Wishlist->setVisible(statement);
+	ui.Watchedlist->setVisible(statement);
 }
 
 void HomePage::setMovieInfoVisible(bool statement)

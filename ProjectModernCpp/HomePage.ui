@@ -1040,6 +1040,9 @@ padding: 5px;
       <pointsize>24</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
    </widget>
    <widget class="QPushButton" name="ViewMovie">
     <property name="geometry">
@@ -1142,7 +1145,28 @@ padding: 5px;
      <string>See your Watchedlist</string>
     </property>
    </widget>
+   <widget class="QListWidget" name="Wishlist">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>380</y>
+      <width>521</width>
+      <height>531</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="Watchedlist">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>380</y>
+      <width>521</width>
+      <height>531</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>Background</zorder>
+   <zorder>MovieTitle</zorder>
    <zorder>HomePage_4</zorder>
    <zorder>HomePage_2</zorder>
    <zorder>HomePage_5</zorder>
@@ -1156,25 +1180,26 @@ padding: 5px;
    <zorder>Search</zorder>
    <zorder>HomePage</zorder>
    <zorder>User</zorder>
-   <zorder>ProfileTitle</zorder>
    <zorder>LogOut</zorder>
    <zorder>MovieType</zorder>
    <zorder>MovieDirector</zorder>
-   <zorder>MovieDescription</zorder>
    <zorder>MovieListedIn</zorder>
    <zorder>MovieDuration</zorder>
    <zorder>MovieRating</zorder>
    <zorder>MovieReleaseYear</zorder>
    <zorder>MovieDateAdded</zorder>
    <zorder>MovieCountry</zorder>
-   <zorder>MovieCast</zorder>
    <zorder>AddtoWishlist</zorder>
    <zorder>AddtoWatchedlist</zorder>
-   <zorder>ViewMovie</zorder>
-   <zorder>See_your_wishlist</zorder>
-   <zorder>See_your_watchedlist</zorder>
-   <zorder>MovieTitle</zorder>
+   <zorder>MovieDescription</zorder>
+   <zorder>MovieCast</zorder>
    <zorder>MovieList</zorder>
+   <zorder>See_your_watchedlist</zorder>
+   <zorder>See_your_wishlist</zorder>
+   <zorder>ProfileTitle</zorder>
+   <zorder>ViewMovie</zorder>
+   <zorder>Wishlist</zorder>
+   <zorder>Watchedlist</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
