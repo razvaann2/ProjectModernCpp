@@ -128,8 +128,7 @@ void HomePage::setProfilePageVisible(bool statement)
 	ui.ProfileTitle->setVisible(statement);
 	ui.See_your_watchedlist->setVisible(statement);
 	ui.See_your_wishlist->setVisible(statement);
-	ui.Wishlist->setVisible(statement);
-	ui.Watchedlist->setVisible(statement);
+	ui.Wishlist_and_watchedlist->setVisible(statement);
 }
 
 void HomePage::setMovieInfoVisible(bool statement)
@@ -278,11 +277,11 @@ void HomePage::on_See_your_wishlist_clicked()
 		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) = movies_id[i].GetMovieID()));
 		whishlist.push_back(movie[0]);
 	}
-	ui.Wishlist->clear();
+	ui.Wishlist_and_watchedlist->clear();
 	for (int i = 0; i < whishlist.size(); i++)
 	{
-		ui.Wishlist->addItem(QString::fromStdString((whishlist[i].GetTitle())));
-		ui.Wishlist->item(i)->setForeground(Qt::white);
+		ui.Wishlist_and_watchedlist->addItem(QString::fromStdString((whishlist[i].GetTitle())));
+		ui.Wishlist_and_watchedlist->item(i)->setForeground(Qt::white);
 	}
 }
 

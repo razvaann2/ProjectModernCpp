@@ -1,4 +1,9 @@
 #include "WatchedList.h"
+
+int WatchedList::GetID() const
+{
+	return this->ID;
+}
 int WatchedList::GetMovieID()const
 {
 	return this->MovieID;
@@ -6,6 +11,10 @@ int WatchedList::GetMovieID()const
 int WatchedList::GetUserID()const
 {
 	return this->UserID;
+}
+void WatchedList::SetID(int ID)
+{
+	this->ID = ID;
 }
 void WatchedList::SetMovieID(int MovieID)
 {
