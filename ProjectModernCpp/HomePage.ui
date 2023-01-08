@@ -437,14 +437,15 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="ProfileTitle">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>710</x>
       <y>110</y>
-      <width>371</width>
-      <height>121</height>
+      <width>311</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <pointsize>12</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -459,7 +460,7 @@ color: #fff;
 }</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;Profile&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Profile&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="MovieTitle">
@@ -1040,6 +1041,9 @@ padding: 5px;
       <pointsize>24</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
    </widget>
    <widget class="QPushButton" name="ViewMovie">
     <property name="geometry">
@@ -1073,8 +1077,8 @@ padding: 5px;
    <widget class="QPushButton" name="See_your_wishlist">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>280</y>
+      <x>940</x>
+      <y>260</y>
       <width>321</width>
       <height>71</height>
      </rect>
@@ -1082,7 +1086,7 @@ padding: 5px;
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
+      <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -1109,8 +1113,8 @@ padding: 5px;
    <widget class="QPushButton" name="See_your_watchedlist">
     <property name="geometry">
      <rect>
-      <x>940</x>
-      <y>280</y>
+      <x>470</x>
+      <y>260</y>
       <width>321</width>
       <height>71</height>
      </rect>
@@ -1118,7 +1122,7 @@ padding: 5px;
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
+      <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -1142,7 +1146,38 @@ padding: 5px;
      <string>See your Watchedlist</string>
     </property>
    </widget>
+   <widget class="QListWidget" name="Wishlist">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>380</y>
+      <width>521</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="Watchedlist">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>380</y>
+      <width>521</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+   </widget>
    <zorder>Background</zorder>
+   <zorder>MovieTitle</zorder>
    <zorder>HomePage_4</zorder>
    <zorder>HomePage_2</zorder>
    <zorder>HomePage_5</zorder>
@@ -1156,25 +1191,26 @@ padding: 5px;
    <zorder>Search</zorder>
    <zorder>HomePage</zorder>
    <zorder>User</zorder>
-   <zorder>ProfileTitle</zorder>
    <zorder>LogOut</zorder>
    <zorder>MovieType</zorder>
    <zorder>MovieDirector</zorder>
-   <zorder>MovieDescription</zorder>
    <zorder>MovieListedIn</zorder>
    <zorder>MovieDuration</zorder>
    <zorder>MovieRating</zorder>
    <zorder>MovieReleaseYear</zorder>
    <zorder>MovieDateAdded</zorder>
    <zorder>MovieCountry</zorder>
-   <zorder>MovieCast</zorder>
    <zorder>AddtoWishlist</zorder>
    <zorder>AddtoWatchedlist</zorder>
-   <zorder>ViewMovie</zorder>
-   <zorder>See_your_wishlist</zorder>
-   <zorder>See_your_watchedlist</zorder>
-   <zorder>MovieTitle</zorder>
+   <zorder>MovieDescription</zorder>
+   <zorder>MovieCast</zorder>
    <zorder>MovieList</zorder>
+   <zorder>See_your_watchedlist</zorder>
+   <zorder>See_your_wishlist</zorder>
+   <zorder>ProfileTitle</zorder>
+   <zorder>ViewMovie</zorder>
+   <zorder>Wishlist</zorder>
+   <zorder>Watchedlist</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

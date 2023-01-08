@@ -2,10 +2,12 @@
 class WatchedList
 {
 private:
-	int MovieID, UserID;
+	int ID, MovieID, UserID;
 public:
+	int GetID()const;
 	int GetMovieID()const;
 	int GetUserID()const;
+	void SetID(int ID);
 	void SetUserID(int UserID);
 	void SetMovieID(int MovieID);
 	WatchedList(int MovieID = 0, int UserID = 0);
