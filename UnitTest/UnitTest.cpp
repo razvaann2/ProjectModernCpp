@@ -3,6 +3,7 @@
 #include "../ProjectModernCpp/DataBase.h"
 #include"../ProjectModernCpp/Movie.h"
 #include"../ProjectModernCpp/Movie.cpp"
+#include <wrl/client.h>
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
@@ -32,6 +33,20 @@ namespace UnitTest
 			m->SetDateAdded("01.01.2000");
 			std::string s = "01.01.2000";
 			Assert::AreEqual(s, m->GetDateAdded());
+		}
+		TEST_METHOD(TestingSetDescription)
+		{
+			Movie* m = new Movie();
+			m->SetDescription("New movie");
+			std::string s = "New movie";
+			Assert::AreEqual(s, m->GetDescription());
+		}
+		TEST_METHOD(TestingSetDuration)
+		{
+			Movie* m = new Movie();
+			m->SetDuration("2:22");
+			std::string s = "2:22";
+			Assert::AreEqual(s, m->GetDuration());
 		}
 	};
 }
