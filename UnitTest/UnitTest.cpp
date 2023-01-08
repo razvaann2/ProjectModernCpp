@@ -2,7 +2,7 @@
 #include "CppUnitTest.h"
 #include "../ProjectModernCpp/DataBase.h"
 #include"../ProjectModernCpp/Movie.h"
-#include "sqlite_orm/sqlite_orm.h"
+#include"../ProjectModernCpp/Movie.cpp"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
@@ -12,7 +12,7 @@ namespace UnitTest
 	public:
 		
 	
-		TEST_METHOD(TestingDatabaseG)
+		TEST_METHOD(TestingSettersandGetters)
 		{
 			Movie* m = new Movie();
 			m->SetCast("Leonardo Dicaprio");
@@ -21,3 +21,4 @@ namespace UnitTest
 		}
 	};
 }
+ 
