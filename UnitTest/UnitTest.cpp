@@ -62,6 +62,19 @@ namespace UnitTest
 			std::string s = "Wednesday";
 			Assert::AreEqual(s, m->GetTitle());
 		}
+		TEST_METHOD(TestStrings)
+		{
+			Movie* m = new Movie();
+			std::string s = "Oare,,Care,,Cine,,When";
+			int poz1, poz2;
+			poz1 = s.find(",");
+			poz2 = s.find(',', poz1 + 1);
+			std::string sub;
+			m->MovieGetNewString(poz1, poz2, s);
+			sub = m->MovieGetNewString(poz1, poz2, s);
+			std::string verifier = "Care";
+			Assert::AreEqual(verifier, sub);
+		}
 	};
 }
  

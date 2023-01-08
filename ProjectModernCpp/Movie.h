@@ -35,4 +35,5 @@ public:
 	std::string GetListedIn()const;
 	void SetDescription(std::string Description);
 	std::string GetDescription()const;
+	std::string MovieGetNewString(int& poz1, int& poz2, std::string& s);
 };
