@@ -48,6 +48,20 @@ namespace UnitTest
 			std::string s = "2:22";
 			Assert::AreEqual(s, m->GetDuration());
 		}
+		TEST_METHOD(TestingSetDirector)
+		{
+			Movie* m = new Movie();
+			m->SetDirector("TimBurton");
+			std::string s = "TimBurton";
+			Assert::AreEqual(s, m->GetDirector());
+		}
+		TEST_METHOD(TestingSetTitle)
+		{
+			Movie* m = new Movie();
+			m->SetTitle("Wednesday");
+			std::string s = "Wednesday";
+			Assert::AreEqual(s, m->GetTitle());
+		}
 	};
 }
  
