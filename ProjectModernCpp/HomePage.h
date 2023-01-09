@@ -23,6 +23,7 @@ private:
 	void setMovieListVisible(bool statement);
 	void setProfilePageVisible(bool statement);
 	void setMovieInfoVisible(bool statement);
+	template <typename T> std::vector<Movie> getList(T a);
 private slots:
 	void on_User_released();
 	void on_User_clicked();

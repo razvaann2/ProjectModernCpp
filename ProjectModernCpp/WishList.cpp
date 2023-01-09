@@ -31,6 +31,7 @@ WishList::WishList(int MovieID, int UserID)
 }
 WishList::WishList(const WishList& a)
 {
+	this->ID = a.ID;
 	this->MovieID = a.MovieID;
 	this->UserID = a.UserID;
 }

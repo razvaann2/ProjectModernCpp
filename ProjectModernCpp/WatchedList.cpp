@@ -31,6 +31,7 @@ WatchedList::WatchedList(int MovieID , int UserID )
 }
 WatchedList::WatchedList(const WatchedList& a)
 {
+	this->ID = a.ID;
 	this->MovieID = a.MovieID;
 	this->UserID = a.UserID;
 }

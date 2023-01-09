@@ -154,6 +154,20 @@ void HomePage::setMovieInfoVisible(bool statement)
 	ui.AddtoWatchedlist->setVisible(statement);
 }
 
+template<typename T>
+std::vector<Movie> HomePage::getList(T a)
+{
+	DataBase bazaDeDate;
+	std::vector<T> movies_id = bazaDeDate.m_db.get_all<T>(sql::where(sql::c(&T::GetUserID) == loggedUser.GetID()));
+	std::vector<Movie> list;
+	for (int i = 0; i < movies_id.size(); i++)
+	{
+		Movie movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) == movies_id[i].GetMovieID())).front();
+		list.push_back(movie);
+	}
+	return list;
+}
+
 void HomePage::on_User_clicked()
 {
 	setMovieInfoVisible(false);
@@ -291,14 +305,8 @@ void HomePage::on_See_your_wishlist_released()
 
 void HomePage::on_See_your_wishlist_clicked()
 {
-	DataBase bazaDeDate;
-	std::vector<WishList> movies_id = bazaDeDate.m_db.get_all<WishList>(sql::where(sql::c(&WishList::GetUserID) == loggedUser.GetID()));
-	std::vector<Movie> wishlist;
-	for (int i = 0; i < movies_id.size(); i++)
-	{
-		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) == movies_id[i].GetMovieID()));
-		wishlist.push_back(movie[0]);
-	}
+	WishList a;
+	std::vector<Movie> wishlist = getList(a);
 	ui.Wishlist->clear();
 	for (int i = 0; i < wishlist.size(); i++)
 	{
@@ -313,14 +321,8 @@ void HomePage::on_See_your_watchedlist_released()
 
 void HomePage::on_See_your_watchedlist_clicked()
 {
-	DataBase bazaDeDate;
-	std::vector<WatchedList> movies_id = bazaDeDate.m_db.get_all<WatchedList>(sql::where(sql::c(&WatchedList::GetUserID) == loggedUser.GetID()));
-	std::vector<Movie> watchedlist;
-	for (int i = 0; i < movies_id.size(); i++)
-	{
-		std::vector<Movie> movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) == movies_id[i].GetMovieID()));
-		watchedlist.push_back(movie[0]);
-	}
+	WatchedList a;
+	std::vector<Movie> watchedlist = getList(a);
 	ui.Watchedlist->clear();
 	for (int i = 0; i < watchedlist.size(); i++)
 	{
@@ -383,4 +385,27 @@ void HomePage::on_Drama_clicked()
 	setProfilePageVisible(false);
 	setMovieInfoVisible(false);
 	setMovieListVisible(true);
+}
+
+void HomePage::on_DeleteFromWatchedlist_released()
+{
+}
+
+void HomePage::on_DeleteFromWatchedlist_clicked()
+{
+	DataBase bazaDeDate;
+	QListWidgetItem* movie_to_search = ui.Watchedlist->currentItem();
+	Movie movie = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_to_search->text().toStdString()))).front();
+	WatchedList item_to_delete = bazaDeDate.m_db.get_all<WatchedList>(sql::where(sql::c(&WatchedList::GetMovieID) == movie.GetMovieId() and sql::c(&WatchedList::GetUserID) == this->loggedUser.GetID())).front();
+	bazaDeDate.m_db.remove<WatchedList>(item_to_delete.GetID());
+	bazaDeDate.m_db.sync_schema();
+}
+
+void HomePage::on_DeleteFromWishlist_released()
+{
+}
+
+void HomePage::on_DeleteFromWishlist_clicked()
+{
+
 }
