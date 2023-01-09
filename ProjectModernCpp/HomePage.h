@@ -24,6 +24,9 @@ private:
 	void setProfilePageVisible(bool statement);
 	void setMovieInfoVisible(bool statement);
 	template <typename T> std::vector<Movie> getList(T a);
+	template <typename T> void deleteFromList(T a, QListWidgetItem* item_to_delete);
+	void updateWatchedlist(std::vector<Movie> watchedlist);
+	void updateWishlist(std::vector<Movie> wishlist);
 private slots:
 	void on_User_released();
 	void on_User_clicked();
