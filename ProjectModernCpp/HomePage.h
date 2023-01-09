@@ -54,4 +54,8 @@ private slots:
 	void on_Action_clicked();
 	void on_Drama_released();
 	void on_Drama_clicked();
+	void on_DeleteFromWatchedlist_released();
+	void on_DeleteFromWatchedlist_clicked();
+	void on_DeleteFromWishlist_released();
+	void on_DeleteFromWishlist_clicked();
 };

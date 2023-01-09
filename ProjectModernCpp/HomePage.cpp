@@ -133,6 +133,8 @@ void HomePage::setProfilePageVisible(bool statement)
 	ui.Watchedlist->setVisible(statement);
 	ui.Wishlist->clear();
 	ui.Watchedlist->clear();
+	ui.DeleteFromWatchedlist->setVisible(statement);
+	ui.DeleteFromWishlist->setVisible(statement);
 }
 
 void HomePage::setMovieInfoVisible(bool statement)
