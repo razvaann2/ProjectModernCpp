@@ -2,7 +2,8 @@
 #include"ProjectModernCpp.h"
 #include<QString>
 #include "DataBase.h"
-
+#include <string>
+#include<unordered_set>
 using namespace sql;
 
 HomePage::HomePage(QWidget *parent)
@@ -237,12 +238,10 @@ void HomePage::on_Search_clicked()
 		reply.information(this, "info", a, QMessageBox::Ok);
 
 	}
-		
-		
-		
-		
+
 	
 }
+
 void HomePage::on_Search_released()
 {
 }

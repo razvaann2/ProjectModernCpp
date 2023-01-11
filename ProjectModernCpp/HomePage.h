@@ -62,4 +62,6 @@ private slots:
 	void on_DeleteFromWatchedlist_clicked();
 	void on_DeleteFromWishlist_released();
 	void on_DeleteFromWishlist_clicked();
+	void on_Recommend_movie_released();
+	void on_Recommend_movie_clicked();
 };

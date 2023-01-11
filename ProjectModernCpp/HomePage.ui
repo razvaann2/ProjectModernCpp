@@ -305,7 +305,7 @@ padding: 5px;
       <x>40</x>
       <y>30</y>
       <width>211</width>
-      <height>311</height>
+      <height>371</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1234,6 +1234,42 @@ padding: 5px;
      <string>Delete Movie From Wishlist</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Recommend_movie">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>350</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Recommend a movie</string>
+    </property>
+   </widget>
    <zorder>Background</zorder>
    <zorder>MovieTitle</zorder>
    <zorder>HomePage_4</zorder>
@@ -1271,6 +1307,7 @@ padding: 5px;
    <zorder>Watchedlist</zorder>
    <zorder>DeleteFromWishlist</zorder>
    <zorder>DeleteFromWatchedlist</zorder>
+   <zorder>Recommend_movie</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
