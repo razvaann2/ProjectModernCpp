@@ -241,7 +241,20 @@ void HomePage::on_Search_clicked()
 
 	
 }
-
+void HomePage::on_Recommend_movie_released() {}
+void HomePage::on_Recommend_movie_clicked()
+{
+	ui.MovieList->clear();
+	srand(std::time(0));
+	int random_number;
+	std::unordered_set<int> set;
+	WatchedList watched;
+	WishList wish;
+	DataBase bazaDeDate;
+	std::vector v1 = getList(watched);
+	std::vector v2 = getList(wish);
+	
+}
 void HomePage::on_Search_released()
 {
 }
