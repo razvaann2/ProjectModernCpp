@@ -280,7 +280,20 @@ void HomePage::on_Recommend_movie_clicked()
 					genres[j].erase(0, 1);
 				}
 			}
-			
+			random_number = std::rand() % genres.size();
+
+			v2 = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + genres[random_number] + "%")));
+			random_number = std::rand() % v2.size();
+			if (set.find(v2[random_number].GetMovieId()) == set.end())
+			{
+				ui.MovieList->addItem(QString::fromStdString(v2[random_number].GetTitle()));
+				ui.MovieList->item(i)->setForeground(Qt::white);
+				set.insert(v2[random_number].GetMovieId());
+			}
+			else i--;
+		}
+	}
+	
 void HomePage::on_Search_released()
 {
 }
