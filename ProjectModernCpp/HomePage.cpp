@@ -261,7 +261,14 @@ void HomePage::on_Recommend_movie_clicked()
 	{
 		v1.insert(v1.end(), v2.begin(), v2.end());
 
-		
+		for (int i = 0; i < 10; i++)
+		{
+			int random_number = std::rand() % v1.size();
+			std::string aux = v1[random_number].GetListedIn();
+			std::vector<std::string>genres;
+			std::stringstream ss(aux);
+			std::string word;
+			
 void HomePage::on_Search_released()
 {
 }
