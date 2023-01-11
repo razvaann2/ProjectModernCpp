@@ -293,6 +293,13 @@ void HomePage::on_Recommend_movie_clicked()
 			else i--;
 		}
 	}
+	else for (int i = 0; i < 10; i++)
+	{
+		std::vector v1 = bazaDeDate.m_db.get_all<Movie>();
+		random_number = std::rand() % v1.size();
+		if (set.find(v1[random_number].GetMovieId()) == set.end())
+		{
+			set.insert(v1[random_number].GetMovieId());
 	
 void HomePage::on_Search_released()
 {
