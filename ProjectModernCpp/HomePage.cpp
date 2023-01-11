@@ -214,18 +214,34 @@ void HomePage::on_Search_clicked()
 	DataBase bazaDeDate;
 	std::string movie_name = ui.Film_to_search->text().toStdString();
 	
-	if (bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_name))).size() == 1)
-	{
-		movieSearched = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, movie_name))).front();
-		ui.ProfileTitle->setVisible(false);
-		setMovieListVisible(false);
-		showMovie();
+	
+	
+	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, "%" + movie_name + "%")));
+		
+	if (Movies.size() > 1) {
+		ui.MovieList->clear();
+		for (int i = 0; i < Movies.size(); i++)
+		{
+			ui.MovieList->addItem(QString::fromStdString((Movies[i].GetTitle())));
+			ui.MovieList->item(i)->setForeground(Qt::white);
+		}
+
+		setProfilePageVisible(false);
+		setMovieInfoVisible(false);
+		setMovieListVisible(true);
 	}
 	else
 	{
 		QMessageBox reply;
-		reply.information(this, "info", "The movie was not found", QMessageBox::Ok);
+		QString a = "No movies found";
+		reply.information(this, "info", a, QMessageBox::Ok);
+
 	}
+		
+		
+		
+		
+	
 }
 void HomePage::on_Search_released()
 {
