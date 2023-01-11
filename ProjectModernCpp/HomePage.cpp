@@ -268,6 +268,18 @@ void HomePage::on_Recommend_movie_clicked()
 			std::vector<std::string>genres;
 			std::stringstream ss(aux);
 			std::string word;
+			while (std::getline(ss, word, ','))
+			{
+				genres.push_back(word);
+
+			}
+			for (int j = 0; j < genres.size(); j++)
+			{
+				if (genres[j][0] == ' ')
+				{
+					genres[j].erase(0, 1);
+				}
+			}
 			
 void HomePage::on_Search_released()
 {
