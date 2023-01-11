@@ -300,7 +300,16 @@ void HomePage::on_Recommend_movie_clicked()
 		if (set.find(v1[random_number].GetMovieId()) == set.end())
 		{
 			set.insert(v1[random_number].GetMovieId());
-	
+			ui.MovieList->addItem(QString::fromStdString(v1[random_number].GetTitle()));
+			ui.MovieList->item(i)->setForeground(Qt::white);
+		}
+		else i--;
+	}
+
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
+}
 void HomePage::on_Search_released()
 {
 }
