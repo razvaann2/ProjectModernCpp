@@ -253,8 +253,15 @@ void HomePage::on_Recommend_movie_clicked()
 	DataBase bazaDeDate;
 	std::vector v1 = getList(watched);
 	std::vector v2 = getList(wish);
-	
-}
+	for (int i = 0; i < v1.size(); i++)
+	{
+		set.insert(v1[i].GetMovieId());
+	}
+	if (set.size() != 0)
+	{
+		v1.insert(v1.end(), v2.begin(), v2.end());
+
+		
 void HomePage::on_Search_released()
 {
 }
