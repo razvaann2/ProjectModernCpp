@@ -4,6 +4,7 @@
 #include "ui_HomePage.h"
 #include "User.h"
 #include "Movie.h"
+#include "Review.h"
 
 class HomePage : public QMainWindow
 {
@@ -27,6 +28,7 @@ private:
 	template <typename T> void deleteFromList(T a, QListWidgetItem* item_to_delete);
 	void updateWatchedlist(std::vector<Movie> watchedlist);
 	void updateWishlist(std::vector<Movie> wishlist);
+	void DeleteReview(Review aux);
 private slots:
 	void on_User_released();
 	void on_User_clicked();
@@ -64,4 +66,7 @@ private slots:
 	void on_DeleteFromWishlist_clicked();
 	void on_Recommend_movie_released();
 	void on_Recommend_movie_clicked();
+	void on_like_toggled(bool checked);
+	void on_dislike_toggled(bool checked);
+	
 };

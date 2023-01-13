@@ -96,6 +96,7 @@
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="Review.cpp" />
     <ClCompile Include="SignUpWindow.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="WatchedList.cpp" />
@@ -109,6 +110,7 @@
     <QtUic Include="SignUpWindow.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Review.h" />
     <ClInclude Include="WatchedList.h" />
     <ClInclude Include="WishList.h" />
     <QtMoc Include="HomePage.h" />

@@ -75,13 +75,7 @@ void SignUpWindow::on_SignUpButton_clicked()
 				if (reply == QMessageBox::Yes) {
 					this->close();
 				}
-				else {
-					
-					this->close();
-					ProjectModernCpp a;
-					a.show();
-					a.close();
-				}
+				
 			}
 		}
 		else {

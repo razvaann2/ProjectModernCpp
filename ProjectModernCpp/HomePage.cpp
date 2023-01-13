@@ -11,6 +11,14 @@ HomePage::HomePage(QWidget *parent)
 {
 	ui.setupUi(this);
 	this->setWindowState(Qt::WindowMaximized);
+	QIcon icon2("../Files/archive/dislike.png");
+	QIcon icon1("../Files/archive/like.png");
+	ui.like->setCheckable(true);
+	ui.like->setIcon(icon1);
+	ui.dislike->setIcon(icon2);
+	ui.dislike->setCheckable(true);
+	ui.like->setIconSize(QSize(61, 61));
+	ui.dislike->setIconSize(QSize(61, 61));
 	setProfilePageVisible(false);
 	setMovieInfoVisible(false);
 	setMovieListVisible(false);
@@ -153,6 +161,8 @@ void HomePage::setMovieInfoVisible(bool statement)
 	ui.MovieDescription->setVisible(statement);
 	ui.AddtoWishlist->setVisible(statement);
 	ui.AddtoWatchedlist->setVisible(statement);
+	ui.like->setVisible(statement);
+	ui.dislike->setVisible(statement);
 }
 
 void HomePage::updateWatchedlist(std::vector<Movie> watchedlist)
@@ -198,6 +208,14 @@ void HomePage::deleteFromList(T a, QListWidgetItem* selected)
 	bazaDeDate.m_db.remove<T>(item_to_delete.GetID());
 	bazaDeDate.m_db.sync_schema();
 }
+void HomePage::DeleteReview(Review aux)
+{
+	DataBase bazaDeDate;
+	Review item_to_delete = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == aux.GetMovieID() and sql::c(&Review::GetUserID)==this->loggedUser.GetID())).front();
+	bazaDeDate.m_db.remove<Review>(item_to_delete.GetID());
+	bazaDeDate.m_db.sync_schema();
+
+}
 
 void HomePage::on_User_clicked()
 {
@@ -219,7 +237,7 @@ void HomePage::on_Search_clicked()
 	
 	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, "%" + movie_name + "%")));
 		
-	if (Movies.size() > 1) {
+	if (Movies.size() >= 1) {
 		ui.MovieList->clear();
 		for (int i = 0; i < Movies.size(); i++)
 		{
@@ -310,6 +328,46 @@ void HomePage::on_Recommend_movie_clicked()
 	setMovieInfoVisible(false);
 	setMovieListVisible(true);
 }
+
+void HomePage::on_like_toggled(bool checked)
+{
+	DataBase bazaDeDate;
+	QIcon icon1("../Files/archive/like.png");
+	QIcon icon2("../Files/archive/liked.png");
+	if (checked)
+	{
+		ui.like->setIcon(icon2);
+		bazaDeDate.AddReview(movieSearched.GetMovieId(), loggedUser.GetID(), 1);
+	}
+	else 
+	{
+		ui.like->setIcon(icon1);
+		Review review= bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
+		DeleteReview(review);
+	}	
+	ui.like->repaint();
+	
+}
+void HomePage::on_dislike_toggled(bool checked)
+{
+	DataBase bazaDeDate;
+	QIcon icon1("../Files/archive/dislike.png");
+	QIcon icon2("../Files/archive/disliked.png");
+	if (checked) {
+		ui.dislike->setIcon(icon2);
+		bazaDeDate.AddReview(movieSearched.GetMovieId(), loggedUser.GetID(), 2);
+	}
+	else
+	{
+		ui.dislike->setIcon(icon1);
+		Review review = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
+		DeleteReview(review);
+
+	}
+	ui.dislike->repaint();
+}
+
+
 void HomePage::on_Search_released()
 {
 }

@@ -4,6 +4,7 @@
 #include "Movie.h"
 #include "WatchedList.h"
 #include "WishList.h"
+#include "Review.h"
 namespace sql = sqlite_orm;
 
 const std::string dbFile = "DataBase.sqlite";
@@ -38,7 +39,14 @@ inline auto createStorage(const std::string& filename)
 			sql::make_column("UserID", &WatchedList::GetUserID, &WatchedList::SetUserID),
 			sql::make_column("MovieID", &WatchedList::GetMovieID, &WatchedList::SetMovieID),
 			sql::foreign_key(&WatchedList::SetUserID).references(&User::SetID),
-			sql::foreign_key(&WatchedList::SetMovieID).references(&Movie::SetMovieId))
+			sql::foreign_key(&WatchedList::SetMovieID).references(&Movie::SetMovieId)),
+		sql::make_table("Review",
+			sql::make_column("ID", &Review::GetID, &Review::SetID, sql::autoincrement(), sql::primary_key()),
+			sql::make_column("UserID", &Review::GetUserID, &Review::SetUserID),
+			sql::make_column("MovieID", &Review::GetMovieID, &Review::SetMovieID),
+			sql::make_column("Status",&Review::GetStatus,&Review::SetStatus),
+			sql::foreign_key(&Review::SetUserID).references(&User::SetID),
+			sql::foreign_key(&Review::SetMovieID).references(&Movie::SetMovieId))
 	);
 }
 using Storage = decltype(createStorage(" "));
@@ -53,4 +61,6 @@ public:
 	void AddWatchedList(int MovieID,int UserID);
 	void AddWishList(int MovieID ,int UserID );
 	bool Checkdatabase(std::string name);
+	void AddReview(int MovieID, int UserID, int Status);
+	
 };

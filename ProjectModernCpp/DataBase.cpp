@@ -218,3 +218,13 @@ bool DataBase::Checkdatabase(std::string name)
 		ok = false;
 	return ok;
 }
+
+void DataBase::AddReview(int MovieID, int UserID, int Status)
+{
+	Review aux(MovieID,UserID,Status);
+	m_db.sync_schema();
+	m_db.insert(aux);
+	m_db.sync_schema();
+}
+
+

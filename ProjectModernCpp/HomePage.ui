@@ -1270,6 +1270,46 @@ padding: 5px;
      <string>Recommend a movie</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="like">
+    <property name="geometry">
+     <rect>
+      <x>1290</x>
+      <y>130</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+ background-position: center;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dislike">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>130</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+ background-position: center;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>Background</zorder>
    <zorder>MovieTitle</zorder>
    <zorder>HomePage_4</zorder>
@@ -1308,6 +1348,8 @@ padding: 5px;
    <zorder>DeleteFromWishlist</zorder>
    <zorder>DeleteFromWatchedlist</zorder>
    <zorder>Recommend_movie</zorder>
+   <zorder>like</zorder>
+   <zorder>dislike</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
