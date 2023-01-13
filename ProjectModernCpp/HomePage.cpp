@@ -38,6 +38,7 @@ HomePage::~HomePage()
 
 void HomePage::showMovie()
 {
+	DataBase bazaDeDate;
 	std::string text1, text2;
 	ui.MovieTitle->setText(QString::fromStdString(movieSearched.GetTitle()));
 	ui.MovieTitle->setFont(QFont("Segoe UI", 24, QFont::Bold, false));
@@ -111,8 +112,31 @@ void HomePage::showMovie()
 	text1 += text2;
 	ui.MovieDescription->setText(QString::fromStdString(text1));
 	ui.MovieDescription->setFont(QFont("Segoe UI", 18, QFont::Bold, false));
+	std::vector<Review> reviews = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID()));
+	ui.like->setChecked(false);
+	ui.dislike->setChecked(false);
+	if (reviews.size() != 0)
+		bazaDeDate.AddReview(reviews[0].GetMovieID(), reviews[0].GetUserID(), reviews[0].GetStatus());
+	if (bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).size() != 0)
+	{	
+		 Review review = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
+		int status = review.GetStatus();
+		if (status == 1)
+		{
+			ui.like->setChecked(true);
+			QIcon icon1("../Files/archive/liked.png");
+			ui.like->setIcon(icon1);
+		}
+		else {
+			QIcon icon2("../Files/archive/disliked.png");
+			ui.dislike->setIcon(icon2);
+			ui.dislike->setChecked(true);
+		}
+	}
 	setProfilePageVisible(false);
 	setMovieInfoVisible(true);
+	
+	
 }
 
 void HomePage::showMovieList(std::string movie_genres)
@@ -345,14 +369,22 @@ void HomePage::on_like_toggled(bool checked)
 	QIcon icon2("../Files/archive/liked.png");
 	if (checked)
 	{
+		
 		ui.like->setIcon(icon2);
 		bazaDeDate.AddReview(movieSearched.GetMovieId(), loggedUser.GetID(), 1);
+		if (ui.dislike->isChecked())
+		{
+			ui.dislike->setChecked(false);
+			on_dislike_toggled(false);
+		}
+		
 	}
 	else 
 	{
 		ui.like->setIcon(icon1);
-		Review review= bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
-		DeleteReview(review);
+		std::vector<Review> reviews= bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID() and sql::c(&Review::GetStatus) == 1));
+		if(reviews.size()>0)
+		DeleteReview(reviews[0]);
 	}	
 	ui.like->repaint();
 	
@@ -365,12 +397,18 @@ void HomePage::on_dislike_toggled(bool checked)
 	if (checked) {
 		ui.dislike->setIcon(icon2);
 		bazaDeDate.AddReview(movieSearched.GetMovieId(), loggedUser.GetID(), 2);
+		if (ui.like->isChecked())
+		{
+			ui.like->setChecked(false);
+			on_like_toggled(false);
+		}
 	}
 	else
 	{
 		ui.dislike->setIcon(icon1);
-		Review review = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
-		DeleteReview(review);
+		std::vector<Review> reviews = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID() and sql::c(&Review::GetStatus) == 2));
+		if (reviews.size() > 0)
+			DeleteReview(reviews[0]);
 
 	}
 	ui.dislike->repaint();
