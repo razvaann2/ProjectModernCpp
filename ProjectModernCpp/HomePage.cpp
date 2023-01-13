@@ -259,9 +259,12 @@ void HomePage::on_Search_clicked()
 
 	
 }
-void HomePage::on_Recommend_movie_released() {}
+void HomePage::on_Recommend_movie_released()
+{
+}
 void HomePage::on_Recommend_movie_clicked()
 {
+	int number_of_recommended_movies = 17;
 	ui.MovieList->clear();
 	srand(std::time(0));
 	int random_number;
@@ -279,7 +282,7 @@ void HomePage::on_Recommend_movie_clicked()
 	{
 		v1.insert(v1.end(), v2.begin(), v2.end());
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < number_of_recommended_movies; i++)
 		{
 			int random_number = std::rand() % v1.size();
 			std::string aux = v1[random_number].GetListedIn();
@@ -289,18 +292,24 @@ void HomePage::on_Recommend_movie_clicked()
 			while (std::getline(ss, word, ','))
 			{
 				genres.push_back(word);
-
 			}
+			std::string aux1="%";
 			for (int j = 0; j < genres.size(); j++)
 			{
 				if (genres[j][0] == ' ')
 				{
 					genres[j].erase(0, 1);
 				}
+				aux1 += genres[j]+"%";
 			}
-			random_number = std::rand() % genres.size();
-
-			v2 = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + genres[random_number] + "%")));
+			v2.clear();
+			while (v2.size() == 0)
+			{
+				v2 = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, aux1)));
+				int poz = aux1.find('%', 1);
+				if (poz != -1)
+					aux1.erase(0, poz);
+			}
 			random_number = std::rand() % v2.size();
 			if (set.find(v2[random_number].GetMovieId()) == set.end())
 			{
