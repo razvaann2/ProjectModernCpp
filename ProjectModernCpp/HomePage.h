@@ -29,6 +29,7 @@ private:
 	void updateWatchedlist(std::vector<Movie> watchedlist);
 	void updateWishlist(std::vector<Movie> wishlist);
 	void DeleteReview(Review aux);
+	void SetSimilarMoviesList();
 private slots:
 	void on_User_released();
 	void on_User_clicked();
@@ -48,10 +49,6 @@ private slots:
 	void on_AddtoWatchedlist_clicked();
 	void on_ViewMovie_released();
 	void on_ViewMovie_clicked();
-	void on_See_your_wishlist_released();
-	void on_See_your_wishlist_clicked();
-	void on_See_your_watchedlist_released();
-	void on_See_your_watchedlist_clicked();
 	void on_All_movies_released();
 	void on_All_movies_clicked();
 	void on_Horror_clicked();
@@ -60,13 +57,16 @@ private slots:
 	void on_Action_clicked();
 	void on_Drama_released();
 	void on_Drama_clicked();
-	void on_DeleteFromWatchedlist_released();
-	void on_DeleteFromWatchedlist_clicked();
-	void on_DeleteFromWishlist_released();
-	void on_DeleteFromWishlist_clicked();
+	void on_ViewListMovie_released();
+	void on_ViewListMovie_clicked();
+	void on_DeleteFromList_released();
+	void on_DeleteFromList_clicked();
 	void on_Recommend_movie_released();
 	void on_Recommend_movie_clicked();
+	void on_ViewRecommendedMovie_released();
+	void on_ViewRecommendedMovie_clicked();
 	void on_like_toggled(bool checked);
 	void on_dislike_toggled(bool checked);
-	
+	void selectFromWatchedlist(QListWidgetItem* item);
+	void selectFromWishlist(QListWidgetItem* item);
 };

@@ -1074,78 +1074,6 @@ padding: 5px;
      <string>View Movie</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="See_your_wishlist">
-    <property name="geometry">
-     <rect>
-      <x>940</x>
-      <y>260</y>
-      <width>321</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>16</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-color: #333;
-border: 2px solid #555;
-border-radius: 20px;
-border-style: outset;
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #fff, stop: 1 #888
-);
-padding: 5px;
-}</string>
-    </property>
-    <property name="text">
-     <string>See your Wishlist</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="See_your_watchedlist">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>260</y>
-      <width>321</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>16</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-color: #333;
-border: 2px solid #555;
-border-radius: 20px;
-border-style: outset;
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #fff, stop: 1 #888
-);
-padding: 5px;
-}</string>
-    </property>
-    <property name="text">
-     <string>See your Watchedlist</string>
-    </property>
-   </widget>
    <widget class="QListWidget" name="Wishlist">
     <property name="geometry">
      <rect>
@@ -1176,36 +1104,7 @@ padding: 5px;
      </font>
     </property>
    </widget>
-   <widget class="QPushButton" name="DeleteFromWatchedlist">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>930</y>
-      <width>381</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-color: #333;
-border: 2px solid #555;
-border-radius: 20px;
-border-style: outset;
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #fff, stop: 1 #888
-);
-padding: 5px;
-}</string>
-    </property>
-    <property name="text">
-     <string>Delete Movie From Watchedlist</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="DeleteFromWishlist">
+   <widget class="QPushButton" name="DeleteFromList">
     <property name="geometry">
      <rect>
       <x>950</x>
@@ -1231,7 +1130,7 @@ padding: 5px;
 }</string>
     </property>
     <property name="text">
-     <string>Delete Movie From Wishlist</string>
+     <string>Delete Movie</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Recommend_movie">
@@ -1310,7 +1209,189 @@ padding: 5px;
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="Wishlist_label">
+    <property name="geometry">
+     <rect>
+      <x>985</x>
+      <y>240</y>
+      <width>311</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel
+{
+QWidget::setAttribute(Qt::WA_TranslucentBackground);
+color: #fff;
+
+	
+
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Wishlist:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Watchedlist_label">
+    <property name="geometry">
+     <rect>
+      <x>435</x>
+      <y>240</y>
+      <width>311</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel
+{
+QWidget::setAttribute(Qt::WA_TranslucentBackground);
+color: #fff;
+
+	
+
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Watchedlist:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="SimilarMoviesList">
+    <property name="geometry">
+     <rect>
+      <x>1500</x>
+      <y>420</y>
+      <width>371</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ViewRecommendedMovie">
+    <property name="geometry">
+     <rect>
+      <x>1500</x>
+      <y>930</y>
+      <width>371</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
+    </property>
+    <property name="text">
+     <string>View Movie</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="SimilarMovies">
+    <property name="geometry">
+     <rect>
+      <x>1520</x>
+      <y>290</y>
+      <width>331</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel
+{
+QWidget::setAttribute(Qt::WA_TranslucentBackground);
+color: #fff;
+
+	
+
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;Similar Movies&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="HomePage_6">
+    <property name="geometry">
+     <rect>
+      <x>1480</x>
+      <y>260</y>
+      <width>411</width>
+      <height>731</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(30, 30, 30);</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ViewListMovie">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>930</y>
+      <width>381</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: #333;
+border: 2px solid #555;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #888
+);
+padding: 5px;
+}</string>
+    </property>
+    <property name="text">
+     <string>View Movie</string>
+    </property>
+   </widget>
    <zorder>Background</zorder>
+   <zorder>like</zorder>
+   <zorder>dislike</zorder>
+   <zorder>HomePage_6</zorder>
    <zorder>MovieTitle</zorder>
    <zorder>HomePage_4</zorder>
    <zorder>HomePage_2</zorder>
@@ -1339,17 +1420,18 @@ padding: 5px;
    <zorder>MovieDescription</zorder>
    <zorder>MovieCast</zorder>
    <zorder>MovieList</zorder>
-   <zorder>See_your_watchedlist</zorder>
-   <zorder>See_your_wishlist</zorder>
    <zorder>ProfileTitle</zorder>
    <zorder>ViewMovie</zorder>
    <zorder>Wishlist</zorder>
    <zorder>Watchedlist</zorder>
-   <zorder>DeleteFromWishlist</zorder>
-   <zorder>DeleteFromWatchedlist</zorder>
+   <zorder>DeleteFromList</zorder>
    <zorder>Recommend_movie</zorder>
-   <zorder>like</zorder>
-   <zorder>dislike</zorder>
+   <zorder>Wishlist_label</zorder>
+   <zorder>Watchedlist_label</zorder>
+   <zorder>SimilarMoviesList</zorder>
+   <zorder>ViewRecommendedMovie</zorder>
+   <zorder>SimilarMovies</zorder>
+   <zorder>ViewListMovie</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
