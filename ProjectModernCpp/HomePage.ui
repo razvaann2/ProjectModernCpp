@@ -1272,7 +1272,7 @@ color: #fff;
      <rect>
       <x>1500</x>
       <y>420</y>
-      <width>371</width>
+      <width>361</width>
       <height>481</height>
      </rect>
     </property>
@@ -1287,7 +1287,7 @@ color: #fff;
      <rect>
       <x>1500</x>
       <y>930</y>
-      <width>371</width>
+      <width>361</width>
       <height>31</height>
      </rect>
     </property>
@@ -1316,7 +1316,7 @@ padding: 5px;
      <rect>
       <x>1520</x>
       <y>290</y>
-      <width>331</width>
+      <width>321</width>
       <height>101</height>
      </rect>
     </property>
@@ -1345,7 +1345,7 @@ color: #fff;
      <rect>
       <x>1480</x>
       <y>260</y>
-      <width>411</width>
+      <width>401</width>
       <height>731</height>
      </rect>
     </property>

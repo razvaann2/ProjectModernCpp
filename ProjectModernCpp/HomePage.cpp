@@ -286,18 +286,18 @@ void HomePage::SetSimilarMoviesList()
 			for (int j = 0; j < movies.size(); j++)
 			{
 				if (set.find(movies[j].GetMovieId()) != set.end())
+				{
 					movies.erase(movies.begin() + j);
+					j--;
+				}
 			}
 		}
 		int random_number = std::rand() % movies.size();
-		if (set.find(movies[random_number].GetMovieId()) == set.end())
-		{
-			set.insert(movies[random_number].GetMovieId());
-			ui.SimilarMoviesList->addItem(QString::fromStdString(movies[random_number].GetTitle()));
-			movies.erase(movies.begin() + random_number);
-			ui.SimilarMoviesList->item(i)->setForeground(Qt::white);
-			i++;
-		}
+		set.insert(movies[random_number].GetMovieId());
+		ui.SimilarMoviesList->addItem(QString::fromStdString(movies[random_number].GetTitle()));
+		movies.erase(movies.begin() + random_number);
+		ui.SimilarMoviesList->item(i)->setForeground(Qt::white);
+		i++;
 	}
 }
 
