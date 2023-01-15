@@ -10,8 +10,8 @@ SignUpWindow::SignUpWindow(QWidget *parent)
 	this->setStyleSheet(
 		"background-image:url(../Files/archive/RegisterImage.jpg); background-position: center;");
 	SignUpButton = new QPushButton("SignUp", this);
-	lineEdit = new QLineEdit(this);
-	Label = new QLabel(this);
+	lineEdit = std::make_unique<QLineEdit>(this);
+	Label = std::make_unique<QLabel>(this);
 	connect(SignUpButton, &QPushButton::clicked, this, &SignUpWindow::on_SignUpButton_clicked);
 	SignUpButton->setAutoFillBackground(true);
 	SignUpButton->setStyleSheet("color: white; background: rgb(40,40,40) ; pressed { border - style: inset;}");

@@ -83,12 +83,12 @@ void ProjectModernCpp::on_LoginButton_clicked()
 		QMessageBox::StandardButton reply;
 		reply = box.warning(this, "Warning", "The account doesn't exist! Do you want to register? ", QMessageBox::Yes | QMessageBox::No);
 		if (reply == QMessageBox::Yes) {
-		
+            SignUp = std::make_unique< SignUpWindow>();
 			SignUp->show();
 		}
         if (reply == QMessageBox::No)
         {
-            this->close();
+           // this->close();
         }
 	}
 }

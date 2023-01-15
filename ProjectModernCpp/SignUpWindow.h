@@ -23,8 +23,8 @@ private:
 	Ui::SignUpWindowClass ui;
 	QMessageBox box;
 	QPushButton *SignUpButton;
-	QLineEdit *lineEdit;
-	QLabel* Label;
+	std::unique_ptr<QLineEdit> lineEdit;
+	std::unique_ptr<QLabel> Label;
 
 private slots:
 	void on_SignUpButton_released();
