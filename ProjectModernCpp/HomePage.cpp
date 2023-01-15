@@ -357,6 +357,22 @@ void HomePage::on_Search_clicked()
 				lower_titlu.push_back(titlu[i]);
 			}
 		}
+		if (lower_titlu.find(lower_movie_name) != std::string::npos)
+		{
+			ui.MovieList->addItem(QString::fromStdString(titlu));
+			ui.MovieList->item(movies_found)->setForeground(Qt::white);
+			movies_found++;
+		}
+		else
+		{
+			double score = ratio(lower_movie_name, lower_titlu);
+			if (score > 80.0)
+			{
+				ui.MovieList->addItem(QString::fromStdString(titlu));
+				ui.MovieList->item(movies_found)->setForeground(Qt::white);
+				movies_found++;
+			}
+		}
 	}
 	setProfilePageVisible(false);
 	setMovieInfoVisible(false);
