@@ -20,7 +20,7 @@ private:
 	User loggedUser;
 	Movie movieSearched;
 	std::string movie_genres;
-	int nrOfMoviesDisplayed = 10;
+	int nrOfMoviesDisplayed = 250;
 	int firstIdSearched = 1;
 	int lastIdSearched = 0;
 	void showMovie();
