@@ -7,7 +7,7 @@
 
 using namespace sql;
 
-HomePage::HomePage(QWidget *parent)
+HomePage::HomePage(QWidget* parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
@@ -121,8 +121,8 @@ void HomePage::showMovie()
 	if (reviews.size() != 0)
 		bazaDeDate.AddReview(reviews[0].GetMovieID(), reviews[0].GetUserID(), reviews[0].GetStatus());
 	if (bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).size() != 0)
-	{	
-		 Review review = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
+	{
+		Review review = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
 		int status = review.GetStatus();
 		if (status == 1)
 		{
@@ -144,7 +144,7 @@ void HomePage::showMovie()
 void HomePage::showMovieList(std::string movie_genres)
 {
 	DataBase bazaDeDate;
-	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%"+movie_genres+"%")));
+	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + movie_genres + "%")));
 	ui.MovieList->clear();
 	for (int i = 0; i < Movies.size(); i++)
 	{
@@ -239,7 +239,7 @@ void HomePage::deleteFromList(T a, QListWidgetItem* selected)
 void HomePage::DeleteReview(Review aux)
 {
 	DataBase bazaDeDate;
-	Review item_to_delete = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == aux.GetMovieID() and sql::c(&Review::GetUserID)==this->loggedUser.GetID())).front();
+	Review item_to_delete = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == aux.GetMovieID() and sql::c(&Review::GetUserID) == this->loggedUser.GetID())).front();
 	bazaDeDate.m_db.remove<Review>(item_to_delete.GetID());
 	bazaDeDate.m_db.sync_schema();
 
@@ -276,7 +276,7 @@ void HomePage::SetSimilarMoviesList()
 			movies.erase(movies.begin() + j);
 	}
 	int i = 0;
-	while(i<number_of_recommended_movies)
+	while (i < number_of_recommended_movies)
 	{
 		if (movies.size() == 0)
 		{
@@ -324,66 +324,32 @@ void HomePage::on_User_released()
 void HomePage::on_Search_clicked()
 {
 	DataBase bazaDeDate;
-	std::locale loc1("C");
 	std::string movie_name = ui.Film_to_search->text().toStdString();
-	std::string lower_movie_name;
-	for (int i = 0; i < movie_name.size(); i++)
-	{
-		if (isalpha(movie_name[i]))
+
+
+
+	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, "%" + movie_name + "%")));
+
+	if (Movies.size() >= 1) {
+		ui.MovieList->clear();
+		for (int i = 0; i < Movies.size(); i++)
 		{
-			lower_movie_name.push_back(tolower(movie_name[i]));
+			ui.MovieList->addItem(QString::fromStdString((Movies[i].GetTitle())));
+			ui.MovieList->item(i)->setForeground(Qt::white);
 		}
-		else
-		{
-			lower_movie_name.push_back(movie_name[i]);
-		}
+
+		setProfilePageVisible(false);
+		setMovieInfoVisible(false);
+		setMovieListVisible(true);
 	}
-	std::vector Movies = bazaDeDate.m_db.get_all<Movie>();
-	int movies_found = 0;
-	ui.MovieList->clear();
-	for (int i = 0; i < Movies.size(); i++)
-	{
-		std::string titlu = Movies[i].GetTitle();
-		std::string lower_titlu;
-		for (int i = 0; i < titlu.size(); i++)
-		{
-			if (isalpha(titlu[i], loc1))
-			{
-				lower_titlu.push_back(tolower(titlu[i]));
-			}
-			else
-			{
-				lower_titlu.push_back(titlu[i]);
-			}
-		}
-		if (lower_titlu.find(lower_movie_name) != std::string::npos)
-		{
-			ui.MovieList->addItem(QString::fromStdString(titlu));
-			ui.MovieList->item(movies_found)->setForeground(Qt::white);
-			movies_found++;
-		}
-		else
-		{
-			double score = ratio(lower_movie_name, lower_titlu);
-			if (score > 80.0)
-			{
-				ui.MovieList->addItem(QString::fromStdString(titlu));
-				ui.MovieList->item(movies_found)->setForeground(Qt::white);
-				movies_found++;
-			}
-		}
-	}
-	if (movies_found == 0)
+	else
 	{
 		QMessageBox reply;
 		QString a = "No movies found";
 		reply.information(this, "info", a, QMessageBox::Ok);
-		return;
+
 	}
-	
-	setProfilePageVisible(false);
-	setMovieInfoVisible(false);
-	setMovieListVisible(true);
+
 
 }
 void HomePage::on_Recommend_movie_released()
@@ -423,14 +389,14 @@ void HomePage::on_Recommend_movie_clicked()
 			{
 				genres.push_back(word);
 			}
-			std::string aux1="%";
+			std::string aux1 = "%";
 			for (int j = 0; j < genres.size(); j++)
 			{
 				if (genres[j][0] == ' ')
 				{
 					genres[j].erase(0, 1);
 				}
-				aux1 += genres[j]+"%";
+				aux1 += genres[j] + "%";
 			}
 			v2.clear();
 			while (v2.size() == 0)
@@ -497,7 +463,7 @@ void HomePage::on_like_toggled(bool checked)
 	QIcon icon2("../Files/archive/liked.png");
 	if (checked)
 	{
-		
+
 		ui.like->setIcon(icon2);
 		bazaDeDate.AddReview(movieSearched.GetMovieId(), loggedUser.GetID(), 1);
 		if (ui.dislike->isChecked())
@@ -505,17 +471,17 @@ void HomePage::on_like_toggled(bool checked)
 			ui.dislike->setChecked(false);
 			on_dislike_toggled(false);
 		}
-		
+
 	}
-	else 
+	else
 	{
 		ui.like->setIcon(icon1);
-		std::vector<Review> reviews= bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID() and sql::c(&Review::GetStatus) == 1));
-		if(reviews.size()>0)
-		DeleteReview(reviews[0]);
-	}	
+		std::vector<Review> reviews = bazaDeDate.m_db.get_all<Review>(sql::where(sql::c(&Review::GetMovieID) == movieSearched.GetMovieId() and sql::c(&Review::GetUserID) == this->loggedUser.GetID() and sql::c(&Review::GetStatus) == 1));
+		if (reviews.size() > 0)
+			DeleteReview(reviews[0]);
+	}
 	ui.like->repaint();
-	
+
 }
 void HomePage::on_dislike_toggled(bool checked)
 {
@@ -563,11 +529,11 @@ void HomePage::on_LogOut_released()
 {
 }
 void HomePage::on_LogOut_clicked()
-{   
+{
 	ProjectModernCpp* a = new ProjectModernCpp;
 	a->show();
 	this->close();
-	
+
 }
 void HomePage::on_Comedy_released()
 {
