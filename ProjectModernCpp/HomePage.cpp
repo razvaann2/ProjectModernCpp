@@ -4,10 +4,9 @@
 #include "DataBase.h"
 #include <string>
 #include<unordered_set>
-#include "rapidfuzz/fuzz.hpp"
-#include <locale>
+
 using namespace sql;
-using rapidfuzz::fuzz::ratio;
+
 HomePage::HomePage(QWidget *parent)
 	: QMainWindow(parent)
 {
