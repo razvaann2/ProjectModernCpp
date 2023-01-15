@@ -49,18 +49,11 @@ void SignUpWindow::on_SignUpButton_clicked()
 	std::string aux = name.toStdString();
 	if (aux.size() >= 5 && aux.size() <= 20)
 	{
-		bool VerifyCharacters = true;
-		int check = 0;
-		for (int i = 0; i < aux.size(); i++)
-		{
-			check = isalpha(aux[i]);
-			
-			if (!check)
-			{
-				VerifyCharacters = false;
-			}
-		}
-		if (VerifyCharacters == true) {
+		
+		std::regex hasNumberRegex=std::regex("[0-9]");
+		std::smatch match;
+		std::regex_search(aux, match, hasNumberRegex);
+		if (match.size() == 0) {
 			User x(aux);
 
 			if (bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, aux))).size() == 0)
@@ -71,7 +64,7 @@ void SignUpWindow::on_SignUpButton_clicked()
 			else
 			{
 				QMessageBox::StandardButton reply;
-				reply = box.warning(this, "Warning", "The username is taken! Do you want to login? ", QMessageBox::Yes | QMessageBox::No);
+				reply = box.warning(nullptr, "Warning", "The username is taken! Do you want to login? ", QMessageBox::Yes | QMessageBox::No);
 				if (reply == QMessageBox::Yes) {
 					this->close();
 				}
@@ -80,17 +73,17 @@ void SignUpWindow::on_SignUpButton_clicked()
 		}
 		else {
 			QMessageBox::StandardButton arply;
-			arply = box.warning(this, "Warning", "Your username has characters that are not accepted \n          Your username must contain only letters");
+			arply = box.warning(nullptr, "Warning", "Your username has characters that are not accepted \n          Your username must contain only letters");
 		}
 	}
 	else {
 		if (aux.size() < 5) {
 			QMessageBox::StandardButton rply;
-			rply = box.warning(this, "Warning", "Your username needs to have more than 4 characters");
+			rply = box.warning(nullptr, "Warning", "Your username needs to have more than 4 characters");
 		}
 		if(aux.size()>20) {
 			QMessageBox::StandardButton rply;
-			rply = box.warning(this, "Warning", "Your username needs to have less than 20 characters");
+			rply = box.warning(nullptr, "Warning", "Your username needs to have less than 20 characters");
 		}
 	}
 }
