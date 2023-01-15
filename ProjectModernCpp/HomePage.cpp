@@ -3,9 +3,11 @@
 #include<QString>
 #include "DataBase.h"
 #include <string>
-#include<unordered_set>
+#include <unordered_set>
+#include "rapidfuzz/fuzz.hpp"
+#include <locale>
 using namespace sql;
-
+using rapidfuzz::fuzz::ratio;
 HomePage::HomePage(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -323,33 +325,26 @@ void HomePage::on_User_released()
 void HomePage::on_Search_clicked()
 {
 	DataBase bazaDeDate;
+	std::locale loc1("C");
 	std::string movie_name = ui.Film_to_search->text().toStdString();
-	
-	
-	
-	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, "%" + movie_name + "%")));
-		
-	if (Movies.size() >= 1) {
-		ui.MovieList->clear();
-		for (int i = 0; i < Movies.size(); i++)
-		{
-			ui.MovieList->addItem(QString::fromStdString((Movies[i].GetTitle())));
-			ui.MovieList->item(i)->setForeground(Qt::white);
-		}
-
-		setProfilePageVisible(false);
-		setMovieInfoVisible(false);
-		setMovieListVisible(true);
-	}
-	else
+	std::string lower_movie_name;
+	for (int i = 0; i < movie_name.size(); i++)
 	{
-		QMessageBox reply;
-		QString a = "No movies found";
-		reply.information(this, "info", a, QMessageBox::Ok);
-
+		if (isalpha(movie_name[i]))
+		{
+			lower_movie_name.push_back(tolower(movie_name[i]));
+		}
+		else
+		{
+			lower_movie_name.push_back(movie_name[i]);
+		}
 	}
 
 	
+	setProfilePageVisible(false);
+	setMovieInfoVisible(false);
+	setMovieListVisible(true);
+
 }
 void HomePage::on_Recommend_movie_released()
 {
