@@ -1388,12 +1388,12 @@ padding: 5px;
      <string>View Movie</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="User_2">
+   <widget class="QPushButton" name="PreviousButton">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>330</x>
       <y>920</y>
-      <width>51</width>
+      <width>55</width>
       <height>51</height>
      </rect>
     </property>
@@ -1401,19 +1401,19 @@ padding: 5px;
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image:url(../Files/archive/UserImage.png);
+     <string notr="true">background-image:url(../Files/archive/previous2.png);
  background-position: center;</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="User_3">
+   <widget class="QPushButton" name="NextButton">
     <property name="geometry">
      <rect>
-      <x>1370</x>
+      <x>1346</x>
       <y>920</y>
-      <width>51</width>
+      <width>55</width>
       <height>51</height>
      </rect>
     </property>
@@ -1421,7 +1421,7 @@ padding: 5px;
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image:url(../Files/archive/UserImage.png);
+     <string notr="true">background-image:url(../Files/archive/next2.png);
  background-position: center;</string>
     </property>
     <property name="text">
@@ -1472,8 +1472,8 @@ padding: 5px;
    <zorder>ViewRecommendedMovie</zorder>
    <zorder>SimilarMovies</zorder>
    <zorder>ViewListMovie</zorder>
-   <zorder>User_2</zorder>
-   <zorder>User_3</zorder>
+   <zorder>PreviousButton</zorder>
+   <zorder>NextButton</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

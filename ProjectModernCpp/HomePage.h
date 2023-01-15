@@ -65,6 +65,10 @@ private slots:
 	void on_Recommend_movie_clicked();
 	void on_ViewRecommendedMovie_released();
 	void on_ViewRecommendedMovie_clicked();
+	void on_PreviousButton_clicked();
+	void on_PreviousButton_released();
+	void on_NextButton_clicked();
+	void on_NextButton_released();
 	void on_like_toggled(bool checked);
 	void on_dislike_toggled(bool checked);
 	void selectFromWatchedlist(QListWidgetItem* item);

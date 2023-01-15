@@ -156,6 +156,8 @@ void HomePage::setMovieListVisible(bool statement)
 {
 	ui.MovieList->setVisible(statement);
 	ui.ViewMovie->setVisible(statement);
+	ui.PreviousButton->setVisible(statement);
+	ui.NextButton->setVisible(statement);
 }
 
 void HomePage::setProfilePageVisible(bool statement)
@@ -453,6 +455,22 @@ void HomePage::on_ViewRecommendedMovie_clicked()
 		QMessageBox box;
 		box.warning(this, "Warning", "Select a movie first", QMessageBox::Ok);
 	}
+}
+
+void HomePage::on_PreviousButton_clicked()
+{
+}
+
+void HomePage::on_PreviousButton_released()
+{
+}
+
+void HomePage::on_NextButton_clicked()
+{
+}
+
+void HomePage::on_NextButton_released()
+{
 }
 
 void HomePage::on_like_toggled(bool checked)
