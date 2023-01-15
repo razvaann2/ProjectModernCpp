@@ -374,6 +374,14 @@ void HomePage::on_Search_clicked()
 			}
 		}
 	}
+	if (movies_found == 0)
+	{
+		QMessageBox reply;
+		QString a = "No movies found";
+		reply.information(this, "info", a, QMessageBox::Ok);
+		return;
+	}
+	
 	setProfilePageVisible(false);
 	setMovieInfoVisible(false);
 	setMovieListVisible(true);
