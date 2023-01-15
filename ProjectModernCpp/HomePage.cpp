@@ -3,7 +3,7 @@
 #include<QString>
 #include "DataBase.h"
 #include <string>
-#include <unordered_set>
+#include<unordered_set>
 #include "rapidfuzz/fuzz.hpp"
 #include <locale>
 using namespace sql;
@@ -339,8 +339,25 @@ void HomePage::on_Search_clicked()
 			lower_movie_name.push_back(movie_name[i]);
 		}
 	}
-
-	
+	std::vector Movies = bazaDeDate.m_db.get_all<Movie>();
+	int movies_found = 0;
+	ui.MovieList->clear();
+	for (int i = 0; i < Movies.size(); i++)
+	{
+		std::string titlu = Movies[i].GetTitle();
+		std::string lower_titlu;
+		for (int i = 0; i < titlu.size(); i++)
+		{
+			if (isalpha(titlu[i], loc1))
+			{
+				lower_titlu.push_back(tolower(titlu[i]));
+			}
+			else
+			{
+				lower_titlu.push_back(titlu[i]);
+			}
+		}
+	}
 	setProfilePageVisible(false);
 	setMovieInfoVisible(false);
 	setMovieListVisible(true);
