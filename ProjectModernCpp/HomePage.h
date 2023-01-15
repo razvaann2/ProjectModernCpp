@@ -19,6 +19,10 @@ private:
 	Ui::HomePageClass ui;
 	User loggedUser;
 	Movie movieSearched;
+	std::string movie_genres;
+	int nrOfMoviesDisplayed = 10;
+	int firstIdSearched = 1;
+	int lastIdSearched = 0;
 	void showMovie();
 	void showMovieList(std::string movie_genres);
 	void setMovieListVisible(bool statement);

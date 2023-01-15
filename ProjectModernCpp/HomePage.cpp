@@ -459,6 +459,22 @@ void HomePage::on_ViewRecommendedMovie_clicked()
 
 void HomePage::on_PreviousButton_clicked()
 {
+	DataBase bazaDeDate;
+	if (this->movie_genres == "all")
+	{
+		std::vector All_movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) > firstIdSearched - nrOfMoviesDisplayed - 1 and sql::c(&Movie::GetMovieId) < firstIdSearched));
+		if (All_movies.size() > 0)
+		{
+			lastIdSearched = firstIdSearched - 1;
+			firstIdSearched -= nrOfMoviesDisplayed;
+			ui.MovieList->clear();
+			for (int i = 0; i < All_movies.size(); i++)
+			{
+				ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
+				ui.MovieList->item(i)->setForeground(Qt::white);
+			}
+		}
+	}
 }
 
 void HomePage::on_PreviousButton_released()
@@ -467,6 +483,22 @@ void HomePage::on_PreviousButton_released()
 
 void HomePage::on_NextButton_clicked()
 {
+	DataBase bazaDeDate;
+	if (this->movie_genres == "all")
+	{
+		std::vector All_movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) > lastIdSearched and sql::c(&Movie::GetMovieId) < lastIdSearched + nrOfMoviesDisplayed + 1));
+		if (All_movies.size() > 0)
+		{
+			firstIdSearched = lastIdSearched + 1;
+			lastIdSearched += nrOfMoviesDisplayed;
+			ui.MovieList->clear();
+			for (int i = 0; i < All_movies.size(); i++)
+			{
+				ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
+				ui.MovieList->item(i)->setForeground(Qt::white);
+			}
+		}
+	}
 }
 
 void HomePage::on_NextButton_released()
@@ -648,8 +680,12 @@ void HomePage::on_All_movies_released()
 void HomePage::on_All_movies_clicked()
 {
 	DataBase bazaDeDate;
-	std::vector All_movies = bazaDeDate.m_db.get_all<Movie>();
+	this->movie_genres = "all";
+	this->firstIdSearched = 1;
+	this->lastIdSearched = 0;
 	ui.MovieList->clear();
+	std::vector All_movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) >= firstIdSearched and sql::c(&Movie::GetMovieId) <= lastIdSearched + nrOfMoviesDisplayed));
+	this->lastIdSearched += nrOfMoviesDisplayed;
 	for (int i = 0; i < All_movies.size(); i++)
 	{
 		ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
