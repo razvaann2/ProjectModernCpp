@@ -16,12 +16,12 @@ public:
 private:
     Ui::ProjectModernCppClass ui;
     QMessageBox box;
-    SignUpWindow* SignUp;
+    std::unique_ptr<SignUpWindow> SignUp;
     QPushButton* LoginButton;
     QPushButton* SignUpButton;
-    QLineEdit* LineEdit;
-    QLabel* topLabel;
-    QLabel* bottomLabel;
+    std::unique_ptr<QLineEdit> LineEdit;
+    std::unique_ptr<QLabel> topLabel;
+    std::unique_ptr<QLabel> bottomLabel;
 
 private slots:
     void on_LoginButton_released();

@@ -16,9 +16,9 @@ ProjectModernCpp::ProjectModernCpp(QWidget *parent)
 		
     LoginButton = new QPushButton("Login", this);
     SignUpButton = new QPushButton("SignUp", this);
-    LineEdit = new QLineEdit(this);
-    topLabel = new QLabel(this);
-    bottomLabel = new QLabel(this);
+    LineEdit = std::make_unique<QLineEdit>(this);
+    topLabel = std::make_unique<QLabel>(this);
+    bottomLabel = std::make_unique<QLabel>(this);
 
     connect(LoginButton, &QPushButton::clicked, this, &ProjectModernCpp::on_LoginButton_clicked);
     connect(SignUpButton, &QPushButton::clicked, this, &ProjectModernCpp::on_RegisterButton_clicked);
@@ -83,7 +83,7 @@ void ProjectModernCpp::on_LoginButton_clicked()
 		QMessageBox::StandardButton reply;
 		reply = box.warning(this, "Warning", "The account doesn't exist! Do you want to register? ", QMessageBox::Yes | QMessageBox::No);
 		if (reply == QMessageBox::Yes) {
-			SignUp = new SignUpWindow();
+		
 			SignUp->show();
 		}
         if (reply == QMessageBox::No)
@@ -95,7 +95,7 @@ void ProjectModernCpp::on_LoginButton_clicked()
 
 void ProjectModernCpp::on_RegisterButton_clicked()
 {
-    SignUp = new SignUpWindow();
+    SignUp = std::make_unique< SignUpWindow>();
     SignUp->show();
 }
 
