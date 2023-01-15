@@ -144,7 +144,7 @@ void HomePage::showMovie()
 void HomePage::showMovieList(std::string movie_genres)
 {
 	DataBase bazaDeDate;
-	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + movie_genres + "%")));
+	std::vector<Movie> Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + movie_genres + "%")));
 	ui.MovieList->clear();
 	for (int i = 0; i < Movies.size(); i++)
 	{
@@ -328,7 +328,7 @@ void HomePage::on_Search_clicked()
 
 
 
-	std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, "%" + movie_name + "%")));
+	std::vector<Movie> Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetTitle, "%" + movie_name + "%")));
 
 	if (Movies.size() >= 1) {
 		ui.MovieList->clear();
@@ -365,8 +365,8 @@ void HomePage::on_Recommend_movie_clicked()
 	WatchedList watched;
 	WishList wish;
 	DataBase bazaDeDate;
-	std::vector v1 = getList(watched);
-	std::vector v2 = getList(wish);
+	std::vector<Movie> v1 = getList(watched);
+	std::vector<Movie> v2 = getList(wish);
 	std::vector<Review> reviews;
 	for (int i = 0; i < v1.size(); i++)
 	{
@@ -420,7 +420,7 @@ void HomePage::on_Recommend_movie_clicked()
 	}
 	else for (int i = 0; i < 10; i++)
 	{
-		std::vector v1 = bazaDeDate.m_db.get_all<Movie>();
+		std::vector<Movie> v1 = bazaDeDate.m_db.get_all<Movie>();
 		random_number = std::rand() % v1.size();
 		if (set.find(v1[random_number].GetMovieId()) == set.end())
 		{
@@ -631,7 +631,7 @@ void HomePage::on_All_movies_released()
 void HomePage::on_All_movies_clicked()
 {
 	DataBase bazaDeDate;
-	std::vector All_movies = bazaDeDate.m_db.get_all<Movie>();
+	std::vector<Movie> All_movies = bazaDeDate.m_db.get_all<Movie>();
 	ui.MovieList->clear();
 	for (int i = 0; i < All_movies.size(); i++)
 	{

@@ -72,7 +72,7 @@ void ProjectModernCpp::on_LoginButton_clicked()
 	std::string name = LineEdit->text().toStdString();
 	if(bazaDeDate.Checkdatabase(name) == true)
 	{
-        std::vector Users = bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, name)));
+        std::vector<User> Users = bazaDeDate.m_db.get_all<User>(sql::where(sql::like(&User::GetUserName, name)));
         HomePage* window = new HomePage();
         window->SetUser(Users[0]);
         window->show();
