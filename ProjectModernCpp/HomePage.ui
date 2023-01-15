@@ -1388,6 +1388,26 @@ padding: 5px;
      <string>View Movie</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="User_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>930</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image:url(../Files/archive/UserImage.png);
+ background-position: center;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>Background</zorder>
    <zorder>like</zorder>
    <zorder>dislike</zorder>
@@ -1432,6 +1452,7 @@ padding: 5px;
    <zorder>ViewRecommendedMovie</zorder>
    <zorder>SimilarMovies</zorder>
    <zorder>ViewListMovie</zorder>
+   <zorder>User_2</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
