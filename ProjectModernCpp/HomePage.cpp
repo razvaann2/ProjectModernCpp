@@ -367,6 +367,7 @@ void HomePage::on_Recommend_movie_released()
 }
 void HomePage::on_Recommend_movie_clicked()
 {
+	this->movie_genres = "";
 	int number_of_recommended_movies = 17;
 	ui.MovieList->clear();
 	srand(std::time(0));
@@ -469,38 +470,41 @@ void HomePage::on_ViewRecommendedMovie_clicked()
 void HomePage::on_PreviousButton_clicked()
 {
 	DataBase bazaDeDate;
-	if (this->movie_genres == "all")
+	if (this->movie_genres != "")
 	{
-		std::vector All_movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) > firstIdSearched - nrOfMoviesDisplayed - 1 and sql::c(&Movie::GetMovieId) < firstIdSearched));
-		if (All_movies.size() > 0)
+		if (this->movie_genres == "all")
 		{
-			lastIdSearched = firstIdSearched - 1;
-			firstIdSearched -= nrOfMoviesDisplayed;
-			ui.MovieList->clear();
-			for (int i = 0; i < All_movies.size(); i++)
+			std::vector All_movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) > firstIdSearched - nrOfMoviesDisplayed - 1 and sql::c(&Movie::GetMovieId) < firstIdSearched));
+			if (All_movies.size() > 0)
 			{
-				ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
-				ui.MovieList->item(i)->setForeground(Qt::white);
+				lastIdSearched = firstIdSearched - 1;
+				firstIdSearched -= nrOfMoviesDisplayed;
+				ui.MovieList->clear();
+				for (int i = 0; i < All_movies.size(); i++)
+				{
+					ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
+					ui.MovieList->item(i)->setForeground(Qt::white);
+				}
 			}
 		}
-	}
-	else
-	{
-		std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + this->movie_genres + "%")));
-		if (firstIdSearched > 0)
+		else
 		{
-			ui.MovieList->clear();
-			int max;
-			lastIdSearched = firstIdSearched;
-			firstIdSearched -= nrOfMoviesDisplayed;
-			if (Movies.size() > lastIdSearched + nrOfMoviesDisplayed)
-				max = firstIdSearched + nrOfMoviesDisplayed;
-			else
-				max = Movies.size();
-			for (int i = firstIdSearched; i < max; i++)
+			std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + this->movie_genres + "%")));
+			if (firstIdSearched > 0)
 			{
-				ui.MovieList->addItem(QString::fromStdString(Movies[i].GetTitle()));
-				ui.MovieList->item(i - firstIdSearched)->setForeground(Qt::white);
+				ui.MovieList->clear();
+				int max;
+				lastIdSearched = firstIdSearched;
+				firstIdSearched -= nrOfMoviesDisplayed;
+				if (Movies.size() > lastIdSearched + nrOfMoviesDisplayed)
+					max = firstIdSearched + nrOfMoviesDisplayed;
+				else
+					max = Movies.size();
+				for (int i = firstIdSearched; i < max; i++)
+				{
+					ui.MovieList->addItem(QString::fromStdString(Movies[i].GetTitle()));
+					ui.MovieList->item(i - firstIdSearched)->setForeground(Qt::white);
+				}
 			}
 		}
 	}
@@ -513,38 +517,41 @@ void HomePage::on_PreviousButton_released()
 void HomePage::on_NextButton_clicked()
 {
 	DataBase bazaDeDate;
-	if (this->movie_genres == "all")
+	if (this->movie_genres != "")
 	{
-		std::vector All_movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) > lastIdSearched and sql::c(&Movie::GetMovieId) < lastIdSearched + nrOfMoviesDisplayed + 1));
-		if (All_movies.size() > 0)
+		if (this->movie_genres == "all")
 		{
-			firstIdSearched = lastIdSearched + 1;
-			lastIdSearched += nrOfMoviesDisplayed;
-			ui.MovieList->clear();
-			for (int i = 0; i < All_movies.size(); i++)
+			std::vector All_movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::c(&Movie::GetMovieId) > lastIdSearched and sql::c(&Movie::GetMovieId) < lastIdSearched + nrOfMoviesDisplayed + 1));
+			if (All_movies.size() > 0)
 			{
-				ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
-				ui.MovieList->item(i)->setForeground(Qt::white);
+				firstIdSearched = lastIdSearched + 1;
+				lastIdSearched += nrOfMoviesDisplayed;
+				ui.MovieList->clear();
+				for (int i = 0; i < All_movies.size(); i++)
+				{
+					ui.MovieList->addItem(QString::fromStdString(All_movies[i].GetTitle()));
+					ui.MovieList->item(i)->setForeground(Qt::white);
+				}
 			}
 		}
-	}
-	else 
-	{
-		std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + this->movie_genres + "%")));
-		if (Movies.size() > lastIdSearched)
+		else
 		{
-			ui.MovieList->clear();
-			int max;
-			firstIdSearched = lastIdSearched;
-			lastIdSearched += nrOfMoviesDisplayed;
+			std::vector Movies = bazaDeDate.m_db.get_all<Movie>(sql::where(sql::like(&Movie::GetListedIn, "%" + this->movie_genres + "%")));
 			if (Movies.size() > lastIdSearched)
-				max = lastIdSearched;
-			else
-				max = Movies.size();
-			for (int i = firstIdSearched; i < max; i++)
 			{
-				ui.MovieList->addItem(QString::fromStdString(Movies[i].GetTitle()));
-				ui.MovieList->item(i - firstIdSearched)->setForeground(Qt::white);
+				ui.MovieList->clear();
+				int max;
+				firstIdSearched = lastIdSearched;
+				lastIdSearched += nrOfMoviesDisplayed;
+				if (Movies.size() > lastIdSearched)
+					max = lastIdSearched;
+				else
+					max = Movies.size();
+				for (int i = firstIdSearched; i < max; i++)
+				{
+					ui.MovieList->addItem(QString::fromStdString(Movies[i].GetTitle()));
+					ui.MovieList->item(i - firstIdSearched)->setForeground(Qt::white);
+				}
 			}
 		}
 	}
